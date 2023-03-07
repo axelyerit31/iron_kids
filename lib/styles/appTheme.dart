@@ -4,5 +4,6 @@ class AppTheme {
   static BorderRadius borderRadiusL = BorderRadius.circular(16);
   static BorderRadius borderRadiusM = BorderRadius.circular(14);
   static BorderRadius borderRadiusS = BorderRadius.circular(10);
+  SizedBox spacing01 = const SizedBox(width: 2, height: 2);
 }
 
