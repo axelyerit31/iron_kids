@@ -5,22 +5,19 @@ void main() {
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: "Inter",
         primarySwatch: Colors.pink,
-        textTheme: const TextTheme(
-          headlineLarge: TextStyle(fontFamily: "DMSerifDisplay"),
-          headlineMedium: TextStyle(fontFamily: "DMSerifDisplay"),
-          headlineSmall: TextStyle(fontFamily: "DMSerifDisplay"),
-        )
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );

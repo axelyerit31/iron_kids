@@ -12,10 +12,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final displaySmall = theme.textTheme.displaySmall;
-    final titleMedium = theme.textTheme.titleMedium;
-    final labelMedium = theme.textTheme.labelMedium;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -26,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Text(
               'Niños de Hierro',
-              style: theme.textTheme.headlineMedium,
+              style: AppTheme.displayLarge(context),
             ),
             Container(
               width: 50,
@@ -51,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
           // Tarjeta control de anemia
           Card(
+            shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Row(
@@ -61,14 +58,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Text(
                         'Control de Anemia',
-                        style: theme.textTheme.titleLarge,
+                        style: AppTheme.titleLarge(context),
                       ),
                       const SizedBox(height: 8),
                       SizedBox(
                         width: 200,
                         child: Text(
                           'Lleva un control de la anemia y registra citas pasadas o futuras.',
-                          style: Theme.of(context).textTheme.bodyLarge,
+                          style: AppTheme.bodyLarge(context),
                         ),
                       ),
                     ],
@@ -105,17 +102,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Text(
                     'Recomendados',
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    style: AppTheme.headlineSmall(context),
                   ),
                   Text(
                     'Ver más',
-                    style: labelMedium,
+                    style: AppTheme.labelLarge(context),
                   ),
                 ],
               ),
 
               //Spacing 10px
-              const SizedBox(height: 10,),
+              AppTheme.spacingWidget4,
           
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -149,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                                 alignment: Alignment.bottomLeft,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(AppTheme.spacing3),
                                   child: Text(
                                     'Chaufa con Sangrecita',
                                     style:
