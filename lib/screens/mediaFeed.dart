@@ -17,31 +17,36 @@ class _MyHomePageState extends State<MyHomePage> {
     final labelMedium = theme.textTheme.labelMedium;
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: 
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Niños de Hierro',
+              style: theme.textTheme.headlineMedium,
+            ),
+            Container(
+              width: 50,
+              height: 50,
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.grey,
+                  image: DecorationImage(
+                    image: NetworkImage('https://via.placeholder.com/50x50'),
+                    fit: BoxFit.cover,
+                  )),
+            ),
+          ],
         ),
-        body: Column(children: [
-          // Header
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Niños de Hierro',
-                style: displaySmall,
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.grey,
-                    image: DecorationImage(
-                      image: NetworkImage('https://via.placeholder.com/50x50'),
-                      fit: BoxFit.cover,
-                    )),
-              ),
-            ],
-          ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(children: [
+          
+          //Spacing 10px
+          const SizedBox(height: 10,),
 
           // Tarjeta control de anemia
           Card(
@@ -55,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Text(
                         'Control de Anemia',
-                        style: titleMedium,
+                        style: theme.textTheme.titleLarge,
                       ),
                       const SizedBox(height: 8),
                       SizedBox(
@@ -86,17 +91,20 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
 
+          //Spacing 10px
+          const SizedBox(height: 10,),
+
           // Recomendados
           Column(
             children: [
               // Fila con espacio entre los elementos
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     'Recomendados',
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   Text(
                     'Ver más',
@@ -104,16 +112,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+
+              //Spacing 10px
+              const SizedBox(height: 10,),
+          
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: List.generate(5, (index) {
                     return SizedBox(
-                      height: 300,
+                      height: 280,
                       width: 200,
                       child: Card(
-                        margin: const EdgeInsets.all(16),
+                        color: Colors.grey[100],
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                        margin: const EdgeInsets.only(
+                          right: 10
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -187,7 +203,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-        ]));
+        ]),
+      )
+    );
   }
 }
 

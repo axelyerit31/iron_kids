@@ -76,15 +76,15 @@ flutter:
   fonts:
     - family: DMSerifDisplay
       fonts:
-        - asset: DMSerifDisplay-Regular.ttf
-        - asset: DMSerifDisplay-Italic.ttf
+        - asset: fonts/DMSerifDisplay-Regular.ttf
+        - asset: fonts/DMSerifDisplay-Italic.ttf
           style: italic
     - family: Inter
       fonts:
-        - asset: Inter-Regular.ttf
-        - asset: Inter-Medium.ttf
+        - asset: fonts/Inter-Regular.ttf
+        - asset: fonts/Inter-Medium.ttf
           weight: 500
-        - asset: Inter-SemiBold.ttf
+        - asset: fonts/Inter-SemiBold.ttf
           weight: 600
   #
   # For details regarding fonts from package dependencies,
