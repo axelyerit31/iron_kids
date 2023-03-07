@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/styles/appTheme.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -126,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 200,
                       child: Card(
                         color: Colors.grey[100],
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                        shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
                         margin: const EdgeInsets.only(
                           right: 10
                         ),
@@ -136,10 +137,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             AspectRatio(
                               aspectRatio: 1,
                               child: Container(
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(16)),
-                                  image: DecorationImage(
+                                      AppTheme.borderRadiusL,
+                                  image: const DecorationImage(
                                     image: NetworkImage(
                                       'https://via.placeholder.com/150x150',
                                     ),
