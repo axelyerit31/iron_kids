@@ -92,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
               // Fila con espacio entre los elementos
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Recomendados',
@@ -109,31 +110,34 @@ class _MyHomePageState extends State<MyHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: List.generate(5, (index) {
                     return SizedBox(
-                      height: 200,
-                      width: 150,
+                      height: 300,
+                      width: 200,
                       child: Card(
                         margin: const EdgeInsets.all(16),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              height: 150,
-                              decoration: const BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16)),
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                    'https://via.placeholder.com/150x150',
+                            AspectRatio(
+                              aspectRatio: 1,
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(16)),
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                      'https://via.placeholder.com/150x150',
+                                    ),
+                                    fit: BoxFit.cover,
                                   ),
-                                  fit: BoxFit.cover,
                                 ),
-                              ),
-                              alignment: Alignment.bottomRight,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  'Chaufa con Sangrecita',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                alignment: Alignment.bottomRight,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Chaufa con Sangrecita',
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge,
+                                  ),
                                 ),
                               ),
                             ),
@@ -142,27 +146,32 @@ class _MyHomePageState extends State<MyHomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: const [
-                                    Icon(Icons.timer),
-                                    SizedBox(width: 4),
-                                    Text('12 min'),
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: const [
+                                        Icon(Icons.timer),
+                                        SizedBox(width: 4),
+                                        Text('12 min'),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: const [
+                                        Icon(Icons.thumb_up),
+                                        SizedBox(width: 4),
+                                        Text('128'),
+                                      ],
+                                    ),
                                   ],
                                 ),
                                 const SizedBox(height: 8),
                                 Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: const [
-                                    Icon(Icons.thumb_up),
-                                    SizedBox(width: 4),
-                                    Text('128'),
-                                  ],
-                                ),
-                                const SizedBox(height: 8),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: const [
-                                    Icon(Icons.child_friendly),
+                                    Icon(Icons.child_care),
                                     SizedBox(width: 4),
                                     Text('12 a 23 meses'),
                                   ],
