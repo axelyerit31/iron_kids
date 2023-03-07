@@ -130,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                                alignment: Alignment.bottomRight,
+                                alignment: Alignment.bottomLeft,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
