@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/styles/appTheme.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+class MediaFeedScreen extends StatefulWidget {
+  const MediaFeedScreen({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MediaFeedScreen> createState() => _MediaFeedScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MediaFeedScreenState extends State<MediaFeedScreen> {
   @override
   Widget build(BuildContext context) {
 
