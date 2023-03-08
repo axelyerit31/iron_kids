@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/main.dart';
 import 'package:iron_kids/styles/appTheme.dart';
 
 class MediaFeedScreen extends StatefulWidget {
@@ -15,13 +16,14 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: screenH * 1/12,
         title: 
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'Niños de Hierro',
-              style: AppTheme.displayLarge(context),
+              style: AppTheme.headlineLarge(context),
             ),
             Container(
               width: 50,
@@ -46,33 +48,36 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
 
           // Tarjeta control de anemia
           Card(
+            color: AppTheme.gray100,
+            elevation: 0,
             shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Control de Anemia',
-                        style: AppTheme.titleLarge(context),
-                      ),
-                      const SizedBox(height: 8),
-                      SizedBox(
-                        width: 200,
-                        child: Text(
-                          'Lleva un control de la anemia y registra citas pasadas o futuras.',
-                          style: AppTheme.bodyLarge(context),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Control de Anemia',
+                          style: AppTheme.titleMedium(context),
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          child: Text(
+                            'Lleva un control de la anemia y registra citas pasadas o futuras.',
+                            style: AppTheme.bodySmall(context),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(width: 16),
                   Container(
-                    width: 80,
-                    height: 80,
+                    width: 50,
+                    height: 50,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.grey,
@@ -80,7 +85,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                     child: const Icon(
                       Icons.calendar_today,
                       color: Colors.white,
-                      size: 40,
+                      size: 20,
                     ),
                   ),
                 ],
@@ -148,8 +153,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                                   padding: const EdgeInsets.all(AppTheme.spacing3),
                                   child: Text(
                                     'Chaufa con Sangrecita',
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge,
+                                    style: AppTheme.bodySmallSemiBold(context),
                                   ),
                                 ),
                               ),
@@ -163,19 +167,19 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                                   children: [
                                     Row(
                                       mainAxisSize: MainAxisSize.min,
-                                      children: const [
-                                        Icon(Icons.timer),
-                                        SizedBox(width: 4),
-                                        Text('12 min'),
+                                      children: [
+                                        const Icon(Icons.timer),
+                                        const SizedBox(width: 4),
+                                        Text('12 min', style: AppTheme.bodySmallMedium(context)),
                                       ],
                                     ),
                                     const SizedBox(height: 8),
                                     Row(
                                       mainAxisSize: MainAxisSize.min,
-                                      children: const [
-                                        Icon(Icons.thumb_up),
-                                        SizedBox(width: 4),
-                                        Text('128'),
+                                      children: [
+                                        const Icon(Icons.thumb_up),
+                                        const SizedBox(width: 4),
+                                        Text('128', style: AppTheme.bodySmallMedium(context)),
                                       ],
                                     ),
                                   ],
@@ -183,10 +187,10 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                                 const SizedBox(height: 8),
                                 Row(
                                   mainAxisSize: MainAxisSize.min,
-                                  children: const [
-                                    Icon(Icons.child_care),
-                                    SizedBox(width: 4),
-                                    Text('12 a 23 meses'),
+                                  children: [
+                                    const Icon(Icons.child_care),
+                                    const SizedBox(width: 4),
+                                    Text('12 a 23 meses', style: AppTheme.bodySmallMedium(context)),
                                   ],
                                 ),
                               ],
@@ -200,6 +204,48 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
               ),
             ],
           ),
+        
+          AppTheme.spacingWidget7,
+          
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("HL", style: AppTheme.headlineLarge(context),),
+                  const Text("HL", style: TextStyle(fontSize: 32, fontFamily: "DMSerifDisplay"),),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("HM", style: AppTheme.headlineMedium(context),),
+                  const Text("HM", style: TextStyle(fontSize: 28, fontFamily: "DMSerifDisplay"),),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("HS", style: AppTheme.headlineSmall(context),),
+                  const Text("HS", style: TextStyle(fontSize: 24, fontFamily: "DMSerifDisplay"),),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("TM", style: AppTheme.titleMedium(context),),
+                  const Text("TM", style: TextStyle(fontSize: 22)),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("TS", style: AppTheme.titleSmall(context),),
+                  const Text("TS", style: TextStyle(fontSize: 16)),
+                ],
+              ),
+            ],
+          )
         ]),
       )
     );
