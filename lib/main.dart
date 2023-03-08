@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iron_kids/screens/login_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
 import 'package:iron_kids/screens/perfil_screen.dart';
+import 'package:iron_kids/styles/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,11 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: "Inter",
-        primarySwatch: Colors.pink,
-        textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 16,))
-      ),
+      theme: themeData,
       home: const HomeScreen(),
     );
   }
@@ -34,13 +31,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    screenH =
-        MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
+    screenH = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     screenW = MediaQuery.of(context).size.width;
+
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mi aplicación'),
+        title: Text('Mi aplicación', style: textTheme.headlineLarge),
       ),
       body: Center(
         child: Column(

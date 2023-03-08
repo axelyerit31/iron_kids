@@ -1,36 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/main.dart';
 import 'package:iron_kids/styles/app_theme.dart';
+export 'package:iron_kids/styles/widgets/button_text.dart';
 
 // Botones
-class ButtonText extends StatelessWidget {
-  final String text;
-
-  const ButtonText(this.text, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      ),
-      onPressed: () {},
-      child: Text(
-        text.isEmpty? "" : text,
-        style: AppTheme.labelLarge(context),
-      ),
-    );
-  }
-}
 
 // Inputs
 class InputField extends StatelessWidget {
   final TextEditingController controller;
   final String placeholder;
+  final bool obscure;
   const InputField({
     super.key,
     required this.controller,
     required this.placeholder,
+    this.obscure = false,
   });
 
   @override
@@ -53,7 +37,7 @@ class InputField extends StatelessWidget {
             hintText: placeholder,
             border: InputBorder.none,
             hintStyle: AppTheme.labelLarge(context)),
-        obscureText: true,
+        obscureText: obscure,
       ),
     );
   }

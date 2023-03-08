@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+
+ThemeData themeData = ThemeData(
+  textTheme: const TextTheme(
+  headlineLarge: TextStyle(fontFamily: "DMSerifDisplay", fontSize: 32)
+));
+
 class AppTheme {
+
   //Estilos de Texto
   static TextStyle headlineLarge(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
+    return themeData.textTheme
         .headlineLarge!
         .copyWith(fontFamily: "DMSerifDisplay", fontSize: 32);
   }

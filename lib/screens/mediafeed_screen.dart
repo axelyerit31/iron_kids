@@ -165,7 +165,10 @@ class PublicacionesSection extends StatelessWidget {
                               AppTheme.spacingWidget2,
                               const Text('·'),
                               AppTheme.spacingWidget2,
-                              Text('hace 1 día',style: AppTheme.bodySmall(context).copyWith(color: AppTheme.gray500),),
+                              Text(
+                                'hace 1 día',
+                                style: AppTheme.bodySmall(context).copyWith(color: AppTheme.gray500),
+                              ),
                             ],
                           ),
                           const SizedBox(height: 8),

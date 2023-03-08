@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
           children: <Widget>[
             FormInput(
               emailControllerP: _emailController,
-              passwordControllerP: _emailController,
+              passwordControllerP: _passwordController,
             ),
           ],
         ),
@@ -65,6 +65,7 @@ class FormInput extends StatelessWidget {
           InputField(
             controller: passwordControllerP,
             placeholder: 'Ingresa tu contraseña',
+            obscure: true,
           ),
           AppTheme.spacingWidget5,
           Text(
