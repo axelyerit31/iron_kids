@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/styles/app_theme.dart';
 
 class PerfilScreen extends StatelessWidget {
   const PerfilScreen({Key? key}) : super(key: key);
@@ -12,9 +13,9 @@ class PerfilScreen extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: 20.0),
-          const CircleAvatar(
+          CircleAvatar(
             radius: 50.0,
-            backgroundImage: AssetImage('assets/images/profile_image.jpg'),
+            backgroundColor: AppTheme.primary400,
           ),
           const SizedBox(height: 20.0),
           const Text(

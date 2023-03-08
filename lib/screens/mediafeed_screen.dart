@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/main.dart';
 import 'package:iron_kids/styles/app_theme.dart';
+import 'package:iron_kids/styles/widgets.dart';
 
 class MediaFeedScreen extends StatefulWidget {
   const MediaFeedScreen({Key? key}) : super(key: key);
@@ -39,209 +40,328 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(children: [
           
           //Spacing 20px
           AppTheme.spacingWidget6,
-
+      
           // Tarjeta control de anemia
-          Card(
-            color: AppTheme.gray100,
-            elevation: 0,
-            shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Control de Anemia',
-                          style: AppTheme.titleMedium(context),
-                        ),
-                        const SizedBox(height: 8),
-                        SizedBox(
-                          child: Text(
-                            'Lleva un control de la anemia y registra citas pasadas o futuras.',
-                            style: AppTheme.bodySmall(context),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey,
-                    ),
-                    child: const Icon(
-                      Icons.calendar_today,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+            child: ControlAnemiaSection(),
           ),
-
+      
           // Spacing 20px
           AppTheme.spacingWidget6,
-
+      
           // Recomendados
-          Column(
-            children: [
-
-              // Recomendados y Ver mas
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Recomendados',
-                    style: AppTheme.headlineSmall(context),
-                  ),
-                  Text(
-                    'Ver más',
-                    style: AppTheme.labelLarge(context),
-                  ),
-                ],
-              ),
-
-              // Spacing 12px
-              AppTheme.spacingWidget4,
-          
-              // Carrusel de recetas recomendadas
-              SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: List.generate(5, (index) {
-                    return SizedBox(
-                      height: screenW * 1/3 * 3/2,
-                      width: screenW * 1/3,
-                      child: Card(
-                        color: AppTheme.gray100,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
-                        margin: const EdgeInsets.only(
-                          right: 10
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            AspectRatio(
-                              aspectRatio: 1,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      AppTheme.borderRadiusL,
-                                  color: AppTheme.gray600
-                                ),
-                                alignment: Alignment.bottomLeft,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(AppTheme.spacing3),
-                                  child: Text(
-                                    'Chaufa con Sangrecita',
-                                    style: AppTheme.bodyMediumSemiBold(context).copyWith(color: AppTheme.white),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            Padding(
-                              padding: const EdgeInsets.all(AppTheme.spacing2),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                
-                                      // Tiempo de cocina
-                                      Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Icon(Icons.timer_outlined, color: AppTheme.gray500),
-                                          const SizedBox(width: 4),
-                                          Text('12 min', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.gray500)),
-                                        ],
-                                      ),
-                                      
-                                      
-                                      const SizedBox(height: 8),
-                                      
-                                      // Likes
-                                      Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Icon(Icons.thumb_up_outlined, color: AppTheme.gray500),
-                                          const SizedBox(width: 4),
-                                          Text('128', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.gray500)),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  
-                                  const SizedBox(height: 8),
-                                 
-                                  // Edad de niño
-                                  Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(Icons.child_care, color: AppTheme.gray500),
-                                      const SizedBox(width: 4),
-                                      Text('12 a 23 meses', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.gray500)),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  }),
-                ),
-              ),
-            ],
-          ),
+          const RecomendadosSection(),
         
+          // Spacing 20px
+          AppTheme.spacingWidget6,
+      
+          // Publicaciones
+          const PublicacionesSection()
+      
         ]),
       )
     );
   }
 }
 
+class PublicacionesSection extends StatelessWidget {
+  const PublicacionesSection({
+    Key? key,
+  }) : super(key: key);
 
-/* Gpt, dame el codigo para un diseño en flutter, los estilos son extraidos del widget: Theme.of(context).textTheme.
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
 
-fila (con for de 5 para mostrar 5 veces el card de debajo)
-  card
-    column
-      container con bordes redondeado en 16 px, (imagen en decoration)
-        "Chaufa con Sangrecita", ubicado con Alignment.end
-      Columna
-        Fila
-          Fila (Con mainaxissize min)
-            Icono tiempo
-            "12 min"
-          Fila (Con mainaxissize min)
-            Icono like
-            "128"
-          Fila (Con mainaxissize min)
-            Icono bebe
-            "12 a 23 meses"
+          // Titulo
+          Text("Publicaciones", style: AppTheme.headlineSmall(context)),
+
+          AppTheme.spacingWidget5,
           
+          // Campo de texto para publicacion
+          Container(
+            height: screenH * 1/8,
+            decoration: BoxDecoration(
+              borderRadius: AppTheme.borderRadiusL,
+              border: Border.all(color: AppTheme.gray300),
+            ),
+            padding: const EdgeInsets.symmetric(
+              vertical: AppTheme.spacing2,
+              horizontal: AppTheme.spacing5
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Expanded(
+                  child: TextField(
+                    maxLines: 4,
+                    decoration: InputDecoration(
+                      hintText: 'Escribe algo...',
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    elevation: MaterialStateProperty.all(0),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: AppTheme.borderRadiusXL,
+                      ),
+                    ),
+                  ),
+                  child: const Text('Publicar'),
+                ),
+              ],
+            ),
+          ),
+          
+          AppTheme.spacingWidget5,
+          
+          // Primera publicacion
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: AppTheme.borderRadiusL,
+              color: AppTheme.gray100,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(AppTheme.spacing5),
+              child: Column(
+                children: [
 
+                  // Datos de usuario
+                  Row(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      
+                      AppTheme.spacingWidget4,
+                      
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text('Daniela Flores', style: AppTheme.bodyMediumSemiBold(context),),
+                              AppTheme.spacingWidget2,
+                              const Text('·'),
+                              AppTheme.spacingWidget2,
+                              Text('hace 1 día',style: AppTheme.bodySmall(context).copyWith(color: AppTheme.gray500),),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Icon(Icons.emoji_events, size: 16, color: AppTheme.primary600,),
+                              const SizedBox(width: 4),
+                              Text('120 puntos', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.primary600),),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  
+                  const SizedBox(height: 16),
+                  
+                  // Contenido vencedor
+                  Card(
+                    elevation: 0,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text('Daniela Ramos'),
+                                SizedBox(height: 8),
+                                Text('¡Ha logrado vencer la anemia!'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  
+                  const SizedBox(height: 16),
+                  
+                  const Text('Texto de publicación'),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-*/
+class ControlAnemiaSection extends StatelessWidget {
+  const ControlAnemiaSection({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: AppTheme.gray100,
+      elevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Control de Anemia',
+                    style: AppTheme.titleMedium(context),
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    child: Text(
+                      'Lleva un control de la anemia y registra citas pasadas o futuras.',
+                      style: AppTheme.bodySmall(context),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 16),
+            Container(
+              width: 50,
+              height: 50,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.grey,
+              ),
+              child: const Icon(
+                Icons.calendar_today,
+                color: Colors.white,
+                size: 20,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RecomendadosSection extends StatelessWidget {
+  const RecomendadosSection({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+
+        // Recomendados y Ver mas
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Recomendados',
+                style: AppTheme.headlineSmall(context),
+              ),
+              const ButtonText("Ver más"),
+            ],
+          ),
+        ),
+
+        // Spacing 12px
+        AppTheme.spacingWidget4,
+    
+        // Carrusel de recetas recomendadas
+        SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: List.generate(5, (index) {
+              return Padding(
+                padding: EdgeInsets.only(left: index == 0 ? AppTheme.spacing6 : AppTheme.spacing4),
+                child: const CardRecetaSmall(
+                  titulo: "Chaufa de Sangrecita",
+                  tiempoCocina: "12 min",
+                  likes: 124,
+                  edad: "12 a 23 meses",
+                ),
+              );
+            }),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/* 
+Experto en flutter, dame el codigo para el siguiente arbol de widgets
+
+Columna
+  Container con borde redondeado en 16px
+    Columna
+      TextField con hint "Escribe algo..."
+    Elevated Button (alineado al bottomRight)
+      "Publicar"
+Fila
+  for de 5 Elevated Button con borde redondeado en 20
+card con elevation 0
+  columna
+    Fila
+      Container redondedo de 50px
+      columna
+        Fila
+          "Daniela Flores"
+          "·"
+          "hace 1 dia"
+        Fila
+          Icono de premio
+          "120 puntos"
+  Card con elevation 0
+    Fila
+      Container redondeado de 70px
+      Columna
+        "Daniela Ramos"
+        "¡Ha logrado vencer la anemia!"
+  "Texto de publicacion"
+ */

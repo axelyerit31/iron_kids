@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iron_kids/styles/appTheme.dart';
+import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 
 final TextEditingController _emailController = TextEditingController();
@@ -102,7 +102,7 @@ class ButtonUI extends StatelessWidget {
         // Validar las credenciales y continuar a la siguiente pantalla
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppTheme.primary500,
+        primary: AppTheme.primary500,
         minimumSize: const Size(350, 58),
         shape: RoundedRectangleBorder(
           borderRadius:
