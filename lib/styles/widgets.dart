@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iron_kids/styles/appTheme.dart';
 
 // botones
-// inputs
 
-//Widget de los Inputs
-
+//Inputs
 class InputField extends StatelessWidget {
   TextEditingController controller = TextEditingController();
   final String placeholder;

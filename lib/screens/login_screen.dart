@@ -14,12 +14,15 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Login'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Formlogin(),
+            FormInput(
+              emailControllerP: _emailController,
+              passwordControllerP: _emailController,
+            ),
           ],
         ),
       ),
@@ -27,9 +30,14 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-//Formulario del login
-class Formlogin extends StatelessWidget {
-  const Formlogin({super.key});
+//Forms
+class FormInput extends StatelessWidget {
+  TextEditingController emailControllerP = TextEditingController();
+  TextEditingController passwordControllerP = TextEditingController();
+  FormInput(
+      {super.key,
+      required this.emailControllerP,
+      required this.passwordControllerP});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,12 +58,12 @@ class Formlogin extends StatelessWidget {
           ),
           AppTheme.spacingWidget7, //espaciador
           InputField(
-            controller: _emailController,
+            controller: emailControllerP,
             placeholder: 'Ingresa tu correo electrónico',
           ),
           AppTheme.spacingWidget5, //espaciador
           InputField(
-            controller: _passwordController,
+            controller: passwordControllerP,
             placeholder: 'Ingresa tu contraseña',
           ),
           AppTheme.spacingWidget5,
