@@ -40,11 +40,11 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
         child: Column(children: [
           
-          //Spacing 10px
-          const SizedBox(height: 10,),
+          //Spacing 20px
+          AppTheme.spacingWidget6,
 
           // Tarjeta control de anemia
           Card(
@@ -93,13 +93,14 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
             ),
           ),
 
-          //Spacing 10px
-          const SizedBox(height: 10,),
+          // Spacing 20px
+          AppTheme.spacingWidget6,
 
           // Recomendados
           Column(
             children: [
-              // Fila con espacio entre los elementos
+
+              // Recomendados y Ver mas
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -115,19 +116,21 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                 ],
               ),
 
-              //Spacing 10px
+              // Spacing 12px
               AppTheme.spacingWidget4,
           
+              // Carrusel de recetas recomendadas
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: List.generate(5, (index) {
                     return SizedBox(
-                      height: 280,
-                      width: 200,
+                      height: screenW * 1/3 * 3/2,
+                      width: screenW * 1/3,
                       child: Card(
-                        color: Colors.grey[100],
+                        color: AppTheme.gray100,
+                        elevation: 0,
                         shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
                         margin: const EdgeInsets.only(
                           right: 10
@@ -141,59 +144,66 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                                 decoration: BoxDecoration(
                                   borderRadius:
                                       AppTheme.borderRadiusL,
-                                  image: const DecorationImage(
-                                    image: NetworkImage(
-                                      'https://via.placeholder.com/150x150',
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
+                                  color: AppTheme.gray600
                                 ),
                                 alignment: Alignment.bottomLeft,
                                 child: Padding(
                                   padding: const EdgeInsets.all(AppTheme.spacing3),
                                   child: Text(
                                     'Chaufa con Sangrecita',
-                                    style: AppTheme.bodySmallSemiBold(context),
+                                    style: AppTheme.bodyMediumSemiBold(context).copyWith(color: AppTheme.white),
                                   ),
                                 ),
                               ),
                             ),
                             const SizedBox(height: 16),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        const Icon(Icons.timer),
-                                        const SizedBox(width: 4),
-                                        Text('12 min', style: AppTheme.bodySmallMedium(context)),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        const Icon(Icons.thumb_up),
-                                        const SizedBox(width: 4),
-                                        Text('128', style: AppTheme.bodySmallMedium(context)),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 8),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    const Icon(Icons.child_care),
-                                    const SizedBox(width: 4),
-                                    Text('12 a 23 meses', style: AppTheme.bodySmallMedium(context)),
-                                  ],
-                                ),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.all(AppTheme.spacing2),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+
+                                      // Tiempo de cocina
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(Icons.timer_outlined, color: AppTheme.gray500),
+                                          const SizedBox(width: 4),
+                                          Text('12 min', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.gray500)),
+                                        ],
+                                      ),
+                                      
+                                      
+                                      const SizedBox(height: 8),
+                                      
+                                      // Likes
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(Icons.thumb_up_outlined, color: AppTheme.gray500),
+                                          const SizedBox(width: 4),
+                                          Text('128', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.gray500)),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  
+                                  const SizedBox(height: 8),
+                                 
+                                  // Edad de niño
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(Icons.child_care, color: AppTheme.gray500),
+                                      const SizedBox(width: 4),
+                                      Text('12 a 23 meses', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.gray500)),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -205,47 +215,6 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
             ],
           ),
         
-          AppTheme.spacingWidget7,
-          
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text("HL", style: AppTheme.headlineLarge(context),),
-                  const Text("HL", style: TextStyle(fontSize: 32, fontFamily: "DMSerifDisplay"),),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text("HM", style: AppTheme.headlineMedium(context),),
-                  const Text("HM", style: TextStyle(fontSize: 28, fontFamily: "DMSerifDisplay"),),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text("HS", style: AppTheme.headlineSmall(context),),
-                  const Text("HS", style: TextStyle(fontSize: 24, fontFamily: "DMSerifDisplay"),),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text("TM", style: AppTheme.titleMedium(context),),
-                  const Text("TM", style: TextStyle(fontSize: 22)),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text("TS", style: AppTheme.titleSmall(context),),
-                  const Text("TS", style: TextStyle(fontSize: 16)),
-                ],
-              ),
-            ],
-          )
         ]),
       )
     );
