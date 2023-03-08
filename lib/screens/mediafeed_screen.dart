@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/main.dart';
 import 'package:iron_kids/styles/appTheme.dart';
 
 class MediaFeedScreen extends StatefulWidget {
@@ -15,13 +16,14 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: screenH * 1/12,
         title: 
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'Niños de Hierro',
-              style: AppTheme.displayLarge(context),
+              style: AppTheme.headlineLarge(context),
             ),
             Container(
               width: 50,
@@ -38,41 +40,44 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
         child: Column(children: [
           
-          //Spacing 10px
-          const SizedBox(height: 10,),
+          //Spacing 20px
+          AppTheme.spacingWidget6,
 
           // Tarjeta control de anemia
           Card(
+            color: AppTheme.gray100,
+            elevation: 0,
             shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Control de Anemia',
-                        style: AppTheme.titleLarge(context),
-                      ),
-                      const SizedBox(height: 8),
-                      SizedBox(
-                        width: 200,
-                        child: Text(
-                          'Lleva un control de la anemia y registra citas pasadas o futuras.',
-                          style: AppTheme.bodyLarge(context),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Control de Anemia',
+                          style: AppTheme.titleMedium(context),
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          child: Text(
+                            'Lleva un control de la anemia y registra citas pasadas o futuras.',
+                            style: AppTheme.bodySmall(context),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(width: 16),
                   Container(
-                    width: 80,
-                    height: 80,
+                    width: 50,
+                    height: 50,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.grey,
@@ -80,7 +85,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                     child: const Icon(
                       Icons.calendar_today,
                       color: Colors.white,
-                      size: 40,
+                      size: 20,
                     ),
                   ),
                 ],
@@ -88,13 +93,14 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
             ),
           ),
 
-          //Spacing 10px
-          const SizedBox(height: 10,),
+          // Spacing 20px
+          AppTheme.spacingWidget6,
 
           // Recomendados
           Column(
             children: [
-              // Fila con espacio entre los elementos
+
+              // Recomendados y Ver mas
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -110,19 +116,21 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                 ],
               ),
 
-              //Spacing 10px
+              // Spacing 12px
               AppTheme.spacingWidget4,
           
+              // Carrusel de recetas recomendadas
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: List.generate(5, (index) {
                     return SizedBox(
-                      height: 280,
-                      width: 200,
+                      height: screenW * 1/3 * 3/2,
+                      width: screenW * 1/3,
                       child: Card(
-                        color: Colors.grey[100],
+                        color: AppTheme.gray100,
+                        elevation: 0,
                         shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
                         margin: const EdgeInsets.only(
                           right: 10
@@ -136,60 +144,66 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                                 decoration: BoxDecoration(
                                   borderRadius:
                                       AppTheme.borderRadiusL,
-                                  image: const DecorationImage(
-                                    image: NetworkImage(
-                                      'https://via.placeholder.com/150x150',
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
+                                  color: AppTheme.gray600
                                 ),
                                 alignment: Alignment.bottomLeft,
                                 child: Padding(
                                   padding: const EdgeInsets.all(AppTheme.spacing3),
                                   child: Text(
                                     'Chaufa con Sangrecita',
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge,
+                                    style: AppTheme.bodyMediumSemiBold(context).copyWith(color: AppTheme.white),
                                   ),
                                 ),
                               ),
                             ),
                             const SizedBox(height: 16),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: const [
-                                        Icon(Icons.timer),
-                                        SizedBox(width: 4),
-                                        Text('12 min'),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: const [
-                                        Icon(Icons.thumb_up),
-                                        SizedBox(width: 4),
-                                        Text('128'),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 8),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: const [
-                                    Icon(Icons.child_care),
-                                    SizedBox(width: 4),
-                                    Text('12 a 23 meses'),
-                                  ],
-                                ),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.all(AppTheme.spacing2),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+
+                                      // Tiempo de cocina
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(Icons.timer_outlined, color: AppTheme.gray500),
+                                          const SizedBox(width: 4),
+                                          Text('12 min', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.gray500)),
+                                        ],
+                                      ),
+                                      
+                                      
+                                      const SizedBox(height: 8),
+                                      
+                                      // Likes
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(Icons.thumb_up_outlined, color: AppTheme.gray500),
+                                          const SizedBox(width: 4),
+                                          Text('128', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.gray500)),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  
+                                  const SizedBox(height: 8),
+                                 
+                                  // Edad de niño
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(Icons.child_care, color: AppTheme.gray500),
+                                      const SizedBox(width: 4),
+                                      Text('12 a 23 meses', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.gray500)),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -200,6 +214,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
               ),
             ],
           ),
+        
         ]),
       )
     );
