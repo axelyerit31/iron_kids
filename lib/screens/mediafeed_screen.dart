@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/main.dart';
-import 'package:iron_kids/styles/appTheme.dart';
+import 'package:iron_kids/styles/app_theme.dart';
 
 class MediaFeedScreen extends StatefulWidget {
   const MediaFeedScreen({Key? key}) : super(key: key);
@@ -121,6 +121,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
           
               // Carrusel de recetas recomendadas
               SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,7 +166,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-
+                
                                       // Tiempo de cocina
                                       Row(
                                         mainAxisSize: MainAxisSize.min,

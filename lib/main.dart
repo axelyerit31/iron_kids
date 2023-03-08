@@ -25,12 +25,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
         textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 16,))
       ),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
 
@@ -58,7 +60,7 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PerfilScreen()),
+                  MaterialPageRoute(builder: (context) => const PerfilScreen()),
                 );
               },
               child: const Text('Ir a Perfil Madre'),
