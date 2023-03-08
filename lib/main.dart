@@ -7,12 +7,9 @@ void main() {
   runApp(const MyApp());
 }
 
-<<<<<<< HEAD
-=======
 double screenW = 0;
 double screenH = 0;
 
->>>>>>> bf3810d8561e3835880969c8399deb8cfdb069ca
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -23,10 +20,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: "Inter",
-        primarySwatch: Colors.pink,
-        textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 16,))
-      ),
+          fontFamily: "Inter",
+          primarySwatch: Colors.pink,
+          textTheme: const TextTheme(
+              bodyMedium: TextStyle(
+            fontSize: 16,
+          ))),
       home: HomeScreen(),
     );
   }
@@ -35,8 +34,8 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    screenH = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
+    screenH =
+        MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     screenW = MediaQuery.of(context).size.width;
 
     return Scaffold(

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/styles/appTheme.dart';
 
+final TextEditingController _emailController = TextEditingController();
+final TextEditingController _passwordController = TextEditingController();
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -10,8 +13,8 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Login'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -23,13 +26,16 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
+//Formulario del login
 class Formlogin extends StatelessWidget {
-  Formlogin({super.key});
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  const Formlogin({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: AppTheme.gray500,
+        borderRadius: AppTheme.borderRadiusXL,
+      ),
       child: Column(
         children: [
           Text(
@@ -39,34 +45,36 @@ class Formlogin extends StatelessWidget {
           AppTheme.spacingWidget3, //espaciador
           Text(
             'Ingresa tus datos en la parte de abajo',
-            style: AppTheme.bodyLarge(context),
+            style: AppTheme.bodySmallMedium(context),
           ),
-          AppTheme.spacingWidget7,
+          AppTheme.spacingWidget7, //espaciador
           InputField(
             controller: _emailController,
             placeholder: 'Ingresa tu correo electrónico',
           ),
-          AppTheme.spacingWidget5,
+          AppTheme.spacingWidget5, //espaciador
           InputField(
             controller: _passwordController,
             placeholder: 'Ingresa tu contraseña',
           ),
-          const SizedBox(height: 24.0),
-          ElevatedButton(
-            child: const Text('Login'),
-            onPressed: () {
-              // Implementar la lógica de autenticación aquí
-              final String email = _emailController.text.trim();
-              final String password = _passwordController.text.trim();
-              // Validar las credenciales y continuar a la siguiente pantalla
-            },
-          )
+          AppTheme.spacingWidget5,
+          Text(
+            '¿Olvidaste tu contraseña?',
+            textAlign: TextAlign.right,
+            style: TextStyle(
+              color: AppTheme.gray500,
+              fontSize: 13, //Mencionar a Axel sobre este inconveniente
+            ),
+          ),
+          AppTheme.spacingWidget5,
+          const ButtonUI(text: 'Inicia sesión'),
         ],
       ),
     );
   }
 }
 
+//Widget de los Inputs
 class InputField extends StatelessWidget {
   TextEditingController controller = TextEditingController();
   final String placeholder;
@@ -83,9 +91,10 @@ class InputField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       alignment: Alignment.center,
       decoration: BoxDecoration(
+        color: AppTheme.gray50,
         borderRadius: AppTheme.borderRadiusL,
         border: Border.all(
-          color: const Color.fromARGB(255, 223, 223, 223),
+          color: AppTheme.gray300,
           width: 1.0,
         ),
       ),
@@ -97,6 +106,37 @@ class InputField extends StatelessWidget {
             hintStyle: AppTheme.labelLarge(context)),
         obscureText: true,
       ),
+    );
+  }
+}
+
+//Widget boton
+class ButtonUI extends StatelessWidget {
+  final String text;
+
+  const ButtonUI({
+    super.key,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        // Implementar la lógica de autenticación aquí
+        final String email = _emailController.text.trim();
+        final String password = _passwordController.text.trim();
+        // Validar las credenciales y continuar a la siguiente pantalla
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppTheme.primary500,
+        minimumSize: const Size(350, 58),
+        shape: RoundedRectangleBorder(
+          borderRadius:
+              AppTheme.borderRadiusL, // personaliza el radio de los bordes
+        ),
+      ),
+      child: Text((text != null) ? text : 'Inserta texto'),
     );
   }
 }
