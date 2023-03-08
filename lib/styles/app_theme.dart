@@ -1,97 +1,105 @@
 import 'package:flutter/material.dart';
 
-
-
 class AppTheme {
-
   //Estilos de Texto
   static TextStyle headlineLarge(BuildContext context) {
-    return Theme.of(context).textTheme.headlineLarge!.copyWith(
-      fontFamily: "DMSerifDisplay",
-      fontSize: 32
-    );
+    return Theme.of(context)
+        .textTheme
+        .headlineLarge!
+        .copyWith(fontFamily: "DMSerifDisplay", fontSize: 32);
   }
+
   static TextStyle headlineMedium(BuildContext context) {
-    return Theme.of(context).textTheme.headlineMedium!.copyWith(
-      fontFamily: "DMSerifDisplay",
-      fontSize: 28
-    );
+    return Theme.of(context)
+        .textTheme
+        .headlineMedium!
+        .copyWith(fontFamily: "DMSerifDisplay", fontSize: 28);
   }
+
   static TextStyle headlineSmall(BuildContext context) {
-    return Theme.of(context).textTheme.headlineSmall!.copyWith(
-      fontFamily: "DMSerifDisplay",
-      fontSize: 24
-    );
+    return Theme.of(context)
+        .textTheme
+        .headlineSmall!
+        .copyWith(fontFamily: "DMSerifDisplay", fontSize: 24);
   }
+
   static TextStyle titleMedium(BuildContext context) {
-    return Theme.of(context).textTheme.titleMedium!.copyWith(
-      fontSize: 20,
-      fontWeight: FontWeight.w600
-    );
+    return Theme.of(context)
+        .textTheme
+        .titleMedium!
+        .copyWith(fontSize: 20, fontWeight: FontWeight.w600);
   }
+
   static TextStyle titleSmall(BuildContext context) {
-    return Theme.of(context).textTheme.titleSmall!.copyWith(
-      fontSize: 16,
-      fontWeight: FontWeight.w600
-    );
+    return Theme.of(context)
+        .textTheme
+        .titleSmall!
+        .copyWith(fontSize: 16, fontWeight: FontWeight.w600);
   }
+
   static TextStyle bodyLarge(BuildContext context) {
-    return Theme.of(context).textTheme.bodyLarge!.copyWith(
-      fontSize: 18,
-      color: gray700
-    );
+    return Theme.of(context)
+        .textTheme
+        .bodyLarge!
+        .copyWith(fontSize: 18, color: gray700);
   }
+
   static TextStyle bodyMedium(BuildContext context) {
-    return Theme.of(context).textTheme.bodyMedium!.copyWith(
-      fontSize: 16,
-      color: gray700
-    );
+    return Theme.of(context)
+        .textTheme
+        .bodyMedium!
+        .copyWith(fontSize: 16, color: gray700);
   }
+
   static TextStyle bodyMediumSemiBold(BuildContext context) {
-    return Theme.of(context).textTheme.bodyMedium!.copyWith(
-      fontSize: 16,
-      fontWeight: FontWeight.w600,
-      color: gray700
-    );
+    return Theme.of(context)
+        .textTheme
+        .bodyMedium!
+        .copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: gray700);
   }
+
   static TextStyle bodySmall(BuildContext context) {
-    return Theme.of(context).textTheme.bodySmall!.copyWith(
-      fontSize: 14,
-      color: gray700
-    );
+    return Theme.of(context)
+        .textTheme
+        .bodySmall!
+        .copyWith(fontSize: 14, color: gray700);
   }
+
   static TextStyle bodySmallMedium(BuildContext context) {
-    return Theme.of(context).textTheme.bodySmall!.copyWith(
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      color: gray700
-    );
+    return Theme.of(context)
+        .textTheme
+        .bodySmall!
+        .copyWith(fontSize: 14, fontWeight: FontWeight.w500, color: gray700);
   }
+
   static TextStyle bodySmallSemiBold(BuildContext context) {
-    return Theme.of(context).textTheme.bodySmall!.copyWith(
-      fontSize: 14,
-      fontWeight: FontWeight.w600,
-      color: gray700
-    );
+    return Theme.of(context)
+        .textTheme
+        .bodySmall!
+        .copyWith(fontSize: 14, fontWeight: FontWeight.w600, color: gray700);
   }
+
   static TextStyle labelLarge(BuildContext context) {
-    return Theme.of(context).textTheme.labelLarge!.copyWith(
-      fontSize: 14,
-      color: gray600
-    );
+    return Theme.of(context)
+        .textTheme
+        .labelLarge!
+        .copyWith(fontSize: 14, color: gray600);
   }
+
   static TextStyle labelMedium(BuildContext context) {
     return Theme.of(context).textTheme.labelMedium!.copyWith(
-      fontSize: 12,
-    );
+          fontSize: 12,
+        );
   }
+
   static TextStyle labelSmall(BuildContext context) {
     return Theme.of(context).textTheme.labelSmall!.copyWith(
-      fontSize: 11,
-    );
+          fontSize: 11,
+        );
   }
 
   // Borde Redondeados
+  static BorderRadius borderRadiusXL = BorderRadius.circular(40);
   static BorderRadius borderRadiusL = BorderRadius.circular(16);
   static BorderRadius borderRadiusM = BorderRadius.circular(14);
   static BorderRadius borderRadiusS = BorderRadius.circular(10);
@@ -108,18 +116,27 @@ class AppTheme {
   static const double spacing9 = 40;
   static const double spacing10 = 48;
 
-
   //Spacing Widget
-  static SizedBox spacingWidget1 = const SizedBox(width: spacing1, height: spacing1);
-  static SizedBox spacingWidget2 = const SizedBox(width: spacing2, height: spacing2);
-  static SizedBox spacingWidget3 = const SizedBox(width: spacing3, height: spacing3);
-  static SizedBox spacingWidget4 = const SizedBox(width: spacing4, height: spacing4);
-  static SizedBox spacingWidget5 = const SizedBox(width: spacing5, height: spacing5);
-  static SizedBox spacingWidget6 = const SizedBox(width: spacing6, height: spacing6);
-  static SizedBox spacingWidget7 = const SizedBox(width: spacing7, height: spacing7);
-  static SizedBox spacingWidget8 = const SizedBox(width: spacing8, height: spacing8);
-  static SizedBox spacingWidget9 = const SizedBox(width: spacing9, height: spacing9);
-  static SizedBox spacingWidget10 = const SizedBox(width: spacing10, height: spacing10);
+  static SizedBox spacingWidget1 =
+      const SizedBox(width: spacing1, height: spacing1);
+  static SizedBox spacingWidget2 =
+      const SizedBox(width: spacing2, height: spacing2);
+  static SizedBox spacingWidget3 =
+      const SizedBox(width: spacing3, height: spacing3);
+  static SizedBox spacingWidget4 =
+      const SizedBox(width: spacing4, height: spacing4);
+  static SizedBox spacingWidget5 =
+      const SizedBox(width: spacing5, height: spacing5);
+  static SizedBox spacingWidget6 =
+      const SizedBox(width: spacing6, height: spacing6);
+  static SizedBox spacingWidget7 =
+      const SizedBox(width: spacing7, height: spacing7);
+  static SizedBox spacingWidget8 =
+      const SizedBox(width: spacing8, height: spacing8);
+  static SizedBox spacingWidget9 =
+      const SizedBox(width: spacing9, height: spacing9);
+  static SizedBox spacingWidget10 =
+      const SizedBox(width: spacing10, height: spacing10);
 
   //Primary Color Scale
   static Color primary50 = const Color(0xffffe5e6);
@@ -146,4 +163,3 @@ class AppTheme {
   static Color gray800 = const Color(0xff2d3748);
   static Color gray900 = const Color(0xff16192c);
 }
-

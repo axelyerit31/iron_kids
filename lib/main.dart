@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -35,8 +34,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    screenH = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
+    screenH =
+        MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     screenW = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -51,7 +50,8 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const MediaFeedScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const MediaFeedScreen()),
                 );
               },
               child: const Text('Ir a Media Feed'),
