@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/screens/botones_muestra.dart';
 import 'package:iron_kids/screens/login_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
 import 'package:iron_kids/screens/perfil_screen.dart';
@@ -81,6 +82,16 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               child: const Text('Ir a quizzes'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BotonesMuestraScreen()),
+                );
+              },
+              child: const Text('Ir a muestra de botones'),
             ),
           ],
         ),

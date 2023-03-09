@@ -187,7 +187,7 @@ class ButtonUI extends StatelessWidget {
         // Validar las credenciales y continuar a la siguiente pantalla
       },
       style: ElevatedButton.styleFrom(
-        primary: (outlined) ? AppTheme.gray50 : color,
+        backgroundColor: (outlined) ? AppTheme.gray50 : color,
         minimumSize: const Size(350, 50),
         shape: RoundedRectangleBorder(
           borderRadius: AppTheme.borderRadiusL,
