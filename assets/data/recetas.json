@@ -1,0 +1,32 @@
+[
+    {
+      "id": 0,
+      "titulo": "Chaufa de Sangrecita",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=b983eb50-fcc3-46d8-a09b-a4220f858f77",
+      "tiempo": "12 min",
+      "likes": "126",
+      "edad": "12 a 23 meses",
+      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "pasos": ["Paso 1", "Paso 2", "Paso 3"]
+    },
+    {
+      "id": 1,
+      "titulo": "Purecito Verde",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpure_verde.png?alt=media&token=d811cf94-706a-418b-9ed1-4476a7967cd2",
+      "tiempo": "10 min",
+      "likes": "24",
+      "edad": "6 a 8 meses",
+      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "pasos": ["Paso 1", "Paso 2", "Paso 3"]
+    },
+    {
+      "id": 2,
+      "titulo": "Guiso de Frejoles",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fguiso_frejoles.png?alt=media&token=11fce12d-585c-4a6c-b6da-17de1870c768",
+      "tiempo": "30 min",
+      "likes": "18",
+      "edad": "12 a 23 meses",
+      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "pasos": ["Paso 1", "Paso 2", "Paso 3"]
+    }
+]
