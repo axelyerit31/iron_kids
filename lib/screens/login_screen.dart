@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/main.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 
@@ -11,21 +12,44 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.primary100,
       appBar: AppBar(
         title: const Text('Login'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FormInput(
-              emailControllerP: _emailController,
-              passwordControllerP: _passwordController,
-            ),
-          ],
+      //padding: const EdgeInsets.all(16.0),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          const ImageLogin(),
+          FormInput(
+            emailControllerP: _emailController,
+            passwordControllerP: _passwordController,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//Image Background
+class ImageLogin extends StatelessWidget {
+  const ImageLogin({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: screenH / 3,
+      width: screenW,
+      decoration: const BoxDecoration(
+        color: Colors.amber,
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: NetworkImage(
+              'https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/OtherResources%2Fbackground.png?alt=media&token=eca452ff-3ffe-4eda-9bde-612bc4f0a9e7'),
         ),
       ),
+      child: Image.network(
+          'https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Ilustraciones%2FMotherhood.png?alt=media&token=8d51fdd4-297b-468e-91ff-bcf2158196f4'),
     );
   }
 }
@@ -41,9 +65,13 @@ class FormInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
       decoration: BoxDecoration(
-        color: AppTheme.gray500,
-        borderRadius: AppTheme.borderRadiusXL,
+        color: AppTheme.gray50,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(40.00),
+          topRight: Radius.circular(40.00),
+        ), //AppTheme.borderRadiusXL,
       ),
       child: Column(
         children: [
@@ -72,11 +100,13 @@ class FormInput extends StatelessWidget {
             '¿Olvidaste tu contraseña?',
             textAlign: TextAlign.right,
             style: TextStyle(
-              color: AppTheme.gray500,
-              fontSize: 13, //Mencionar a Axel sobre este inconveniente
-            ),
+                color: AppTheme.gray500,
+                fontSize: 13,
+                decoration: TextDecoration
+                    .underline //Mencionar a Axel sobre este inconveniente
+                ),
           ),
-          AppTheme.spacingWidget5,
+          AppTheme.spacingWidget6,
           const ButtonUI(text: 'Inicia sesión'),
         ],
       ),

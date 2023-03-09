@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iron_kids/screens/login_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
 import 'package:iron_kids/screens/perfil_screen.dart';
+import 'package:iron_kids/screens/quizzes_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 
 void main() {
@@ -31,7 +32,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    screenH = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
+    screenH =
+        MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     screenW = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -69,6 +71,16 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               child: const Text('Ir a Login'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const QuizzesScreen()),
+                );
+              },
+              child: const Text('Ir a quizzes'),
             ),
           ],
         ),
