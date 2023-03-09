@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/main.dart';
+import 'package:iron_kids/models/recetas.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
+import 'package:iron_kids/styles/widgets/publicaciones_widgets.dart';
 
 class MediaFeedScreen extends StatefulWidget {
   const MediaFeedScreen({Key? key}) : super(key: key);
@@ -86,7 +88,7 @@ class PublicacionesSection extends StatelessWidget {
         children: [
 
           // Titulo
-          Text("Publicaciones", style: AppTheme.headlineSmall(context)),
+          Text("Publicaciones", style: textTheme.headlineSmall),
 
           AppTheme.spacingWidget5,
           
@@ -134,97 +136,16 @@ class PublicacionesSection extends StatelessWidget {
           AppTheme.spacingWidget5,
           
           // Primera publicacion
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: AppTheme.borderRadiusL,
-              color: AppTheme.gray100,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(AppTheme.spacing5),
-              child: Column(
-                children: [
+          const PublicacionVencedores(usuario: "Daniela Flores", fecha: "hace 1 día", puntos: "120 puntos", hijo: "Daniela Ramos", body: "Quiero compartir con todos que mi hija finalmente venció la anemia 🥳🎊 Ha sido un camino difícil para ella y nuestra familia, pero estamos tan agradecidos de que finalmente esté en plena salud. Gracias a todos los que nos apoyaron en este camino 🙏"),
 
-                  // Datos de usuario
-                  Row(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      
-                      AppTheme.spacingWidget4,
-                      
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Text('Daniela Flores', style: AppTheme.bodyMediumSemiBold(context),),
-                              AppTheme.spacingWidget2,
-                              const Text('·'),
-                              AppTheme.spacingWidget2,
-                              Text(
-                                'hace 1 día',
-                                style: AppTheme.bodySmall(context).copyWith(color: AppTheme.gray500),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Icon(Icons.emoji_events, size: 16, color: AppTheme.primary600,),
-                              const SizedBox(width: 4),
-                              Text('120 puntos', style: AppTheme.bodySmallMedium(context).copyWith(color: AppTheme.primary600),),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  
-                  const SizedBox(height: 16),
-                  
-                  // Contenido vencedor
-                  Card(
-                    elevation: 0,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              width: 70,
-                              height: 70,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey,
-                              ),
-                            ),
-                            const SizedBox(width: 16),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text('Daniela Ramos'),
-                                SizedBox(height: 8),
-                                Text('¡Ha logrado vencer la anemia!'),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  
-                  const SizedBox(height: 16),
-                  
-                  const Text('Texto de publicación'),
-                ],
-              ),
-            ),
-          ),
+          AppTheme.spacingWidget5,
+
+          const PublicacionExperiencias(usuario: "Lupe Batallán", fecha: "hace 1 día", puntos: "230 puntos", tituloReceta: "Chaufa de Sangrecita", linkRecetaImg: "", body: "Hace unos meses, mi hijo de 1 año tuvo una deficiencia de hemoglobina y su médico recomendó una dieta rica en hierro. Sabía que la sangrecita es una gran fuente de hierro, y en esta receta me encantó!! 😍"),
+
+          AppTheme.spacingWidget5,
+
+          const PublicacionNoticias(fecha: "hace 3 días", linkNoticiaImg: "", fechaNoticia: "18 Feb 2023 | 13:58 h", tituloNoticia: "Fortalecen estrategias para la lucha contra la anemia infantil en Ayacucho", bodyNoticia: "En el marco de lucha contra la anemia y la búsqueda de la reducción de sus niveles en el ámbito nacional, la Fundación contra el Hambre (FH Perú) celebró alianzas con la Dirección Regional de Salud de Ayacucho (DIRESA), la Red de Salud Huamanga.", linkNoticia: "")
+
         ],
       ),
     );
@@ -319,20 +240,32 @@ class RecomendadosSection extends StatelessWidget {
         SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: List.generate(5, (index) {
-              return Padding(
-                padding: EdgeInsets.only(left: index == 0 ? AppTheme.spacing6 : AppTheme.spacing4),
-                child: const CardRecetaSmall(
-                  titulo: "Chaufa de Sangrecita",
-                  tiempoCocina: "12 min",
-                  likes: 124,
-                  edad: "12 a 23 meses",
-                ),
-              );
-            }),
-          ),
+          child: FutureBuilder<List<Receta>>(
+            future: RecetasService.obtenerRecetas(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final recetas = snapshot.data;
+                return Row(
+                  children: [
+                    for (final receta in recetas!)
+                      Padding(
+                        padding: EdgeInsets.only(left: receta.id == 0 ? AppTheme.spacing6 : AppTheme.spacing4),
+                        child: CardRecetaSmall(
+                          linkImg: receta.imagen,
+                          titulo: receta.titulo,
+                          tiempo: receta.tiempo,
+                          likes: receta.likes,
+                          edad: receta.edad,
+                        ),
+                      )
+                  ],
+                );
+              } else if (snapshot.hasError) {
+                return const Text('Error al cargar las recetas');
+              }
+              return const CircularProgressIndicator();
+            },
+          )
         ),
       ],
     );
