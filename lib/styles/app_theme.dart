@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 MyTextTheme textTheme = MyTextTheme();
+
 ThemeData themeData = ThemeData(
   primarySwatch: Colors.pink,
   fontFamily: "Inter",
