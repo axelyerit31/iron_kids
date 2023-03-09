@@ -83,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                       builder: (context) => const QuizzesScreen()),
                 );
               },
-              child: const Text('Ir a Login'),
+              child: const Text('Ir a quizzes'),
             ),
           ],
         ),
