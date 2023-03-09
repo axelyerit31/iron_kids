@@ -24,11 +24,10 @@ class CardRecetaSmall extends StatelessWidget {
         color: AppTheme.gray100,
       ),
       child: SizedBox(
-              width: screenW * 1/3,
+        width: screenW * 1 / 3,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             // Imagen de receta y titulo
             Stack(
               children: [
@@ -77,9 +76,9 @@ class CardRecetaSmall extends StatelessWidget {
                 ),
               ],
             ),
-            
+
             AppTheme.spacingWidget2,
-            
+
             // Datos de receta
             Padding(
               padding: const EdgeInsets.all(AppTheme.spacing3),
@@ -89,7 +88,6 @@ class CardRecetaSmall extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                              
                       // Tiempo de cocina
                       Row(
                         mainAxisSize: MainAxisSize.min,
@@ -99,7 +97,7 @@ class CardRecetaSmall extends StatelessWidget {
                           Text(tiempo, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.gray500)),
                         ],
                       ),
-                                                         
+
                       // Likes
                       Row(
                         mainAxisSize: MainAxisSize.min,
@@ -111,9 +109,9 @@ class CardRecetaSmall extends StatelessWidget {
                       ),
                     ],
                   ),
-                  
+
                   const SizedBox(height: 8),
-                 
+
                   // Edad de niño
                   Row(
                     mainAxisSize: MainAxisSize.min,

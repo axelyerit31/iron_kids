@@ -16,7 +16,7 @@ class InputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 44,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: AppTheme.gray50,
@@ -28,10 +28,11 @@ class InputField extends StatelessWidget {
       ),
       child: TextField(
         controller: controller,
-        decoration: InputDecoration(
+        decoration: InputDecoration.collapsed(
             hintText: placeholder,
             border: InputBorder.none,
-            hintStyle: AppTheme.labelLarge(context)),
+            hintStyle:
+                AppTheme.bodyMedium(context).copyWith(color: AppTheme.gray400)),
         obscureText: obscure,
       ),
     );
