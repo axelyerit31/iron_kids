@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 
 MyTextTheme textTheme = MyTextTheme();
 ThemeData themeData = ThemeData(
-  primarySwatch: Colors.pink,
-  fontFamily: "Inter",
-  textTheme: MyTextTheme()
-);
+    primarySwatch: Colors.pink, fontFamily: "Inter", textTheme: MyTextTheme());
 
 class MyTextTheme extends TextTheme {
   MyTextTheme({
@@ -21,31 +18,39 @@ class MyTextTheme extends TextTheme {
     TextStyle? labelMedium,
     TextStyle? labelSmall,
   }) : super(
-          headlineLarge:  const TextStyle(fontFamily: "DMSerifDisplay", fontSize: 32),
-          headlineMedium: const TextStyle(fontFamily: "DMSerifDisplay", fontSize: 28),
-          headlineSmall: const TextStyle(fontFamily: "DMSerifDisplay", fontSize: 24),
-          titleMedium: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-          titleSmall: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          headlineLarge:
+              const TextStyle(fontFamily: "DMSerifDisplay", fontSize: 32),
+          headlineMedium:
+              const TextStyle(fontFamily: "DMSerifDisplay", fontSize: 28),
+          headlineSmall:
+              const TextStyle(fontFamily: "DMSerifDisplay", fontSize: 24),
+          titleMedium:
+              const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          titleSmall:
+              const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           bodyLarge: TextStyle(fontSize: 18, color: AppTheme.gray700),
           bodyMedium: TextStyle(fontSize: 16, color: AppTheme.gray700),
           bodySmall: TextStyle(fontSize: 14, color: AppTheme.gray700),
-          labelLarge: TextStyle(fontSize: 16, color: AppTheme.gray600, fontWeight: FontWeight.w400),
+          labelLarge: TextStyle(
+              fontSize: 16,
+              color: AppTheme.gray600,
+              fontWeight: FontWeight.w400),
           labelMedium: TextStyle(fontSize: 14, color: AppTheme.gray600),
           labelSmall: TextStyle(fontSize: 12, color: AppTheme.gray600),
         );
 
-  TextStyle bodyMediumSemiBold = TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: AppTheme.gray700);
-  TextStyle bodySmallMedium = TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: AppTheme.gray700);
-  TextStyle bodySmallSemiBold = TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppTheme.gray700);
-
+  TextStyle bodyMediumSemiBold = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w600, color: AppTheme.gray700);
+  TextStyle bodySmallMedium = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w500, color: AppTheme.gray700);
+  TextStyle bodySmallSemiBold = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w600, color: AppTheme.gray700);
 }
 
 class AppTheme {
-
   //Estilos de Texto
   static TextStyle headlineLarge(BuildContext context) {
-    return themeData.textTheme
-        .headlineLarge!
+    return themeData.textTheme.headlineLarge!
         .copyWith(fontFamily: "DMSerifDisplay", fontSize: 32);
   }
 
@@ -124,15 +129,15 @@ class AppTheme {
         .textTheme
         .labelMedium!
         .copyWith(fontSize: 16, color: gray600);
-  } 
-  
+  }
+
   static TextStyle labelMedium(BuildContext context) {
     return Theme.of(context)
         .textTheme
         .labelMedium!
         .copyWith(fontSize: 14, color: gray600);
-  } 
-  
+  }
+
   static TextStyle labelSmall(BuildContext context) {
     return Theme.of(context).textTheme.labelSmall!.copyWith(
           fontSize: 11,
@@ -185,7 +190,7 @@ class AppTheme {
   static Color primary200 = const Color(0xffffcccd);
   static Color primary300 = const Color(0xffffa8aa);
   static Color primary400 = const Color(0xffff8a8c);
-  static Color primary500 = const Color(0xffff686b);
+  static const Color primary500 = Color(0xffff686b);
   static Color primary600 = const Color(0xfff13a3e);
   static Color primary700 = const Color(0xffd0181b);
   static Color primary800 = const Color(0xffaa2a2c);
