@@ -24,7 +24,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
           children: [
             Text(
               'Niños de Hierro',
-              style: AppTheme.headlineLarge(context),
+              style: textTheme.headlineLarge,
             ),
             Container(
               width: 50,
@@ -71,6 +71,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
   }
 }
 
+// Secciones
 class PublicacionesSection extends StatelessWidget {
   const PublicacionesSection({
     Key? key,
@@ -104,12 +105,13 @@ class PublicacionesSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Expanded(
+                Expanded(
                   child: TextField(
                     maxLines: 4,
                     decoration: InputDecoration(
                       hintText: 'Escribe algo...',
                       border: InputBorder.none,
+                      hintStyle: textTheme.labelLarge,
                     ),
                   ),
                 ),
@@ -251,13 +253,13 @@ class ControlAnemiaSection extends StatelessWidget {
                 children: [
                   Text(
                     'Control de Anemia',
-                    style: AppTheme.titleMedium(context),
+                    style: textTheme.titleMedium,
                   ),
                   const SizedBox(height: 8),
                   SizedBox(
                     child: Text(
                       'Lleva un control de la anemia y registra citas pasadas o futuras.',
-                      style: AppTheme.bodySmall(context),
+                      style: textTheme.bodySmall,
                     ),
                   ),
                 ],
@@ -303,7 +305,7 @@ class RecomendadosSection extends StatelessWidget {
             children: [
               Text(
                 'Recomendados',
-                style: AppTheme.headlineSmall(context),
+                style: textTheme.headlineSmall,
               ),
               const ButtonText("Ver más"),
             ],
@@ -336,35 +338,3 @@ class RecomendadosSection extends StatelessWidget {
     );
   }
 }
-
-/* 
-Experto en flutter, dame el codigo para el siguiente arbol de widgets
-
-Columna
-  Container con borde redondeado en 16px
-    Columna
-      TextField con hint "Escribe algo..."
-    Elevated Button (alineado al bottomRight)
-      "Publicar"
-Fila
-  for de 5 Elevated Button con borde redondeado en 20
-card con elevation 0
-  columna
-    Fila
-      Container redondedo de 50px
-      columna
-        Fila
-          "Daniela Flores"
-          "·"
-          "hace 1 dia"
-        Fila
-          Icono de premio
-          "120 puntos"
-  Card con elevation 0
-    Fila
-      Container redondeado de 70px
-      Columna
-        "Daniela Ramos"
-        "¡Ha logrado vencer la anemia!"
-  "Texto de publicacion"
- */

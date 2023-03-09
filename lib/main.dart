@@ -34,12 +34,9 @@ class HomeScreen extends StatelessWidget {
     screenH = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     screenW = MediaQuery.of(context).size.width;
 
-    final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('Mi aplicación', style: textTheme.headlineLarge),
+        title: const Text('Mi aplicación'),
       ),
       body: Center(
         child: Column(

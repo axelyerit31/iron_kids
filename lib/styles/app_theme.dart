@@ -1,10 +1,44 @@
 import 'package:flutter/material.dart';
 
-
+MyTextTheme textTheme = MyTextTheme();
 ThemeData themeData = ThemeData(
-  textTheme: const TextTheme(
-  headlineLarge: TextStyle(fontFamily: "DMSerifDisplay", fontSize: 32)
-));
+  primarySwatch: Colors.pink,
+  fontFamily: "Inter",
+  textTheme: MyTextTheme()
+);
+
+class MyTextTheme extends TextTheme {
+  MyTextTheme({
+    TextStyle? headlineLarge,
+    TextStyle? headlineMedium,
+    TextStyle? headlineSmall,
+    TextStyle? titleMedium,
+    TextStyle? titleSmall,
+    TextStyle? bodyLarge,
+    TextStyle? bodyMedium,
+    TextStyle? bodySmall,
+    TextStyle? labelLarge,
+    TextStyle? labelMedium,
+    TextStyle? labelSmall,
+  }) : super(
+          headlineLarge:  const TextStyle(fontFamily: "DMSerifDisplay", fontSize: 32),
+          headlineMedium: const TextStyle(fontFamily: "DMSerifDisplay", fontSize: 28),
+          headlineSmall: const TextStyle(fontFamily: "DMSerifDisplay", fontSize: 24),
+          titleMedium: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          titleSmall: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          bodyLarge: TextStyle(fontSize: 18, color: AppTheme.gray700),
+          bodyMedium: TextStyle(fontSize: 16, color: AppTheme.gray700),
+          bodySmall: TextStyle(fontSize: 14, color: AppTheme.gray700),
+          labelLarge: TextStyle(fontSize: 16, color: AppTheme.gray600, fontWeight: FontWeight.w400),
+          labelMedium: TextStyle(fontSize: 14, color: AppTheme.gray600),
+          labelSmall: TextStyle(fontSize: 12, color: AppTheme.gray600),
+        );
+
+  TextStyle bodyMediumSemiBold = TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: AppTheme.gray700);
+  TextStyle bodySmallMedium = TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: AppTheme.gray700);
+  TextStyle bodySmallSemiBold = TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppTheme.gray700);
+
+}
 
 class AppTheme {
 
@@ -88,16 +122,17 @@ class AppTheme {
   static TextStyle labelLarge(BuildContext context) {
     return Theme.of(context)
         .textTheme
-        .labelLarge!
-        .copyWith(fontSize: 14, color: gray600);
-  }
-
+        .labelMedium!
+        .copyWith(fontSize: 16, color: gray600);
+  } 
+  
   static TextStyle labelMedium(BuildContext context) {
-    return Theme.of(context).textTheme.labelMedium!.copyWith(
-          fontSize: 12,
-        );
-  }
-
+    return Theme.of(context)
+        .textTheme
+        .labelMedium!
+        .copyWith(fontSize: 14, color: gray600);
+  } 
+  
   static TextStyle labelSmall(BuildContext context) {
     return Theme.of(context).textTheme.labelSmall!.copyWith(
           fontSize: 11,
