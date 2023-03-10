@@ -19,7 +19,7 @@ class CardRecetaSmall extends StatelessWidget {
         color: AppTheme.gray100,
       ),
       child: SizedBox(
-        width: screenW * 1 / 3,
+        width: screenW * 1 / 3 + 15,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

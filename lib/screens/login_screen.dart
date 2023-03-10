@@ -92,7 +92,7 @@ class FormInput extends StatelessWidget {
           InputField(
             controller: emailControllerP,
             placeholder: 'Ingresa tu correo electrónico',
-            iconLeft: Icon(Icons.person_2_outlined),
+            iconLeft: const Icon(Icons.person_2_outlined),
           ),
           AppTheme.spacingWidget5,
 
