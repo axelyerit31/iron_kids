@@ -55,7 +55,7 @@ class PublicacionVencedores extends StatelessWidget {
                   children: [
                     Text(hijo, style: textTheme.titleSmall,),
                     AppTheme.spacingWidget2,
-                    Text('¡Ha logrado vencer la anemia! 🎉💪', style: textTheme.bodyMedium,),
+                    Text('¡Ha logrado vencer la anemia! 🎉💪', style: textTheme.bodyMedium, softWrap: true,),
                   ],
                 ),
               ],
