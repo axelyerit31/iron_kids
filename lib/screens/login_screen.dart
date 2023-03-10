@@ -90,12 +90,16 @@ class FormInput extends StatelessWidget {
           InputField(
             controller: emailControllerP,
             placeholder: 'Ingresa tu correo electrónico',
+            iconLeft: Icon(Icons.person_2_outlined),
           ),
-          AppTheme.spacingWidget5, //espaciador
+          AppTheme.spacingWidget5,
+
           InputField(
             controller: passwordControllerP,
             placeholder: 'Ingresa tu contraseña',
             obscure: true,
+            iconLeft: const Icon(Icons.lock_outline_rounded),
+            iconRight: const Icon(Icons.remove_red_eye_outlined),
           ),
           AppTheme.spacingWidget5,
           Text(
@@ -113,6 +117,7 @@ class FormInput extends StatelessWidget {
             text: 'Inicia sesión',
           ),
           AppTheme.spacingWidget5,
+
           ButtonUI(
             text: 'Registrate',
             outlined: true,
