@@ -19,7 +19,7 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 44,
+        height: 48,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         alignment: Alignment.center,
         decoration: BoxDecoration(
