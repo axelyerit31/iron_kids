@@ -12,7 +12,7 @@ class SearchBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppTheme.gray50,
         borderRadius: AppTheme.borderRadiusL,
-        border:Border.all(color: AppTheme.gray300, width: AppTheme.borderS)
+        border:Border.all(color: AppTheme.gray300, width: 1)
       ),
       child: TextField(
         style: textTheme.bodyMedium,
