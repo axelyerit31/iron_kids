@@ -34,11 +34,8 @@ class PerfilScreen extends StatelessWidget {
           AppTheme.spacingWidget6,
 
           //Botones filtros
-           Container(
-            color: AppTheme.gray800 ,
-            height: 100,
-            width: 100,
-          ),
+           ListFilter(),
+          
        
 
           //Spacing 20px
