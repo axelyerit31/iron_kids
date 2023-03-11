@@ -77,41 +77,41 @@ class CardRecetaSmall extends StatelessWidget {
             // Datos de receta
             Padding(
               padding: const EdgeInsets.all(AppTheme.spacing3),
-              child: FittedBox(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // Tiempo de cocina
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.timer_outlined, color: AppTheme.gray500, size: 20,),
-                            const SizedBox(width: 4),
-                            Text(tiempo, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.gray500)),
-                          ],
-                        ),
-
-                        AppTheme.spacingWidget3,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Tiempo de cocina
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.timer_outlined, color: AppTheme.gray500, size: 20,),
+                          const SizedBox(width: 4),
+                          Text(tiempo, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.gray500)),
+                        ],
+                      ),
               
-                        // Likes
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.thumb_up_outlined, color: AppTheme.gray500, size: 20,),
-                            const SizedBox(width: 4),
-                            Text(likes, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.gray500)),
-                          ],
-                        ),
-                      ],
-                    ),
-              
-                    const SizedBox(height: 8),
-              
-                    // Edad de niño
-                    Row(
+                      AppTheme.spacingWidget3,
+                          
+                      // Likes
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.thumb_up_outlined, color: AppTheme.gray500, size: 20,),
+                          const SizedBox(width: 4),
+                          Text(likes, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.gray500)),
+                        ],
+                      ),
+                    ],
+                  ),
+                          
+                  const SizedBox(height: 8),
+                          
+                  // Edad de niño
+                  FittedBox(
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(Icons.child_care, color: AppTheme.gray500, size: 20,),
@@ -119,8 +119,8 @@ class CardRecetaSmall extends StatelessWidget {
                         Text(edad, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.gray500)),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

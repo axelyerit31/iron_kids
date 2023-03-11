@@ -15,7 +15,7 @@ class Header extends StatelessWidget {
       children: [
         Text(
           title,
-          style: AppTheme.headlineLarge(context),
+          style: textTheme.headlineLarge!.copyWith(color: AppTheme.gray900),
         ),
         Container(
           width: 50,

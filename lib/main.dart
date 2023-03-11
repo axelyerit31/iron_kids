@@ -4,7 +4,6 @@ import 'package:iron_kids/screens/mediafeed_screen.dart';
 import 'package:iron_kids/screens/recetas_screen.dart';
 import 'package:iron_kids/screens/test_anemia_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
-import 'package:iron_kids/styles/widgets/header.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,10 +63,33 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        shadowColor: AppTheme.gray50,
+        elevation: 3,
+        backgroundColor: AppTheme.white,
         toolbarHeight: screenH * 1 / 12,
-        title: const Header(
-          title: 'Niños de Hierro',
+        title: Text(
+          "Niños de Hierro",
+          style: textTheme.headlineLarge!.copyWith(color: AppTheme.gray800),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: AppTheme.spacing4),
+            child: Material(
+              elevation: 0,
+              shape: const CircleBorder(),
+              clipBehavior: Clip.antiAlias,
+              color: Colors.transparent,
+              child: Ink.image(
+                image: const NetworkImage('https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690'),
+                width: 50,
+                height: 50,
+                child: InkWell(
+                  onTap: () {},
+                ),
+              ),
+            ),
+          )
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

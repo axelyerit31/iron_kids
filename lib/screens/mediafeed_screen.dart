@@ -168,19 +168,10 @@ class ControlAnemiaSection extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 16),
-            Container(
-              width: 50,
-              height: 50,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey,
-              ),
-              child: const Icon(
-                Icons.calendar_today,
-                color: Colors.white,
-                size: 20,
-              ),
-            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.arrow_forward_ios)
+            )
           ],
         ),
       ),

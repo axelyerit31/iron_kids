@@ -5,6 +5,6 @@ class ControlAnemiaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(child: Text("Pantalla Control Anemia"));
   }
 }

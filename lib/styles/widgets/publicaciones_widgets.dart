@@ -295,15 +295,18 @@ class PublicacionesHeader extends StatelessWidget {
       children: [
 
         // Imagen Usuario
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: NetworkImage(usuarioLinkImg.isEmpty ? 'https://via.placeholder.com/50x50' : usuarioLinkImg),
-              fit: BoxFit.cover
-            )
+        Material(
+          elevation: 0,
+          shape: const CircleBorder(),
+          clipBehavior: Clip.antiAlias,
+          color: Colors.transparent,
+          child: Ink.image(
+            image: NetworkImage(usuarioLinkImg.isEmpty ? 'https://via.placeholder.com/50x50' : usuarioLinkImg),
+            width: 50,
+            height: 50,
+            child: InkWell(
+              onTap: () {},
+            ),
           ),
         ),
         
