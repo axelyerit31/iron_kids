@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/styles/app_theme.dart';
+import 'package:iron_kids/styles/widgets/buttons.dart';
 
 
 class PublicacionVencedores extends StatelessWidget {
@@ -31,12 +32,14 @@ class PublicacionVencedores extends StatelessWidget {
           
           // Contenido vencedor
           Container(
+            width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: AppTheme.borderRadiusM,
               color: AppTheme.white
             ),
             padding: const EdgeInsets.all(AppTheme.spacing3),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
                   width: 60,
@@ -50,13 +53,17 @@ class PublicacionVencedores extends StatelessWidget {
                   ),
                 ),
                 AppTheme.spacingWidget5,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(hijo, style: textTheme.titleSmall,),
-                    AppTheme.spacingWidget2,
-                    Text('¡Ha logrado vencer la anemia! 🎉💪', style: textTheme.bodyMedium, softWrap: true,),
-                  ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(hijo, style: textTheme.titleSmall,),
+                      AppTheme.spacingWidget2,
+                      const Text(
+                        '¡Ha logrado vencer a la anemia! 🎉💪',
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -101,10 +108,12 @@ class PublicacionExperiencias extends StatelessWidget {
           
           // Contenido receta
           Container(
+            width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: AppTheme.borderRadiusM,
               color: AppTheme.white
             ),
+            padding: const EdgeInsets.only(right: AppTheme.spacing3),
             child: Row(
               children: [
                 Container(
@@ -119,13 +128,15 @@ class PublicacionExperiencias extends StatelessWidget {
                   ),
                 ),
                 AppTheme.spacingWidget5,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Mi experiencia preparando 😋🍽', style: textTheme.bodyMedium,),
-                    AppTheme.spacingWidget2,
-                    Text(recetaTitulo, style: textTheme.titleSmall,),
-                  ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      FittedBox(child: Text('Mi experiencia preparando 😋🍽', style: textTheme.bodyMedium)),
+                      AppTheme.spacingWidget2,
+                      Text(recetaTitulo, style: textTheme.titleSmall,),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -234,7 +245,10 @@ class PublicacionNoticias extends StatelessWidget {
           
           AppTheme.spacingWidget5,
 
-          ElevatedButton(onPressed: () {}, child: const Text("La Republica"))
+          const ButtonOutlined(
+            "La Republica",
+            iconRight: Icons.arrow_forward_ios,
+          )
         ],
       ),
     );

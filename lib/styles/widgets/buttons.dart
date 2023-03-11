@@ -221,3 +221,38 @@ class ButtonOutlined extends StatelessWidget {
     );
   }
 }
+
+class ButtonSecondaryOutlined extends StatelessWidget {
+  final IconData? iconLeft;
+  final IconData? iconRight;
+  final String text;
+  final VoidCallback? onPressed;
+  final int size;
+  final bool disabled;
+
+  const ButtonSecondaryOutlined(this.text,{
+    Key? key,
+    this.iconLeft,
+    this.iconRight,
+    this.onPressed,
+    this.size = 1,
+    this.disabled = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ButtonBase(
+      borderColor: disabled? AppTheme.gray300 : AppTheme.primary500,
+      textColor: disabled? AppTheme.gray300 : AppTheme.primary500,
+      iconLeft: iconLeft,
+      iconRight: iconRight,
+      text: text,
+      onPressed: disabled? null : onPressed?? () {},
+      size: size,
+      style: TextButton.styleFrom(
+        backgroundColor: Colors.transparent,
+        foregroundColor: AppTheme.primary600
+      ),
+    );
+  }
+}

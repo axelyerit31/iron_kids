@@ -54,7 +54,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
             ),
 
             // Spacing 20px
-            AppTheme.spacingWidget6,
+            AppTheme.spacingWidget4,
 
             // Recomendados
             const RecomendadosSection(),
@@ -116,6 +116,7 @@ class PublicacionesSection extends StatelessWidget {
               Expanded(
                 child: TextField(
                   maxLines: 4,
+                  style: textTheme.labelLarge!.copyWith(color: AppTheme.gray700),
                   decoration: InputDecoration(
                     hintText: 'Escribe algo...',
                     border: InputBorder.none,
