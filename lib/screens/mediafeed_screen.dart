@@ -17,7 +17,6 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
           toolbarHeight: screenH * 1 / 12,
           title: Row(

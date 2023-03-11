@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:iron_kids/main.dart';
 import 'package:iron_kids/models/quizzes.dart';
@@ -36,7 +35,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
                   children: [
                     for (final questionTitle in questions!)
                       Padding(
-                        padding: const EdgeInsets.only(left: 0.5),
+                        padding: const EdgeInsets.only(left: AppTheme.spacing9),
                         child: QuestionCard(
                           question: questionTitle.question,
                           options: questionTitle.options,
@@ -67,7 +66,8 @@ class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
+      // AQUI LE PUSE EL ANCHO ESPECIFICO
+      width: screenW * 3 / 4,
       padding: const EdgeInsets.all(AppTheme.spacing6),
       decoration: BoxDecoration(
         color: AppTheme.gray100,
@@ -90,26 +90,29 @@ class QuestionCard extends StatelessWidget {
             style: textTheme.headlineSmall,
           ),
           AppTheme.spacingWidget6,
-          for (final option in options) Option(optionText: 'hola'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Expanded(
-                flex: 5,
-                child: ButtonSecondary(
-                  'Anterior',
-                  size: 2,
+          for (final option in options) Option(optionText: option),
+          SizedBox(
+            width: 200,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Expanded(
+                  flex: 5,
+                  child: ButtonSecondary(
+                    'Anterior',
+                    size: 2,
+                  ),
                 ),
-              ),
-              AppTheme.spacingWidget5,
-              const Expanded(
-                flex: 5,
-                child: ButtonPrimary(
-                  'Siguiente',
-                  size: 2,
-                ),
-              )
-            ],
+                AppTheme.spacingWidget5,
+                const Expanded(
+                  flex: 5,
+                  child: ButtonPrimary(
+                    'Siguiente',
+                    size: 2,
+                  ),
+                )
+              ],
+            ),
           ),
         ],
       ),
