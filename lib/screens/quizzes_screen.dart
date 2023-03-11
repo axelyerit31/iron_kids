@@ -39,13 +39,13 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
                         padding: const EdgeInsets.only(left: 0.5),
                         child: QuestionCard(
                           question: questionTitle.question,
-                          options: [questionTitle.options],
+                          options: questionTitle.options,
                         ),
                       )
                   ],
                 );
               } else if (snapshot.hasError) {
-                return const Text('Error al cargar las recetas');
+                return const Text('Error al cargar las preguntas');
               }
               return const CircularProgressIndicator();
             },
