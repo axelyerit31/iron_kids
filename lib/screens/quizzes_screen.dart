@@ -67,6 +67,7 @@ class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 250,
       padding: const EdgeInsets.all(AppTheme.spacing6),
       decoration: BoxDecoration(
         color: AppTheme.gray100,

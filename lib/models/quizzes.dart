@@ -17,7 +17,7 @@ class Quizz {
   factory Quizz.fromJson(Map<String, dynamic> json) {
     return Quizz(
       id: json['id'],
-      question: json['questions'],
+      question: json['question'],
       options: json['options'],
       index: json['index'],
     );
