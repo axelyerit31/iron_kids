@@ -67,7 +67,7 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // AQUI LE PUSE EL ANCHO ESPECIFICO
-      width: screenW * 3/4,
+      width: screenW * 3 / 4,
       padding: const EdgeInsets.all(AppTheme.spacing6),
       decoration: BoxDecoration(
         color: AppTheme.gray100,

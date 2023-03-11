@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/styles/app_theme.dart';
+import 'package:iron_kids/models/recetas.dart';
+import 'package:iron_kids/styles/app_theme.dart';
+import 'package:iron_kids/styles/widgets.dart';
 
 class PerfilScreen extends StatelessWidget {
   const PerfilScreen({Key? key}) : super(key: key);
@@ -8,82 +11,165 @@ class PerfilScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mi Perfil'),
+        title: Text(
+          'Recetas',
+          style: textTheme.headlineLarge,
+        ),
       ),
-      body: Column(
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+          //Spacing 20px
+          AppTheme.spacingWidget6,
+
+          // Buscador de recetas
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+            child: BuscaReceta(),
+          ),
+
+          //Spacing 20px
+          AppTheme.spacingWidget6,
+
+          //Botones filtros
+           ListFilter(),
+          
+       
+
+          //Spacing 20px
+          AppTheme.spacingWidget6,
+
+          //Recetas
+          const ListaRecetas()
+        ]),
+      ),
+      bottomNavigationBar: Row(),
+    );
+  }
+}
+
+//Estructura
+class BuscaReceta extends StatelessWidget {
+  const BuscaReceta({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+    
+      child: Row(
         children: [
-          const SizedBox(height: 20.0),
-          CircleAvatar(
-            radius: 50.0,
-            backgroundColor: AppTheme.primary400,
-          ),
-          const SizedBox(height: 20.0),
-          const Text(
-            'Nombre de usuario',
-            style: TextStyle(
-              fontSize: 25.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 10.0),
-          Text(
-            'Descripción de usuario',
-            style: TextStyle(
-              fontSize: 18.0,
-              color: Colors.grey[600],
-            ),
-          ),
-          const SizedBox(height: 20.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [
-                  Text(
-                    'Siguiendo',
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 18.0,
-                    ),
-                  ),
-                  const SizedBox(height: 5.0),
-                  const Text(
-                    '100',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  Text(
-                    'Seguidores',
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 18.0,
-                    ),
-                  ),
-                  const SizedBox(height: 5.0),
-                  const Text(
-                    '200',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 20.0),
+          //Buscador
+          const SearchBar(),
+
+          AppTheme.spacingWidget6,
+
+          //Boton
           ElevatedButton(
             onPressed: () {},
-            child: const Text('Editar Perfil'),
+            style: ButtonStyle(
+              fixedSize: MaterialStateProperty.all(Size(84, 45)),
+              backgroundColor: MaterialStateProperty.all(AppTheme.primary500),
+              //elevation: MaterialStateProperty.all(0),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: AppTheme.borderRadiusS,
+                ),
+              ),
+            ),
+            child: 
+              Text('Filtrar', 
+                style: TextStyle(
+                  color:AppTheme.primary50
+                ) ,
+            ),
           ),
         ],
       ),
     );
   }
+}
+
+class BotonsFilter extends StatelessWidget {
+  const BotonsFilter({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const ListFilter();
+  }
+}
+
+
+
+
+class ListaRecetas extends StatelessWidget {
+  const ListaRecetas({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row();
+  }
+}
+
+// Widget locals
+
+class ListFilter extends StatelessWidget {
+  const ListFilter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [
+      for(final filtro in _list)
+        Container(
+          padding: const EdgeInsets.all(AppTheme.spacing4),
+          width: 84,
+          height: 36,
+          child: ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(filtro.color),
+                elevation: MaterialStateProperty.all(0),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: AppTheme.borderRadiusM,
+                  ),
+                ),
+              ),
+              child: Text(filtro.text)),
+        )
+    ],
+
+    );
+  }
+}
+
+List<Filtros> _list = [
+  Filtros(id: 0, color: AppTheme.primary50, text: 'recomendado'),
+  Filtros(id: 1, color: AppTheme.gray100, text: 'todo'),
+  Filtros(id: 2, color: AppTheme.gray100, text: 'costa'),
+  Filtros(id: 3, color: AppTheme.gray100, text: 'sierra'),
+  Filtros(id: 4, color: AppTheme.gray100, text: 'selva')
+];
+
+class Filtros {
+  final int id;
+  final Color color;
+  final String text;
+
+  Filtros({required this.id, required this.color, required this.text});
+
+  // factory Filtros.fromJson(Map<String, dynamic> json) {
+  //   return Filtros(
+  //     id: json['id'],
+  //     color: json['color'],
+  //     text: json['text']
+  //   );
+  // }
 }
