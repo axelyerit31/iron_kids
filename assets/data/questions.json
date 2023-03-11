@@ -1,0 +1,34 @@
+[
+    {
+        "id": 0,
+        "question": "¿Qué beneficios da el consumo de hierro en niños?",
+        "options": ["A. Falta de apetito","B. Prevención de anemia", "C. Aumento de peso", "D. Vitaminas"],
+        "index":1
+        
+    },
+
+    {
+        "id": 1,
+        "question": "¿Es igual en consumo de hierro en niños y en adultos?",
+        "options": ["A. Es igual para los dos","B. Varia muy poco", "C. En los niños es más", "D. En los adultos es  más"],
+        "index" : 2
+
+    },
+    {
+        "id": 2,
+        "question": "¿Qué bebidas deben evitarse para la buena absorción el hierro?",
+        "options": ["A. Té y Café","B. Jugos de frutas", "C. Refrescos ", "D. Agua mineral"],
+        "index" : 0
+
+    },
+
+    {
+        "id": 3,
+        "question": "Antes de adquirir un nuevo suplemento es importante...?",
+        "options": ["A. Revisar el precio","B. Ver fecha de caducidad", "C. Ver el sabor que tiene", "D. Consultar a un especialista"],
+        "index" : 3
+
+    }
+
+   
+]

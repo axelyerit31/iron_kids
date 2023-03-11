@@ -39,7 +39,6 @@ class ImageLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        //height: screenH / 4.5,
         width: screenW,
         decoration: const BoxDecoration(
           color: Colors.amber,
@@ -76,26 +75,33 @@ class FormInput extends StatelessWidget {
         ), //AppTheme.borderRadiusXL,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             '¡Bienvenido de vuelta!',
             style: AppTheme.headlineSmall(context),
+            textAlign: TextAlign.center,
           ),
           AppTheme.spacingWidget3, //espaciador
           Text(
             'Ingresa tus datos en la parte de abajo',
             style: AppTheme.bodySmallMedium(context),
+            textAlign: TextAlign.center,
           ),
           AppTheme.spacingWidget7, //espaciador
           InputField(
             controller: emailControllerP,
             placeholder: 'Ingresa tu correo electrónico',
+            iconLeft: const Icon(Icons.person_2_outlined),
           ),
-          AppTheme.spacingWidget5, //espaciador
+          AppTheme.spacingWidget5,
+
           InputField(
             controller: passwordControllerP,
             placeholder: 'Ingresa tu contraseña',
             obscure: true,
+            iconLeft: const Icon(Icons.lock_outline_rounded),
+            iconRight: const Icon(Icons.remove_red_eye_outlined),
           ),
           AppTheme.spacingWidget5,
           Text(
@@ -109,14 +115,16 @@ class FormInput extends StatelessWidget {
                 ),
           ),
           AppTheme.spacingWidget6,
-          ButtonUI(
-            text: 'Inicia sesión',
+          const ButtonPrimary(
+            'Inicia sesión',
+            size: 2,
           ),
           AppTheme.spacingWidget5,
-          ButtonUI(
-            text: 'Registrate',
-            outlined: true,
+          const ButtonOutlined(
+            'Registrate',
+            size: 2,
           ),
+
           AppTheme.spacingWidget5,
           Flex(
             direction: Axis.horizontal,
@@ -154,11 +162,10 @@ class FormInput extends StatelessWidget {
             ],
           ),
           AppTheme.spacingWidget5,
-          ButtonUI(
-            text: 'Ingresa con Google',
-            outlined: true,
-            color: AppTheme.gray600,
-          )
+          const ButtonSecondary(
+            'ingresa con Google',
+            size: 2,
+          ),
         ],
       ),
     );
@@ -187,7 +194,7 @@ class ButtonUI extends StatelessWidget {
         // Validar las credenciales y continuar a la siguiente pantalla
       },
       style: ElevatedButton.styleFrom(
-        primary: (outlined) ? AppTheme.gray50 : color,
+        backgroundColor: (outlined) ? AppTheme.gray50 : color,
         minimumSize: const Size(350, 50),
         shape: RoundedRectangleBorder(
           borderRadius: AppTheme.borderRadiusL,
