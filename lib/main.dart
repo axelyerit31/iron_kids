@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/screens/control_anemia_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
 import 'package:iron_kids/screens/perfil_screen.dart';
 
@@ -18,7 +19,9 @@ double screenH = 0;
 // Lista de pantallas en el botttomNavigationBare
 const List<Widget> _pages = <Widget>[
   PerfilScreen(),
+  TestAnemiaScreen(),
   MediaFeedScreen(),
+  ControlAnemiaScreen(),
   TestAnemiaScreen(),
 ];
 
@@ -46,7 +49,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
   
   void _onItemTapped(int index) {
     setState(() {
@@ -68,14 +71,28 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        unselectedFontSize: 14,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        unselectedItemColor: AppTheme.gray600,
+        selectedItemColor: AppTheme.primary500,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.restaurant),
             label: 'Recetas',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.water_drop_outlined),
+            label: 'Test',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.home_filled),
-            label: 'Feed',
+            label: 'Inicio',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bar_chart_outlined),
+            label: 'Control',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.arrow_forward_ios),
