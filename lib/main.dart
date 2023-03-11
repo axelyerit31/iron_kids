@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iron_kids/screens/botones_muestra.dart';
 import 'package:iron_kids/screens/login_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
-import 'package:iron_kids/screens/perfil_screen.dart';
+import 'package:iron_kids/screens/recetas_screen.dart';
 
 import 'package:iron_kids/screens/quizzes_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const PerfilScreen()),
+                  MaterialPageRoute(builder: (context) => const RecetasScreen()),
                 );
               },
               child: const Text('Ir a Recetas'),

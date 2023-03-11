@@ -4,8 +4,8 @@ import 'package:iron_kids/models/recetas.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 
-class PerfilScreen extends StatelessWidget {
-  const PerfilScreen({Key? key}) : super(key: key);
+class RecetasScreen extends StatelessWidget {
+  const RecetasScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
