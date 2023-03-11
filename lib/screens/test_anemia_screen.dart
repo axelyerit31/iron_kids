@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/screens/botones_muestra.dart';
 import 'package:iron_kids/screens/login_screen.dart';
-import 'package:iron_kids/screens/mediafeed_screen.dart';
 import 'package:iron_kids/screens/perfil_screen.dart';
 import 'package:iron_kids/screens/quizzes_screen.dart';
 
@@ -10,24 +9,10 @@ class TestAnemiaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Pruebas"),
-      ),
-      body: Center(
+    return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const MediaFeedScreen()),
-                );
-              },
-              child: const Text('Ir a Media Feed'),
-            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -68,7 +53,6 @@ class TestAnemiaScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

@@ -27,7 +27,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                 child: ControlAnemiaSection()),
 
             // Spacing 20px
-            AppTheme.spacingWidget4,
+            AppTheme.spacingWidget5,
 
             // Recomendados
             const RecomendadosSection(),
@@ -208,8 +208,11 @@ class RecomendadosSection extends StatelessWidget {
                 'Recomendados',
                 style: textTheme.headlineSmall,
               ),
-              const ButtonText(
-                "Ver más",
+              const SizedBox(
+                height: 35,
+                child: ButtonText(
+                  "Ver más",
+                ),
               ),
             ],
           ),

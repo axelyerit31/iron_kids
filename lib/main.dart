@@ -17,9 +17,9 @@ double screenH = 0;
 
 // Lista de pantallas en el botttomNavigationBare
 const List<Widget> _pages = <Widget>[
-  TestAnemiaScreen(),
-  MediaFeedScreen(),
   PerfilScreen(),
+  MediaFeedScreen(),
+  TestAnemiaScreen(),
 ];
 
 class MyApp extends StatelessWidget {
@@ -70,16 +70,16 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.call),
-            label: 'Calls',
+            icon: Icon(Icons.restaurant),
+            label: 'Recetas',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
+            icon: Icon(Icons.home_filled),
+            label: 'Feed',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.arrow_forward_ios),
             label: 'Pruebas',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chats',
           ),
         ],
         currentIndex: _selectedIndex, //New
