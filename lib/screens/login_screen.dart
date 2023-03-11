@@ -39,7 +39,6 @@ class ImageLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        //height: screenH / 4.5,
         width: screenW,
         decoration: const BoxDecoration(
           color: Colors.amber,
@@ -76,15 +75,18 @@ class FormInput extends StatelessWidget {
         ), //AppTheme.borderRadiusXL,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             '¡Bienvenido de vuelta!',
             style: AppTheme.headlineSmall(context),
+            textAlign: TextAlign.center,
           ),
           AppTheme.spacingWidget3, //espaciador
           Text(
             'Ingresa tus datos en la parte de abajo',
             style: AppTheme.bodySmallMedium(context),
+            textAlign: TextAlign.center,
           ),
           AppTheme.spacingWidget7, //espaciador
           InputField(
@@ -113,15 +115,16 @@ class FormInput extends StatelessWidget {
                 ),
           ),
           AppTheme.spacingWidget6,
-          ButtonUI(
-            text: 'Inicia sesión',
+          const ButtonPrimary(
+            'Inicia sesión',
+            size: 2,
           ),
           AppTheme.spacingWidget5,
-
-          ButtonUI(
-            text: 'Registrate',
-            outlined: true,
+          const ButtonOutlined(
+            'Registrate',
+            size: 2,
           ),
+
           AppTheme.spacingWidget5,
           Flex(
             direction: Axis.horizontal,
@@ -159,11 +162,10 @@ class FormInput extends StatelessWidget {
             ],
           ),
           AppTheme.spacingWidget5,
-          ButtonUI(
-            text: 'Ingresa con Google',
-            outlined: true,
-            color: AppTheme.gray600,
-          )
+          const ButtonSecondary(
+            'ingresa con Google',
+            size: 2,
+          ),
         ],
       ),
     );
