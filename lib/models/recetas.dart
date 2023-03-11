@@ -11,7 +11,16 @@ class Receta {
   final List<dynamic> ingredientes;
   final List<dynamic> pasos;
 
-  Receta({required this.id, required this.titulo, required this.imagen, required this.tiempo, required this.likes, required this.edad, required this.ingredientes, required this.pasos});
+  Receta({
+    required this.id,
+    required this.titulo,
+    required this.imagen,
+    required this.tiempo,
+    required this.likes,
+    required this.edad,
+    required this.ingredientes,
+    required this.pasos,
+  });
 
   factory Receta.fromJson(Map<String, dynamic> json) {
     return Receta(
@@ -31,7 +40,8 @@ class RecetasService {
   static Future<List<Receta>> obtenerRecetas() async {
     String jsonString = await rootBundle.loadString('assets/data/recetas.json');
     List<dynamic> jsonList = json.decode(jsonString);
-    List<Receta> recetas = jsonList.map((json) => Receta.fromJson(json)).toList();
+    List<Receta> recetas =
+        jsonList.map((json) => Receta.fromJson(json)).toList();
     return recetas;
   }
 }

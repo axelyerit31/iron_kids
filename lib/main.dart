@@ -3,6 +3,7 @@ import 'package:iron_kids/screens/botones_muestra.dart';
 import 'package:iron_kids/screens/login_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
 import 'package:iron_kids/screens/perfil_screen.dart';
+import 'package:iron_kids/screens/prueba.dart';
 import 'package:iron_kids/screens/quizzes_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 
@@ -92,6 +93,15 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               child: const Text('Ir a muestra de botones'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyWidget()),
+                );
+              },
+              child: const Text('Ir a prueba'),
             ),
           ],
         ),
