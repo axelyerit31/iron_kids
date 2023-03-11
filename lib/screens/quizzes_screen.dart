@@ -23,35 +23,126 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
           title: 'Niños de Hierro',
         ),
       ),
-      body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          child: FutureBuilder<List<Quizz>>(
-            future: QuizzService.getQuizz(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                final questions = snapshot.data;
-                return Row(
-                  children: [
-                    for (final questionTitle in questions!)
-                      Padding(
-                        padding: const EdgeInsets.only(left: AppTheme.spacing9),
-                        child: QuestionCard(
-                          question: questionTitle.question,
-                          options: questionTitle.options,
-                        ),
-                      )
-                  ],
-                );
-              } else if (snapshot.hasError) {
-                return const Text('Error al cargar las preguntas');
-              }
-              return const CircularProgressIndicator();
-            },
-          )),
+      body: Column(
+        children: [
+          AppTheme.spacingWidget8,
+          const CardProgress(),
+          AppTheme.spacingWidget9,
+          SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              child: FutureBuilder<List<Quizz>>(
+                future: QuizzService.getQuizz(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    final questions = snapshot.data;
+                    return Row(
+                      children: [
+                        for (final questionTitle in questions!)
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: AppTheme.spacing9),
+                            child: QuestionCard(
+                              question: questionTitle.question,
+                              options: questionTitle.options,
+                            ),
+                          )
+                      ],
+                    );
+                  } else if (snapshot.hasError) {
+                    return const Text('Error al cargar las preguntas');
+                  }
+                  return const CircularProgressIndicator();
+                },
+              )),
+        ],
+      ),
     );
   }
 }
+
+//Contenedor del progreso de las preguntas
+
+class CardProgress extends StatelessWidget {
+  const CardProgress({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        alignment: Alignment.centerLeft,
+        width: screenW * 5 / 6,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Hierro, el super héroe de la salud',
+                  style: textTheme.bodyMediumSemiBold,
+                ),
+                Text(
+                  '1 de 4',
+                  style: textTheme.bodyMediumSemiBold.copyWith(
+                    color: AppTheme.gray600,
+                  ),
+                ),
+              ],
+            ),
+            AppTheme.spacingWidget6,
+            //esto lo puse asi por mientras xd, solo para ver como se ve T_T
+            Container(
+              width: double.infinity,
+              child: Flex(
+                direction: Axis.horizontal,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 2,
+                      decoration: BoxDecoration(
+                        color: AppTheme.primary600,
+                      ),
+                    ),
+                  ),
+                  AppTheme.spacingWidget4,
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 2,
+                      decoration: BoxDecoration(
+                        color: AppTheme.primary100,
+                      ),
+                    ),
+                  ),
+                  AppTheme.spacingWidget4,
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 2,
+                      decoration: BoxDecoration(
+                        color: AppTheme.primary100,
+                      ),
+                    ),
+                  ),
+                  AppTheme.spacingWidget4,
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 2,
+                      decoration: BoxDecoration(
+                        color: AppTheme.primary100,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ));
+  }
+} //Tarjetas de las preguntas
 
 class QuestionCard extends StatelessWidget {
   final String question;
@@ -67,7 +158,7 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // AQUI LE PUSE EL ANCHO ESPECIFICO
-      width: screenW * 3 / 4,
+      width: screenW * 6 / 7,
       padding: const EdgeInsets.all(AppTheme.spacing6),
       decoration: BoxDecoration(
         color: AppTheme.gray100,
