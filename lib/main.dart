@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iron_kids/screens/botones_muestra.dart';
-import 'package:iron_kids/screens/login_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
 import 'package:iron_kids/screens/recetas_screen.dart';
-
-import 'package:iron_kids/screens/quizzes_screen.dart';
+import 'package:iron_kids/screens/test_anemia_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
+import 'package:iron_kids/styles/widgets/header.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +12,14 @@ void main() {
 double screenW = 0;
 double screenH = 0;
 
-int _selectedIndex = 0;
+
+
+// Lista de pantallas en el botttomNavigationBare
+const List<Widget> _pages = <Widget>[
+  RecetasScreen(),
+  MediaFeedScreen(),
+  TestAnemiaScreen(),
+];
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -40,6 +45,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   
+  int _selectedIndex = 0;
+  
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -54,81 +61,33 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mi aplicación'),
+        toolbarHeight: screenH * 1 / 12,
+        title: const Header(
+          title: 'Niños de Hierro',
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.call),
-            label: 'Calls',
+            icon: Icon(Icons.restaurant),
+            label: 'Recetas',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
-            label: 'Camera',
+            icon: Icon(Icons.home_filled),
+            label: 'Feed',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chats',
+            icon: Icon(Icons.arrow_forward_ios),
+            label: 'Pruebas',
           ),
         ],
         currentIndex: _selectedIndex, //New
-        onTap: _onItemTapped,   
+        onTap: _onItemTapped,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const MediaFeedScreen()),
-                );
-              },
-              child: const Text('Ir a Media Feed'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const RecetasScreen()),
-                );
-              },
-              child: const Text('Ir a Recetas'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
-                );
-              },
-              child: const Text('Ir a Login'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const QuizzesScreen()),
-                );
-              },
-              child: const Text('Ir a quizzes'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const BotonesMuestraScreen()),
-                );
-              },
-              child: const Text('Ir a muestra de botones'),
-            ),
-          ],
-        ),
-      ),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages
+      )
     );
   }
 }

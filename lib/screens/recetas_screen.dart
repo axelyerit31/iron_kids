@@ -59,7 +59,6 @@ class BuscaReceta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-    
       child: Row(
         children: [
           //Buscador
@@ -172,4 +171,9 @@ class Filtros {
   //     text: json['text']
   //   );
   // }
+}
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
 }
