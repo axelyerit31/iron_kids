@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const PerfilScreen()),
                 );
               },
-              child: const Text('Ir a Perfil Madre'),
+              child: const Text('Ir a Recetas'),
             ),
             ElevatedButton(
               onPressed: () {

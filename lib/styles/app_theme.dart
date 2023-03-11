@@ -151,6 +151,11 @@ class AppTheme {
   static BorderRadius borderRadiusM = BorderRadius.circular(14);
   static BorderRadius borderRadiusS = BorderRadius.circular(10);
 
+  //Grosor de borde
+  static const double borderL = 3;
+  static const double borderM = 2;
+  static const double borderS = 1;
+
   //Spacing Double
   static const double spacing1 = 2;
   static const double spacing2 = 4;
