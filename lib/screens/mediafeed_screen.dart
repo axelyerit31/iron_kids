@@ -16,31 +16,7 @@ class MediaFeedScreen extends StatefulWidget {
 class _MediaFeedScreenState extends State<MediaFeedScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          toolbarHeight: screenH * 1 / 12,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Niños de Hierro',
-                style: textTheme.headlineLarge,
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.grey,
-                    image: DecorationImage(
-                      image: NetworkImage('https://via.placeholder.com/50x50'),
-                      fit: BoxFit.cover,
-                    )),
-              ),
-            ],
-          ),
-        ),
-        body: SingleChildScrollView(
+    return SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(children: [
             //Spacing 20px
@@ -67,7 +43,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
               child: PublicacionesSection(),
             )
           ]),
-        ));
+        );
   }
 }
 

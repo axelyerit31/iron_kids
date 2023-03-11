@@ -90,7 +90,7 @@ class QuestionCard extends StatelessWidget {
             style: textTheme.headlineSmall,
           ),
           AppTheme.spacingWidget6,
-          for (final option in options) const Option(optionText: 'hola'),
+          for (final option in options) Option(optionText: option),
           SizedBox(
             width: 200,
             child: Row(
