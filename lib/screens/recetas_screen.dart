@@ -9,18 +9,11 @@ class RecetasScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Recetas',
-          style: textTheme.headlineLarge,
-        ),
-      ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
           //Spacing 20px
           AppTheme.spacingWidget6,
 
@@ -34,18 +27,15 @@ class RecetasScreen extends StatelessWidget {
           AppTheme.spacingWidget6,
 
           //Botones filtros
-           ListFilter(),
-          
-       
+          ListFilter(),
 
           //Spacing 20px
           AppTheme.spacingWidget6,
 
           //Recetas
           const ListaRecetas()
-        ]),
+        ]
       ),
-      bottomNavigationBar: Row(),
     );
   }
 }
@@ -79,11 +69,9 @@ class BuscaReceta extends StatelessWidget {
                 ),
               ),
             ),
-            child: 
-              Text('Filtrar', 
-                style: TextStyle(
-                  color:AppTheme.primary50
-                ) ,
+            child: Text(
+              'Filtrar',
+              style: TextStyle(color: AppTheme.primary50),
             ),
           ),
         ],
@@ -103,9 +91,6 @@ class BotonsFilter extends StatelessWidget {
   }
 }
 
-
-
-
 class ListaRecetas extends StatelessWidget {
   const ListaRecetas({
     Key? key,
@@ -124,27 +109,27 @@ class ListFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      for(final filtro in _list)
-        Container(
-          padding: const EdgeInsets.all(AppTheme.spacing4),
-          width: 84,
-          height: 36,
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(filtro.color),
-                elevation: MaterialStateProperty.all(0),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: AppTheme.borderRadiusM,
+    return Row(
+      children: [
+        for (final filtro in _list)
+          Container(
+            padding: const EdgeInsets.all(AppTheme.spacing4),
+            width: 84,
+            height: 36,
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(filtro.color),
+                  elevation: MaterialStateProperty.all(0),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: AppTheme.borderRadiusM,
+                    ),
                   ),
                 ),
-              ),
-              child: Text(filtro.text)),
-        )
-    ],
-
+                child: Text(filtro.text)),
+          )
+      ],
     );
   }
 }
@@ -172,8 +157,8 @@ class Filtros {
   //   );
   // }
 }
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+
+@override
+Widget build(BuildContext context) {
+  return Container();
 }
