@@ -2,9 +2,10 @@
 
 ### <p align="center"> El Perú es un país único en su cultura y en su gente, poseemos 3 regiones naturales, la costa, la sierra y la selva, que a pesar de las crisis económicas y políticas que ha padecido, ha sabido y sabe y puede salir adelante, pero como en todo país siempre hay cosas de las que adolece, El Perú no es la excepción, la anemia es un problema que afecta a todos, de hecho en el año 2019 la situación actual de la anemia bordeaba el 40,1% de casos de niños menores de 6 a 35 meses que tenían anemia como promedio nacional, siendo unas de las más afectadas con una prevalencia muy alta de casos de anemia, el departamento de Puno y Cusco. <p>
 
-<br>
-
 #### <p align="center"> Nuestra solución "Niños de hierro" es una propuesta para el desarrollo sostenible del Perú que ayudará a la lucha contra la anemia de manera pasiva y activa, es decir fomentará la prevención de la anemia y ayudará al seguimiento o control de los casos de anemias <p>
+
+<br>
+<br>
 
 - 📝 **Objetivos:** De esta manera ayudamos a cumplir los objetivos propuestos por la ONU para el 2030, especificamente el ODS 2.2: *"El poner fin a todas las formas de malnutrición"*, asi como el ODS 3: *"Garantizar una vida sana y promover el bienestar en todas las edades"* 
 
