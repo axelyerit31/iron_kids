@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   MaterialPageRoute(builder: (context) => const PerfilScreen()),
                 );
               },
-              child: const Text('Ir a Perfil Madre'),
+              child: const Text('Ir a Recetas'),
             ),
             ElevatedButton(
               onPressed: () {

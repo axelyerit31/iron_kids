@@ -5,7 +5,6 @@ import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 import 'package:iron_kids/styles/widgets/publicaciones_widgets.dart';
 
-
 class MediaFeedScreen extends StatefulWidget {
   const MediaFeedScreen({Key? key}) : super(key: key);
 
@@ -22,10 +21,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Niños de Hierro',
-                style: textTheme.headlineLarge,
-              ),
+              Text('Niños de Hierro', style: textTheme.headlineLarge),
               Container(
                 width: 50,
                 height: 50,
@@ -48,9 +44,8 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
 
             // Tarjeta control de anemia
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-              child: ControlAnemiaSection(),
-            ),
+                padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+                child: ControlAnemiaSection()),
 
             // Spacing 20px
             AppTheme.spacingWidget4,
@@ -246,35 +241,37 @@ class RecomendadosSection extends StatelessWidget {
 
         // Carrusel de recetas recomendadas
         SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          child: FutureBuilder<List<Receta>>(
-            future: RecetasService.obtenerRecetas(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                final recetas = snapshot.data;
-                return Row(
-                  children: [
-                    for (final receta in recetas!)
-                      Padding(
-                        padding: EdgeInsets.only(left: receta.id == 0 ? AppTheme.spacing6 : AppTheme.spacing4),
-                        child: CardRecetaSmall(
-                          linkImg: receta.imagen,
-                          titulo: receta.titulo,
-                          tiempo: receta.tiempo,
-                          likes: receta.likes,
-                          edad: receta.edad,
-                        ),
-                      )
-                  ],
-                );
-              } else if (snapshot.hasError) {
-                return const Text('Error al cargar las recetas');
-              }
-              return const CircularProgressIndicator();
-            },
-          )
-        ),
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            child: FutureBuilder<List<Receta>>(
+              future: RecetasService.obtenerRecetas(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  final recetas = snapshot.data;
+                  return Row(
+                    children: [
+                      for (final receta in recetas!)
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: receta.id == 0
+                                  ? AppTheme.spacing6
+                                  : AppTheme.spacing4),
+                          child: CardRecetaSmall(
+                            linkImg: receta.imagen,
+                            titulo: receta.titulo,
+                            tiempo: receta.tiempo,
+                            likes: receta.likes,
+                            edad: receta.edad,
+                          ),
+                        )
+                    ],
+                  );
+                } else if (snapshot.hasError) {
+                  return const Text('Error al cargar las recetas');
+                }
+                return const CircularProgressIndicator();
+              },
+            )),
       ],
     );
   }
