@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/screens/control_anemia_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
-import 'package:iron_kids/screens/perfil_screen.dart';
-
+import 'package:iron_kids/screens/recetas_screen.dart';
 import 'package:iron_kids/screens/test_anemia_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets/header.dart';
@@ -18,7 +17,7 @@ double screenH = 0;
 
 // Lista de pantallas en el botttomNavigationBare
 const List<Widget> _pages = <Widget>[
-  PerfilScreen(),
+  RecetasScreen(),
   TestAnemiaScreen(),
   MediaFeedScreen(),
   ControlAnemiaScreen(),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/screens/botones_muestra.dart';
 import 'package:iron_kids/screens/login_screen.dart';
-import 'package:iron_kids/screens/perfil_screen.dart';
+import 'package:iron_kids/screens/recetas_screen.dart';
 import 'package:iron_kids/screens/quizzes_screen.dart';
 
 class TestAnemiaScreen extends StatelessWidget {
@@ -17,7 +17,7 @@ class TestAnemiaScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const PerfilScreen()),
+                  MaterialPageRoute(builder: (context) => const RecetasScreen()),
                 );
               },
               child: const Text('Ir a Perfil Madre'),
