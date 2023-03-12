@@ -54,13 +54,13 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
               // Tarjeta control de anemia
               const Padding(
                   padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-                  child: ControlAnemiaSection()),
+                  child: _ControlAnemiaSection()),
     
               // Spacing 20px
               AppTheme.spacingWidget5,
     
               // Recomendados
-              const RecomendadosSection(),
+              const _RecomendadosSection(),
     
               // Spacing 20px
               AppTheme.spacingWidget6,
@@ -68,7 +68,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
               // Publicaciones
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-                child: PublicacionesSection(),
+                child: _PublicacionesSection(),
               )
             ]),
           ),
@@ -77,9 +77,9 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
 }
 
 // Secciones
-class PublicacionesSection extends StatelessWidget {
+class _PublicacionesSection extends StatelessWidget {
 
-  PublicacionesSection({
+  _PublicacionesSection({
     Key? key,
   }) : super(key: key);
 
@@ -164,8 +164,8 @@ class PublicacionesSection extends StatelessWidget {
   }
 }
 
-class ControlAnemiaSection extends StatelessWidget {
-  const ControlAnemiaSection({
+class _ControlAnemiaSection extends StatelessWidget {
+  const _ControlAnemiaSection({
     Key? key,
   }) : super(key: key);
 
@@ -211,8 +211,8 @@ class ControlAnemiaSection extends StatelessWidget {
   }
 }
 
-class RecomendadosSection extends StatelessWidget {
-  const RecomendadosSection({
+class _RecomendadosSection extends StatelessWidget {
+  const _RecomendadosSection({
     Key? key,
   }) : super(key: key);
 
