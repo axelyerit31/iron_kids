@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/routeGenerator.dart';
 import 'package:iron_kids/screens/control_anemia_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
 import 'package:iron_kids/screens/perfil_madre_screen.dart';
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: themeData,
