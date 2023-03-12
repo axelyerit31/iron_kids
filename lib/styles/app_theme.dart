@@ -132,7 +132,7 @@ class AppTheme {
   static Color primary900 = const Color(0xff772f30);
 
   //Gray Scale
-  static Color white = const Color(0xffffffff);
+  static const Color white = Color(0xffffffff);
   static Color gray50 = const Color(0xfffcfcfd);
   static Color gray100 = const Color(0xffF3F8FC);
   static Color gray200 = const Color(0xffe7eaf0);

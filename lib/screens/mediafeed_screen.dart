@@ -15,33 +15,64 @@ class MediaFeedScreen extends StatefulWidget {
 class _MediaFeedScreenState extends State<MediaFeedScreen> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(children: [
-            //Spacing 20px
-            AppTheme.spacingWidget6,
-
-            // Tarjeta control de anemia
-            const Padding(
-                padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-                child: ControlAnemiaSection()),
-
-            // Spacing 20px
-            AppTheme.spacingWidget5,
-
-            // Recomendados
-            const RecomendadosSection(),
-
-            // Spacing 20px
-            AppTheme.spacingWidget6,
-
-            // Publicaciones
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-              child: PublicacionesSection(),
-            )
-          ]),
-        );
+    return Scaffold(
+      appBar: AppBar(
+        shadowColor: AppTheme.gray50,
+        elevation: 3,
+        backgroundColor: AppTheme.white,
+        toolbarHeight: screenH * 1 / 12,
+        title: Text(
+          "Niños de Hierro",
+          style: textTheme.headlineLarge!.copyWith(color: AppTheme.gray800),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: AppTheme.spacing4),
+            child: Material(
+              elevation: 0,
+              shape: const CircleBorder(),
+              clipBehavior: Clip.antiAlias,
+              color: Colors.transparent,
+              child: Ink.image(
+                image: const NetworkImage('https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690'),
+                width: 50,
+                height: 50,
+                child: InkWell(
+                  onTap: () {},
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(children: [
+              //Spacing 20px
+              AppTheme.spacingWidget6,
+    
+              // Tarjeta control de anemia
+              const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+                  child: ControlAnemiaSection()),
+    
+              // Spacing 20px
+              AppTheme.spacingWidget5,
+    
+              // Recomendados
+              const RecomendadosSection(),
+    
+              // Spacing 20px
+              AppTheme.spacingWidget6,
+    
+              // Publicaciones
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+                child: PublicacionesSection(),
+              )
+            ]),
+          ),
+    );
   }
 }
 
@@ -56,7 +87,7 @@ class PublicacionesSection extends StatelessWidget {
 
     const PublicacionVencedores(usuarioLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_daniela_flores.png?alt=media&token=4ffeb2b6-3b4e-401c-b2f9-f6f41236387b", usuario: "Daniela Flores", fecha: "hace 1 día", puntos: "120 puntos", hijo: "Daniela Ramos", hijoLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar_2.png?alt=media&token=8f716cc4-93c4-4d80-8ba1-9c984cd454e9", body: "Quiero compartir con todos que mi hija finalmente venció la anemia 🥳🎊 Ha sido un camino difícil para ella y nuestra familia, pero estamos tan agradecidos de que finalmente esté en plena salud. Gracias a todos los que nos apoyaron en este camino 🙏"),
 
-    const PublicacionExperiencias(usuarioLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690", usuario: "Lupe Batallán", fecha: "hace 1 día", puntos: "230 puntos", recetaTitulo: "Chaufa de Sangrecita", recetaLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=b983eb50-fcc3-46d8-a09b-a4220f858f77", body: "Hace unos meses, mi hijo de 1 año tuvo una deficiencia de hemoglobina y su médico recomendó una dieta rica en hierro. Sabía que la sangrecita es una gran fuente de hierro, y en esta receta me encantó!! 😍"),
+    const PublicacionExperiencias(usuarioLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690", usuario: "Lupe Batallán", fecha: "hace 1 día", puntos: "20 puntos", recetaTitulo: "Chaufa de Sangrecita", recetaLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=b983eb50-fcc3-46d8-a09b-a4220f858f77", body: "Hace unos meses, mi hijo de 1 año tuvo una deficiencia de hemoglobina y su médico recomendó una dieta rica en hierro. Sabía que la sangrecita es una gran fuente de hierro, y en esta receta me encantó!! 😍"),
 
     const PublicacionNoticias(fecha: "hace 3 días", noticiaLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Noticias%2Fnoticia.png?alt=media&token=76cbbeef-ccd0-45e3-b79e-9ddef2dca32c", noticiaFecha: "18 Feb 2023 | 13:58 h", noticiaTitulo: "Fortalecen estrategias para la lucha contra la anemia infantil en Ayacucho", noticiaBody: "En el marco de lucha contra la anemia y la búsqueda de la reducción de sus niveles en el ámbito nacional, la Fundación contra el Hambre (FH Perú) celebró alianzas con la Dirección Regional de Salud de Ayacucho (DIRESA), la Red de Salud Huamanga.", noticiaLink: "")
 
@@ -144,35 +175,36 @@ class ControlAnemiaSection extends StatelessWidget {
       color: AppTheme.gray100,
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Control de Anemia',
-                    style: textTheme.titleMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  SizedBox(
-                    child: Text(
-                      'Lleva un control de la anemia y registra citas pasadas o futuras.',
-                      style: textTheme.bodySmall,
+      child: InkWell(
+        borderRadius: AppTheme.borderRadiusL,
+        onTap: () {},
+        child: Padding(
+          padding: const EdgeInsets.all(AppTheme.spacing6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Control de Anemia',
+                      style: textTheme.titleMedium,
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      child: Text(
+                        'Lleva un control de la anemia y registra citas pasadas o futuras.',
+                        style: textTheme.bodySmall,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(width: 16),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.arrow_forward_ios)
-            )
-          ],
+              const SizedBox(width: 16),
+              const ButtonIcon(icon: Icons.arrow_forward_ios)
+            ],
+          ),
         ),
       ),
     );
