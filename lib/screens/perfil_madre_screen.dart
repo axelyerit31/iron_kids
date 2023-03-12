@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/main.dart';
 import 'package:iron_kids/styles/app_theme.dart';
-import 'package:iron_kids/styles/widgets/buttons.dart';
-import 'package:iron_kids/styles/widgets/screen_app.dart';
+import 'package:iron_kids/styles/widgets.dart';
 
 
 class PerfilMadreScreen extends StatelessWidget {
@@ -144,59 +143,18 @@ class PerfilMadreScreen extends StatelessWidget {
                 AppTheme.spacingWidget5,
 
                 // Hijo 1
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: AppTheme.spacing4,
-                    vertical: AppTheme.spacing5,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: AppTheme.borderRadiusL,
-                    color: AppTheme.gray100,
-                  ),
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 90,
-                        height: 90,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(image: NetworkImage("https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fboy_avatar_1.png?alt=media&token=daea9e81-04a3-4e0d-9f4a-f8c6cb3cf0b8"))
-                        ),
-                      ),
-                      AppTheme.spacingWidget4,
-                      Text("Luquitas", style: textTheme.titleSmall)
-                    ],
-                  ),
+                const CardHijo(
+                  nombre: "Luquitas",
+                  linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fboy_avatar.png?alt=media&token=11a7b731-6753-4dbe-a095-4249be3fd1d9",
                 ),
 
                 AppTheme.spacingWidget5,
 
                 // Hijo 2
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: AppTheme.spacing4,
-                    vertical: AppTheme.spacing5,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: AppTheme.borderRadiusL,
-                    color: AppTheme.gray100,
-                  ),
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 90,
-                        height: 90,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(image: NetworkImage("https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fboy_avatar_1.png?alt=media&token=daea9e81-04a3-4e0d-9f4a-f8c6cb3cf0b8"))
-                        ),
-                      ),
-                      AppTheme.spacingWidget4,
-                      Text("Luquitas", style: textTheme.titleSmall)
-                    ],
-                  ),
-                ),
-              ],
+                const CardHijo(
+                  nombre: "Sofia",
+                  linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar.png?alt=media&token=0af88513-e1fb-416f-9dfc-88b561635785",
+                ),],
             )
           ],
         ),
