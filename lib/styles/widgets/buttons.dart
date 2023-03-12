@@ -256,3 +256,38 @@ class ButtonSecondaryOutlined extends StatelessWidget {
     );
   }
 }
+
+class ButtonIcon extends StatelessWidget {
+  final VoidCallback? onPressed;
+  final IconData icon;
+  final int size;
+  final Color backgroundColor;
+  final Color iconColor;
+
+  const ButtonIcon({
+    Key? key,
+    this.onPressed,
+    this.size = 0,
+    required this.icon,
+    this.backgroundColor = AppTheme.primary500,
+    this.iconColor = AppTheme.white,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      borderRadius: AppTheme.borderRadiusXL,
+      color: backgroundColor,
+      child: SizedBox(
+        height: size == 1 ? buttonHeightL + 20 : buttonHeightL,
+        width: size == 1 ? buttonHeightL + 20 : buttonHeightL,
+        child: IconButton(
+          color: iconColor,
+          splashRadius: buttonHeightL/2,
+          icon: Icon(icon),
+          onPressed: onPressed ?? () {},
+        ),
+      ),
+    );
+  }
+}

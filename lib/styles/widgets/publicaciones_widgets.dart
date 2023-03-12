@@ -337,7 +337,7 @@ class PublicacionesHeader extends StatelessWidget {
             // Puntos
             Row(
               children: [
-                Icon(Icons.emoji_events, size: 16, color: AppTheme.primary600,),
+                Icon(Icons.emoji_events_outlined, size: 16, color: AppTheme.primary600,),
                 AppTheme.spacingWidget2,
                 Text(puntos, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.primary600),),
               ],

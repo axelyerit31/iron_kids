@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/screens/control_anemia_screen.dart';
 import 'package:iron_kids/screens/mediafeed_screen.dart';
+import 'package:iron_kids/screens/perfil_madre_screen.dart';
 import 'package:iron_kids/screens/recetas_screen.dart';
 import 'package:iron_kids/screens/test_anemia_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
@@ -20,7 +21,7 @@ const List<Widget> _pages = <Widget>[
   TestAnemiaScreen(),
   MediaFeedScreen(),
   ControlAnemiaScreen(),
-  TestAnemiaScreen(),
+  PerfilMadreScreen(),
 ];
 
 class MyApp extends StatelessWidget {
@@ -62,35 +63,6 @@ class _HomeScreenState extends State<HomeScreen> {
     screenW = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        shadowColor: AppTheme.gray50,
-        elevation: 3,
-        backgroundColor: AppTheme.white,
-        toolbarHeight: screenH * 1 / 12,
-        title: Text(
-          "Niños de Hierro",
-          style: textTheme.headlineLarge!.copyWith(color: AppTheme.gray800),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: AppTheme.spacing4),
-            child: Material(
-              elevation: 0,
-              shape: const CircleBorder(),
-              clipBehavior: Clip.antiAlias,
-              color: Colors.transparent,
-              child: Ink.image(
-                image: const NetworkImage('https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690'),
-                width: 50,
-                height: 50,
-                child: InkWell(
-                  onTap: () {},
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         unselectedFontSize: 14,
@@ -104,8 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Recetas',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.water_drop_outlined),
-            label: 'Test',
+            icon: Icon(Icons.arrow_forward_ios),
+            label: 'Pruebas',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home_filled),
@@ -116,8 +88,8 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Control',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.arrow_forward_ios),
-            label: 'Pruebas',
+            icon: Icon(Icons.person),
+            label: 'Perfil',
           ),
         ],
         currentIndex: _selectedIndex, //New
