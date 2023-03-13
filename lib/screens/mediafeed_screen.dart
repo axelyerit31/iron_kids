@@ -38,7 +38,10 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                 width: 50,
                 height: 50,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    // Yendo a la pantalla PerfilMadre
+                    selectedIndexGlobal.value = indexPerfilMadreScreen;
+                  },
                 ),
               ),
             ),
@@ -54,13 +57,13 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
               // Tarjeta control de anemia
               const Padding(
                   padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-                  child: ControlAnemiaSection()),
+                  child: _ControlAnemiaSection()),
     
               // Spacing 20px
               AppTheme.spacingWidget5,
     
               // Recomendados
-              const RecomendadosSection(),
+              const _RecomendadosSection(),
     
               // Spacing 20px
               AppTheme.spacingWidget6,
@@ -68,7 +71,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
               // Publicaciones
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-                child: PublicacionesSection(),
+                child: _PublicacionesSection(),
               )
             ]),
           ),
@@ -77,9 +80,9 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
 }
 
 // Secciones
-class PublicacionesSection extends StatelessWidget {
+class _PublicacionesSection extends StatelessWidget {
 
-  PublicacionesSection({
+  _PublicacionesSection({
     Key? key,
   }) : super(key: key);
 
@@ -164,8 +167,8 @@ class PublicacionesSection extends StatelessWidget {
   }
 }
 
-class ControlAnemiaSection extends StatelessWidget {
-  const ControlAnemiaSection({
+class _ControlAnemiaSection extends StatelessWidget {
+  const _ControlAnemiaSection({
     Key? key,
   }) : super(key: key);
 
@@ -177,7 +180,10 @@ class ControlAnemiaSection extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
       child: InkWell(
         borderRadius: AppTheme.borderRadiusL,
-        onTap: () {},
+        onTap: () {
+          // SYendo a la pantalla ControlAnemia
+          selectedIndexGlobal.value = indexControlAnemiaScreen;
+        },
         child: Padding(
           padding: const EdgeInsets.all(AppTheme.spacing6),
           child: Row(
@@ -202,7 +208,13 @@ class ControlAnemiaSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 16),
-              const ButtonIcon(icon: Icons.arrow_forward_ios)
+              ButtonIcon(
+                onPressed: () {
+                  // Yendo a la pantalla ControlAnemia
+                  selectedIndexGlobal.value = indexControlAnemiaScreen;
+                },
+                icon: Icons.arrow_forward_ios
+              )
             ],
           ),
         ),
@@ -211,8 +223,8 @@ class ControlAnemiaSection extends StatelessWidget {
   }
 }
 
-class RecomendadosSection extends StatelessWidget {
-  const RecomendadosSection({
+class _RecomendadosSection extends StatelessWidget {
+  const _RecomendadosSection({
     Key? key,
   }) : super(key: key);
 
@@ -231,10 +243,14 @@ class RecomendadosSection extends StatelessWidget {
                 'Recomendados',
                 style: textTheme.headlineSmall,
               ),
-              const SizedBox(
+              SizedBox(
                 height: 35,
                 child: ButtonText(
                   "Ver más",
+                  onPressed: () {
+                    // Yendo a la pantalla ControlAnemia
+                    selectedIndexGlobal.value = indexRecetasScreen;
+                  },
                 ),
               ),
             ],
@@ -246,38 +262,38 @@ class RecomendadosSection extends StatelessWidget {
 
         // Carrusel de recetas recomendadas
         SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            child: FutureBuilder<List<Receta>>(
-              future: RecetasService.obtenerRecetas(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  final recetas = snapshot.data;
-                  return Row(
-                    children: [
-                      for (final receta in recetas!)
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: receta.id == 0
-                                  ? AppTheme.spacing6
-                                  : AppTheme.spacing4),
-                          child: CardRecetaSmall(
-                            linkImg: receta.imagen,
-                            titulo: receta.titulo,
-                            tiempo: receta.tiempo,
-                            likes: receta.likes,
-                            edad: receta.edad,
-                          ),
-                        )
-                    ],
-                  );
-                } else if (snapshot.hasError) {
-                  return const Text('Error al cargar las recetas');
-                }
-                return const CircularProgressIndicator();
-              },
-            )
-          ),
+          physics: const BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          child: FutureBuilder<List<Receta>>(
+            future: RecetasService.obtenerRecetas(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final recetas = snapshot.data;
+                return Row(
+                  children: [
+                    for (final receta in recetas!)
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: receta.id == 0
+                                ? AppTheme.spacing6
+                                : AppTheme.spacing4),
+                        child: CardRecetaSmall(
+                          linkImg: receta.imagen,
+                          titulo: receta.titulo,
+                          tiempo: receta.tiempo,
+                          likes: receta.likes,
+                          edad: receta.edad,
+                        ),
+                      )
+                  ],
+                );
+              } else if (snapshot.hasError) {
+                return const Text('Error al cargar las recetas');
+              }
+              return const CircularProgressIndicator();
+            },
+          )
+        ),
       ],
     );
   }

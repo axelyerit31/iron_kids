@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/styles/widgets/filter_chips.dart';
 
-class TestAnemiaScreen extends StatelessWidget {
+class TestAnemiaScreen extends StatefulWidget {
   const TestAnemiaScreen({super.key});
+
+  @override
+  State<TestAnemiaScreen> createState() => _TestAnemiaScreenState();
+}
+
+class _TestAnemiaScreenState extends State<TestAnemiaScreen> {
+
+  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +30,15 @@ class TestAnemiaScreen extends StatelessWidget {
               onPressed: () {Navigator.of(context).pushNamed("/botonesMuestra");},
               child: const Text('Ir a muestra de botones'),
             ),
+            MyFilterChip(
+              selected: isSelected,
+              onSelected: (value) {
+                setState(() {
+                  isSelected = value;
+                });
+              },
+              label: "Chip 1"
+            )
           ],
         ),
       );
