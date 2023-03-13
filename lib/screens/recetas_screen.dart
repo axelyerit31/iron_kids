@@ -10,41 +10,48 @@ class RecetasScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenApp(
-      child:SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            //Spacing 20px
-            AppTheme.spacingWidget10,
+    return Navigator(
+      key: navigatorKeys[indexRecetasScreen],
+      onGenerateRoute: (settings) => MaterialPageRoute(
+        builder: (context) {
+          return ScreenApp(
+            child:SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  //Spacing 20px
+                  AppTheme.spacingWidget10,
 
-            //Titulo
-            Text('Recetas',
-              style: textTheme.headlineMedium!.copyWith(color: AppTheme.gray800),
-              
-            ),
+                  //Titulo
+                  Text('Recetas',
+                    style: textTheme.headlineMedium!.copyWith(color: AppTheme.gray800),
+                    
+                  ),
 
-            //Spacing 20px
-            AppTheme.spacingWidget6,
+                  //Spacing 20px
+                  AppTheme.spacingWidget6,
 
-            // Buscador de recetas
-            const BuscaReceta(),
-            
+                  // Buscador de recetas
+                  const BuscaReceta(),
 
-          //Spacing 20px
-          AppTheme.spacingWidget6,
+                  //Spacing 20px
+                  AppTheme.spacingWidget6,
 
-          //Botones filtros
-          const ListFilter(),
+                  //Botones filtros
+                  const ListFilter(),
 
-          //Spacing 20px
-          AppTheme.spacingWidget6,
+                  //Spacing 20px
+                  AppTheme.spacingWidget6,
 
-          //Recetas
-          const ListaRecetas()
-        ]
-      ),
+                  //Recetas
+                  const ListaRecetas()
+                ]
+              ),
+            )
+          );
+        }
+      )
     );
   }
 }
