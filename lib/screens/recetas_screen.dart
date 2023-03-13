@@ -2,48 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:iron_kids/nav_bar_routes.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/models/recetas.dart';
-import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
+
 
 class RecetasScreen extends StatelessWidget {
   const RecetasScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Navigator(
-      key: navigatorKeys[indexRecetasScreen],
-      onGenerateRoute: (settings) => MaterialPageRoute(
-        builder: (context) {
-          return SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                //Spacing 20px
-                AppTheme.spacingWidget6,
+    return ScreenApp(
+      child:SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            //Spacing 20px
+            AppTheme.spacingWidget10,
 
-                // Buscador de recetas
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-                  child: BuscaReceta(),
-                ),
-
-                //Spacing 20px
-                AppTheme.spacingWidget6,
-
-                //Botones filtros
-                const ListFilter(),
-
-                //Spacing 20px
-                AppTheme.spacingWidget6,
-
-                //Recetas
-                const ListaRecetas()
-              ]
+            //Titulo
+            Text('Recetas',
+              style: textTheme.headlineMedium!.copyWith(color: AppTheme.gray800),
+              
             ),
-          );
-        }
-      )
+
+            //Spacing 20px
+            AppTheme.spacingWidget6,
+
+            // Buscador de recetas
+            const BuscaReceta(),
+            
+
+          //Spacing 20px
+          AppTheme.spacingWidget6,
+
+          //Botones filtros
+          const ListFilter(),
+
+          //Spacing 20px
+          AppTheme.spacingWidget6,
+
+          //Recetas
+          const ListaRecetas()
+        ]
+      ),
     );
   }
 }
@@ -56,14 +57,21 @@ class BuscaReceta extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
+      // width: screenW,
+    
       child: Row(
         children: [
+
           //Buscador
-          const SearchBar(),
+          const Expanded(
+            flex: 6,
+            child:SearchBar()
+            ),
 
-          AppTheme.spacingWidget6,
-
+          //Spacing 8px
+          AppTheme.spacingWidget3,
+          
           //Boton
           ElevatedButton(
             onPressed: () {},
@@ -95,7 +103,13 @@ class BotonsFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ListFilter();
+    return const SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
+      scrollDirection: Axis.horizontal,
+      child: ListFilter(),
+
+
+    );
   }
 }
 
@@ -106,36 +120,72 @@ class ListaRecetas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row();
+    return Center(
+      child: FutureBuilder<List<Receta>>(
+        future: RecetasService.obtenerRecetas(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {  
+            final recetas = snapshot.data;
+            return Wrap(
+              children: <Widget>[
+                for (final receta in recetas!)
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: receta.id == 0
+                            ? AppTheme.spacing6
+                            : AppTheme.spacing4),
+                    child: CardRecetaSmall(
+                      linkImg: receta.imagen,
+                      titulo: receta.titulo,
+                      tiempo: receta.tiempo,
+                      likes: receta.likes,
+                      edad: receta.edad,
+                    ),
+                  ) 
+              ]
+            );
+          }else if(snapshot.hasError){
+            return const Text('Error al cargar las recetas');
+          }  
+          return const CircularProgressIndicator();
+        }
+      )
+    );
   }
 }
 
 // Widget locals
 
+// lista de filtros
 class ListFilter extends StatelessWidget {
   const ListFilter({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: <Widget>[
         for (final filtro in _list)
-          Container(
-            padding: const EdgeInsets.all(AppTheme.spacing4),
+          SizedBox(
+            // padding: const EdgeInsets.all(AppTheme.spacing4),
             width: 84,
             height: 36,
-            child: ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(filtro.color),
-                  elevation: MaterialStateProperty.all(0),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: AppTheme.borderRadiusM,
-                    ),
+            child: ButtonSecondary(filtro.text,
+              size: 1,
+
+            )
+           /*  ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(filtro.color),
+                elevation: MaterialStateProperty.all(0),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: AppTheme.borderRadiusM,
                   ),
                 ),
-                child: Text(filtro.text)),
+              ),
+              child: Text(filtro.text)  
+            ), */
           )
       ],
     );
@@ -166,7 +216,3 @@ class Filtros {
   // }
 }
 
-@override
-Widget build(BuildContext context) {
-  return Container();
-}

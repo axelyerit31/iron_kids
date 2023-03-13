@@ -8,7 +8,7 @@ class SearchBar extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       height: 45.0,
-      width: 260,
+      width: 210,
       decoration: BoxDecoration(
         color: AppTheme.gray50,
         borderRadius: AppTheme.borderRadiusL,

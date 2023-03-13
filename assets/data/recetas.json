@@ -23,8 +23,38 @@
       "id": 2,
       "titulo": "Guiso de Frejoles",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fguiso_frejoles.png?alt=media&token=11fce12d-585c-4a6c-b6da-17de1870c768",
-      "tiempo": "30 min",
+      "tiempo": "10 min",
       "likes": "18",
+      "edad": "12 a 23 meses",
+      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "pasos": ["Paso 1", "Paso 2", "Paso 3"]
+    },
+    {
+      "id": 3,
+      "titulo": "Papilla de Pescado",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_pescado.png?alt=media&token=085d255c-5c94-45ab-b87a-7fd3fe850213",
+      "tiempo": "10 min",
+      "likes": "30",
+      "edad": "9 a 11 meses",
+      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "pasos": ["Paso 1", "Paso 2", "Paso 3"]
+    },
+    {
+      "id": 4,
+      "titulo": "Papilla de Quinoa y leche",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_quinua_leche.png?alt=media&token=d1ebdab7-cd1c-48fd-86f7-4bdd6e0474e1",
+      "tiempo": "15 min",
+      "likes": "8",
+      "edad": "6 a 8 meses",
+      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "pasos": ["Paso 1", "Paso 2", "Paso 3"]
+    },
+    {
+      "id": 5,
+      "titulo": "ajiaco de mondongo",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fajiaco_mondongo.png?alt=media&token=f4cf4133-aee2-4d03-9cb1-3f1bb90b9c8a",
+      "tiempo": "30 min",
+      "likes": "23",
       "edad": "12 a 23 meses",
       "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
       "pasos": ["Paso 1", "Paso 2", "Paso 3"]
