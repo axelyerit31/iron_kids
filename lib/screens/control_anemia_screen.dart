@@ -80,14 +80,23 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                                   isSelected = value;
                                 });
                               },
+                              label: 'Citas pasadas',
+                            ),
+                            //const _PillTag(name: 'Citas pasadas'),
+                            AppTheme.spacingWidget4,
+                            MyFilterChip(
+                              selected: isSelected,
+                              onSelected: (value) {
+                                setState(() {
+                                  isSelected = value;
+                                });
+                              },
                               label: 'Citas futuras',
                             ),
-                            const _PillTag(name: 'Citas pasadas'),
-                            AppTheme.spacingWidget4,
-                            const _PillTag(
-                              name: 'Citas futuras',
-                              active: true,
-                            ),
+                            // const _PillTag(
+                            //   name: 'Citas futuras',
+                            //   active: true,
+                            // ),
                           ],
                         ),
                         AppTheme.spacingWidget7,
