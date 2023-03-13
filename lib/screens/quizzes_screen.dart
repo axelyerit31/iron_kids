@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:iron_kids/main.dart';
 import 'package:iron_kids/models/quizzes.dart';
 import 'package:iron_kids/styles/app_theme.dart';
@@ -7,12 +8,48 @@ import 'package:iron_kids/styles/widgets/header.dart';
 
 class QuizzesScreen extends StatefulWidget {
   const QuizzesScreen({super.key});
-
   @override
   State<QuizzesScreen> createState() => _QuizzesScreenState();
 }
 
 class _QuizzesScreenState extends State<QuizzesScreen> {
+  final ScrollController _scrollController = ScrollController();
+  List<Quizz>? questionsG;
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_scrollListener);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollListener() {
+    if (_scrollController.position.userScrollDirection ==
+            ScrollDirection.forward ||
+        _scrollController.position.userScrollDirection ==
+            ScrollDirection.reverse) {
+      int currentPageIndex = getCurrentPageIndex();
+      // Aquí puede hacer lo que quiera con el índice de la página actual, por ejemplo:
+      // setState(() { currentPage = currentPageIndex; });
+
+      if (questionsG![0] == 0) {}
+      questionsG![1].id;
+    }
+  }
+
+  int getCurrentPageIndex() {
+    double pageWidth = MediaQuery.of(context).size.width -
+        16; // reemplaza el 16 con el padding que estés utilizando
+    double scrollOffset = _scrollController.offset;
+    int currentPage = (scrollOffset / pageWidth).floor();
+    return currentPage;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +66,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
           const CardProgress(),
           AppTheme.spacingWidget9,
           SingleChildScrollView(
+              controller: _scrollController,
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               child: FutureBuilder<List<Quizz>>(
@@ -36,6 +74,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     final questions = snapshot.data;
+                    questionsG = questions;
                     return Row(
                       children: [
                         for (final questionTitle in questions!)
@@ -62,7 +101,6 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
 }
 
 //Contenedor del progreso de las preguntas
-
 class CardProgress extends StatelessWidget {
   const CardProgress({super.key});
 
@@ -182,6 +220,7 @@ class QuestionCard extends StatelessWidget {
           ),
           AppTheme.spacingWidget6,
           for (final option in options) Option(optionText: option),
+          AppTheme.spacingWidget8,
           SizedBox(
             width: 200,
             child: Row(
