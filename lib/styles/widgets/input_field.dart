@@ -7,6 +7,7 @@ class InputField extends StatelessWidget {
   final bool obscure;
   final Icon? iconLeft;
   final Icon? iconRight;
+  final String label;
   const InputField({
     super.key,
     required this.controller,
@@ -14,32 +15,48 @@ class InputField extends StatelessWidget {
     this.obscure = false,
     this.iconLeft,
     this.iconRight,
+    this.label = "",
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 48,
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: AppTheme.gray50,
-          borderRadius: AppTheme.borderRadiusL,
-          border: Border.all(
-            color: AppTheme.gray300,
-            width: 1.0,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (label != "")
+          Column(
+            children: [
+              Text(
+                label,
+                style: textTheme.bodyMedium!.copyWith(color: AppTheme.gray800),
+              ),
+              AppTheme.spacingWidget3,
+            ],
           ),
-        ),
-        child: TextField(
-          controller: controller,
-          decoration: InputDecoration(
-              prefixIcon: iconLeft,
-              suffixIcon: iconRight,
-              hintText: placeholder,
-              border: InputBorder.none,
-              hintStyle: AppTheme.bodySmall(context)
-                  .copyWith(color: AppTheme.gray400)),
-          obscureText: obscure,
-        ));
+        Container(
+            height: 48,
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: AppTheme.gray50,
+              borderRadius: AppTheme.borderRadiusL,
+              border: Border.all(
+                color: AppTheme.gray300,
+                width: 1.0,
+              ),
+            ),
+            child: TextField(
+              controller: controller,
+              decoration: InputDecoration(
+                  prefixIcon: iconLeft,
+                  suffixIcon: iconRight,
+                  hintText: placeholder,
+                  border: InputBorder.none,
+                  hintStyle: AppTheme.bodySmall(context)
+                      .copyWith(color: AppTheme.gray400)),
+              obscureText: obscure,
+            )),
+      ],
+    );
   }
 }
