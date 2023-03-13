@@ -47,6 +47,7 @@ class InputField extends StatelessWidget {
             ),
             child: TextField(
               controller: controller,
+              style: textTheme.bodyMedium!.copyWith(color: AppTheme.gray800),
               decoration: InputDecoration(
                   prefixIcon: iconLeft,
                   suffixIcon: iconRight,

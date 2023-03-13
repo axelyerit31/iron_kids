@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iron_kids/nav_bar_routes.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
+import 'package:iron_kids/styles/widgets/filter_chips.dart';
 
 class ControlAnemiaScreen extends StatefulWidget {
   const ControlAnemiaScreen({super.key});
@@ -11,6 +12,7 @@ class ControlAnemiaScreen extends StatefulWidget {
 }
 
 class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return Navigator(
@@ -71,6 +73,15 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                         //las pildoras de los tags de las citas del hijo
                         Row(
                           children: [
+                            MyFilterChip(
+                              selected: isSelected,
+                              onSelected: (value) {
+                                setState(() {
+                                  isSelected = value;
+                                });
+                              },
+                              label: 'Citas futuras',
+                            ),
                             const _PillTag(name: 'Citas pasadas'),
                             AppTheme.spacingWidget4,
                             const _PillTag(
@@ -80,7 +91,12 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                           ],
                         ),
                         AppTheme.spacingWidget7,
-                        const _CitaCard(),
+                        const _CitaCard(
+                          item1: 'Fecha',
+                          dataItem1: '10 mar 2023',
+                          item2: 'Descripción',
+                          dataItem2: 'Tercer chqueo de control de la anemia',
+                        ),
                         AppTheme.spacingWidget7,
                         ButtonOutlined(
                           'Agregar nueva cita futura',
@@ -96,6 +112,7 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                                 });
                           },
                         ),
+
                         AppTheme.spacingWidget10,
                         AppTheme.spacingWidget5,
                       ],
@@ -197,7 +214,18 @@ class _PillTag extends StatelessWidget {
 }
 
 class _CitaCard extends StatelessWidget {
-  const _CitaCard();
+  final String item1;
+  final String item2;
+  final String dataItem1;
+  final String dataItem2;
+  final bool citapasada;
+  const _CitaCard({
+    this.citapasada = false,
+    required this.item1,
+    required this.dataItem1,
+    required this.item2,
+    required this.dataItem2,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -213,12 +241,12 @@ class _CitaCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Fecha',
+              item1, //'Fecha'
               style: textTheme.bodySmall!.copyWith(color: AppTheme.gray500),
             ),
             AppTheme.spacingWidget5,
             Text(
-              '10 mar 2023',
+              dataItem1, //'10 mar 2023'
               style:
                   textTheme.bodySmallSemiBold.copyWith(color: AppTheme.gray500),
             )
@@ -231,18 +259,37 @@ class _CitaCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Descripción',
+                item2, //'Descripción'
                 style: textTheme.bodySmall!.copyWith(color: AppTheme.gray500),
               ),
               AppTheme.spacingWidget5,
               Text(
-                'Tercer chequeo de control de la anemia',
+                dataItem2, //'Tercer chequeo de control de la anemia'
                 style: textTheme.bodySmall!.copyWith(color: AppTheme.gray700),
                 softWrap: true,
               )
             ],
           ),
         ),
+        // if (citapasada)
+        //   Expanded(
+        //     child: Column(
+        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //       crossAxisAlignment: CrossAxisAlignment.start,
+        //       children: [
+        //         Text(
+        //           'Peso',
+        //           style: textTheme.bodySmall!.copyWith(color: AppTheme.gray500),
+        //         ),
+        //         AppTheme.spacingWidget5,
+        //         Text(
+        //           '24 kg',
+        //           style: textTheme.bodySmall!.copyWith(color: AppTheme.gray700),
+        //           softWrap: true,
+        //         )
+        //       ],
+        //     ),
+        //   ),
       ]),
     );
   }
