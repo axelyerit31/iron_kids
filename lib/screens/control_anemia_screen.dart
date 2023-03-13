@@ -83,9 +83,11 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: _ModalAddCita(
-                      citafutura: true,
-                    ),
+                    builder: (BuildContext context) {
+                      return _ModalAddCita(
+                        citafutura: true,
+                      );
+                    }
                   );
                   // AlertDialog(
                   //   content: _ModalAddCita(citafutura: true),
@@ -263,7 +265,7 @@ class _ModalAddCita extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('prueba'),
+      title: const Text('prueba'),
       content: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(24),
@@ -340,7 +342,7 @@ class _ModalAddCita extends StatelessWidget {
           ),
         ),
       ),
-      actions: [],
+      actions: const [],
     );
   }
 }
