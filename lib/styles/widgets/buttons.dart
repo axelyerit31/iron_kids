@@ -283,8 +283,8 @@ class ButtonIcon extends StatelessWidget {
         width: size == 1 ? buttonHeightL + 20 : buttonHeightL,
         child: IconButton(
           color: iconColor,
-          splashRadius: buttonHeightL/2,
-          icon: Icon(icon),
+          splashRadius: size == 1 ? buttonHeightL/2 + 10 : buttonHeightL/2,
+          icon: Icon(icon, size: size == 1 ? 32 : 24),
           onPressed: onPressed ?? () {},
         ),
       ),

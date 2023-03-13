@@ -11,19 +11,31 @@ void main() {
   runApp(const MyApp());
 }
 
+// Tamaños de pantalla
 double screenW = 0;
 double screenH = 0;
 
-
-
-// Lista de pantallas en el botttomNavigationBare
-const List<Widget> _pages = <Widget>[
-  RecetasScreen(),
-  TestAnemiaScreen(),
-  MediaFeedScreen(),
-  ControlAnemiaScreen(),
-  PerfilMadreScreen(),
+// Trabajando con el bottomnavigationbar y el ValueListenableBuilder
+Widget recetasScreen = const RecetasScreen();
+Widget testAnemiaScreen = const TestAnemiaScreen();
+Widget mediaFeedScreen = const MediaFeedScreen();
+Widget controlAnemiaScreen = const ControlAnemiaScreen();
+Widget perfilMadreScreen = const PerfilMadreScreen();
+List<Widget> _pages = <Widget>[
+  recetasScreen,
+  testAnemiaScreen,
+  mediaFeedScreen,
+  controlAnemiaScreen,
+  perfilMadreScreen,
 ];
+int indexRecetasScreen = _pages.indexOf(recetasScreen);
+int indexTestAnemiaScreen = _pages.indexOf(testAnemiaScreen);
+int indexMediaFeedScreen = _pages.indexOf(mediaFeedScreen);
+int indexControlAnemiaScreen = _pages.indexOf(controlAnemiaScreen);
+int indexPerfilMadreScreen = _pages.indexOf(perfilMadreScreen);
+
+final ValueNotifier<int> selectedIndexGlobal = ValueNotifier<int>(2);
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -51,57 +63,59 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   
-  int _selectedIndex = 2;
-  
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndexGlobal.value = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    screenH =
-        MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
+    screenH = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     screenW = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        unselectedFontSize: 14,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        unselectedItemColor: AppTheme.gray600,
-        selectedItemColor: AppTheme.primary500,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.restaurant),
-            label: 'Recetas',
+    return ValueListenableBuilder(
+      valueListenable: selectedIndexGlobal,
+      builder: (BuildContext context, int value, child) {
+        return Scaffold(
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            unselectedFontSize: 14,
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
+            unselectedItemColor: AppTheme.gray600,
+            selectedItemColor: AppTheme.primary500,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.restaurant),
+                label: 'Recetas',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.arrow_forward_ios),
+                label: 'Pruebas',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_filled),
+                label: 'Inicio',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.bar_chart_outlined),
+                label: 'Control',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Perfil',
+              ),
+            ],
+            currentIndex: selectedIndexGlobal.value, //New
+            onTap: _onItemTapped,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.arrow_forward_ios),
-            label: 'Pruebas',
+          body: IndexedStack(
+            index: value,
+            children: _pages,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
-            label: 'Inicio',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart_outlined),
-            label: 'Control',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Perfil',
-          ),
-        ],
-        currentIndex: _selectedIndex, //New
-        onTap: _onItemTapped,
-      ),
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pages
-      )
+        );
+      }
     );
   }
 }
