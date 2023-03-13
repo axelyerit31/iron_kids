@@ -74,6 +74,8 @@ class MyTextTheme extends TextTheme {
       fontSize: 14, fontWeight: FontWeight.w500, color: AppTheme.gray700);
   TextStyle bodySmallSemiBold = TextStyle(
       fontSize: 14, fontWeight: FontWeight.w600, color: AppTheme.gray700);
+  TextStyle labelLargeMedium = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w500, color: AppTheme.gray600);
 }
 
 // Bordes redondeados, colores primarios, grises, spacing, spacingWidget, 
