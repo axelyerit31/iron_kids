@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/routeGenerator.dart';
-import 'package:iron_kids/screens/control_anemia_screen.dart';
-import 'package:iron_kids/screens/mediafeed_screen.dart';
-import 'package:iron_kids/screens/perfil_madre_screen.dart';
-import 'package:iron_kids/screens/recetas_screen.dart';
-import 'package:iron_kids/screens/test_anemia_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
+
+import 'nav_bar_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,24 +12,6 @@ void main() {
 double screenW = 0;
 double screenH = 0;
 
-// Trabajando con el bottomnavigationbar y el ValueListenableBuilder
-Widget recetasScreen = const RecetasScreen();
-Widget testAnemiaScreen = const TestAnemiaScreen();
-Widget mediaFeedScreen = const MediaFeedScreen();
-Widget controlAnemiaScreen = const ControlAnemiaScreen();
-Widget perfilMadreScreen = const PerfilMadreScreen();
-List<Widget> _pages = <Widget>[
-  recetasScreen,
-  testAnemiaScreen,
-  mediaFeedScreen,
-  controlAnemiaScreen,
-  perfilMadreScreen,
-];
-int indexRecetasScreen = _pages.indexOf(recetasScreen);
-int indexTestAnemiaScreen = _pages.indexOf(testAnemiaScreen);
-int indexMediaFeedScreen = _pages.indexOf(mediaFeedScreen);
-int indexControlAnemiaScreen = _pages.indexOf(controlAnemiaScreen);
-int indexPerfilMadreScreen = _pages.indexOf(perfilMadreScreen);
 
 final ValueNotifier<int> selectedIndexGlobal = ValueNotifier<int>(2);
 
@@ -77,45 +56,58 @@ class _HomeScreenState extends State<HomeScreen> {
     return ValueListenableBuilder(
       valueListenable: selectedIndexGlobal,
       builder: (BuildContext context, int value, child) {
-        return Scaffold(
-          bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            unselectedFontSize: 14,
-            showSelectedLabels: true,
-            showUnselectedLabels: true,
-            unselectedItemColor: AppTheme.gray600,
-            selectedItemColor: AppTheme.primary500,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.restaurant),
-                label: 'Recetas',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.arrow_forward_ios),
-                label: 'Pruebas',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_filled),
-                label: 'Inicio',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.bar_chart_outlined),
-                label: 'Control',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Perfil',
-              ),
-            ],
-            currentIndex: selectedIndexGlobal.value, //New
-            onTap: _onItemTapped,
-          ),
-          body: IndexedStack(
-            index: value,
-            children: _pages,
+        return WillPopScope(
+          onWillPop: () async {
+            final navigatorState = navigatorKeys[selectedIndexGlobal.value].currentState;
+            if (navigatorState!.canPop()) {
+              navigatorState.pop();
+              return false;
+            } else {
+              return true;
+            }
+          },
+          child: Scaffold(
+            bottomNavigationBar: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              unselectedFontSize: 14,
+              showSelectedLabels: true,
+              showUnselectedLabels: true,
+              unselectedItemColor: AppTheme.gray600,
+              selectedItemColor: AppTheme.primary500,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.restaurant),
+                  label: 'Recetas',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.arrow_forward_ios),
+                  label: 'Test',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home_filled),
+                  label: 'Inicio',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.bar_chart_outlined),
+                  label: 'Control',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: 'Perfil',
+                ),
+              ],
+              currentIndex: selectedIndexGlobal.value, //New
+              onTap: _onItemTapped,
+            ),
+            body: IndexedStack(
+              index: value,
+              children: pages,
+            ),
           ),
         );
       }
     );
   }
 }
+
+
