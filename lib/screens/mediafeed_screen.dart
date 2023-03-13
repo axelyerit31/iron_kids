@@ -276,7 +276,8 @@ class RecomendadosSection extends StatelessWidget {
                 }
                 return const CircularProgressIndicator();
               },
-            )),
+            )
+          ),
       ],
     );
   }
