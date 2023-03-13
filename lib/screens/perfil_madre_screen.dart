@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:iron_kids/screens/perfil_madre_editar_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 
@@ -47,7 +48,18 @@ class PerfilMadreScreen extends StatelessWidget {
             // Menu Options
             Column(
               children: [
-                const _MenuOption(icon: Icons.settings_outlined, label: "Editar perfil",),
+                _MenuOption(
+                  icon: Icons.settings_outlined,
+                  label: "Editar perfil",
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => const PerfilMadreEditar(),
+                      ),
+                    );
+                  },
+                ),
                 AppTheme.spacingWidget1,
                 Container(height: 2, width: double.infinity, color: AppTheme.gray100,),
       
@@ -70,6 +82,7 @@ class PerfilMadreScreen extends StatelessWidget {
 }
 
 class _MenuOption extends StatelessWidget {
+  final VoidCallback? onPressed;
   final IconData icon;
   final String label;
   final bool logout;
@@ -78,12 +91,13 @@ class _MenuOption extends StatelessWidget {
     required this.icon,
     required this.label,
     this.logout = false,
+    this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPressed ?? () {},
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: AppTheme.spacing4),
         child: Row(

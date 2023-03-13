@@ -38,7 +38,10 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                 width: 50,
                 height: 50,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    // Yendo a la pantalla PerfilMadre
+                    selectedIndexGlobal.value = indexPerfilMadreScreen;
+                  },
                 ),
               ),
             ),
@@ -177,7 +180,10 @@ class _ControlAnemiaSection extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: AppTheme.borderRadiusL),
       child: InkWell(
         borderRadius: AppTheme.borderRadiusL,
-        onTap: () {},
+        onTap: () {
+          // SYendo a la pantalla ControlAnemia
+          selectedIndexGlobal.value = indexControlAnemiaScreen;
+        },
         child: Padding(
           padding: const EdgeInsets.all(AppTheme.spacing6),
           child: Row(
@@ -202,7 +208,13 @@ class _ControlAnemiaSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 16),
-              const ButtonIcon(icon: Icons.arrow_forward_ios)
+              ButtonIcon(
+                onPressed: () {
+                  // Yendo a la pantalla ControlAnemia
+                  selectedIndexGlobal.value = indexControlAnemiaScreen;
+                },
+                icon: Icons.arrow_forward_ios
+              )
             ],
           ),
         ),
@@ -231,10 +243,14 @@ class _RecomendadosSection extends StatelessWidget {
                 'Recomendados',
                 style: textTheme.headlineSmall,
               ),
-              const SizedBox(
+              SizedBox(
                 height: 35,
                 child: ButtonText(
                   "Ver más",
+                  onPressed: () {
+                    // Yendo a la pantalla ControlAnemia
+                    selectedIndexGlobal.value = indexRecetasScreen;
+                  },
                 ),
               ),
             ],
