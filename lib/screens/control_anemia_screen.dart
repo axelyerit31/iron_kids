@@ -82,27 +82,18 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                 size: 2,
                 iconRight: Icons.arrow_forward_ios,
                 onPressed: () {
-                  showModalBottomSheet(
-                    backgroundColor: Colors.transparent,
-                    context: context,
-                    builder: (BuildContext context) {
-                      return Align(
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          //crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(16),
-                              child: _ModalAddCita(
-                                citafutura: true,
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
+                  AlertDialog(
+                    content: _ModalAddCita(citafutura: true),
                   );
+                  // showModalBottomSheet(
+                  //   backgroundColor: Colors.transparent,
+                  //   context: context,
+                  //   builder: (BuildContext context) {
+                  //     return _ModalAddCita(
+                  //       citafutura: true,
+                  //     );
+                  //   },
+                  // );
                 },
               ),
               AppTheme.spacingWidget10,
@@ -275,6 +266,7 @@ class _ModalAddCita extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
