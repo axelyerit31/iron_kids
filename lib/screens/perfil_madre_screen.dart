@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:iron_kids/nav_bar_routes.dart';
 import 'package:iron_kids/screens/perfil_madre_editar_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
@@ -14,69 +15,76 @@ class PerfilMadreScreen extends StatelessWidget {
   int puntajeMaximo = 100;
   int puntajeUsuario = 20;
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-      
-            AppTheme.spacingWidget10,
-      
-            // AppBar?
-            ScreenApp(
+    return Navigator(
+      key: navigatorKeys[indexPerfilMadreScreen],
+      onGenerateRoute: (settings) => MaterialPageRoute(
+        builder: (context) {
+          return Scaffold(
+            body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Hola, Lupe Batallán", style: textTheme.headlineLarge,),
             
-                  AppTheme.spacingWidget6,
+                  AppTheme.spacingWidget10,
             
-                  // Usuario imagen, datos, barra de puntos
-                  _UsuariosDatosSection(puntajeUsuario: puntajeUsuario, puntajeMaximo: puntajeMaximo),
+                  // AppBar?
+                  ScreenApp(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Hola, Lupe Batallán", style: textTheme.headlineLarge,),
+                  
+                        AppTheme.spacingWidget6,
+                  
+                        // Usuario imagen, datos, barra de puntos
+                        _UsuariosDatosSection(puntajeUsuario: puntajeUsuario, puntajeMaximo: puntajeMaximo),
+                  
+                        AppTheme.spacingWidget8,
+                        
+                        // Hijos
+                        const _HijosSection(),
+                      ],
+                    ),
+                  ),
             
                   AppTheme.spacingWidget8,
                   
-                  // Hijos
-                  const _HijosSection(),
+                  // Menu Options
+                  Column(
+                    children: [
+                      _MenuOption(
+                        icon: Icons.settings_outlined,
+                        label: "Editar perfil",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => const PerfilMadreEditar(),
+                            ),
+                          );
+                        },
+                      ),
+                      AppTheme.spacingWidget1,
+                      Container(height: 2, width: double.infinity, color: AppTheme.gray100,),
+            
+                      const _MenuOption(icon: Icons.menu_book_outlined, label: "Mis recetas",),
+                      AppTheme.spacingWidget1,
+                      Container(height: 2, width: double.infinity, color: AppTheme.gray100,),
+            
+                      const _MenuOption(icon: Icons.comment_outlined, label: "Mis comentarios",),
+                      AppTheme.spacingWidget1,
+                      Container(height: 2, width: double.infinity, color: AppTheme.gray100,),
+            
+                      const _MenuOption(icon: Icons.logout_outlined, label: "Cerrar sesión", logout: true,),
+                    ],
+                  )
                 ],
               ),
             ),
-      
-            AppTheme.spacingWidget8,
-            
-            // Menu Options
-            Column(
-              children: [
-                _MenuOption(
-                  icon: Icons.settings_outlined,
-                  label: "Editar perfil",
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => const PerfilMadreEditar(),
-                      ),
-                    );
-                  },
-                ),
-                AppTheme.spacingWidget1,
-                Container(height: 2, width: double.infinity, color: AppTheme.gray100,),
-      
-                const _MenuOption(icon: Icons.menu_book_outlined, label: "Mis recetas",),
-                AppTheme.spacingWidget1,
-                Container(height: 2, width: double.infinity, color: AppTheme.gray100,),
-      
-                const _MenuOption(icon: Icons.comment_outlined, label: "Mis comentarios",),
-                AppTheme.spacingWidget1,
-                Container(height: 2, width: double.infinity, color: AppTheme.gray100,),
-      
-                const _MenuOption(icon: Icons.logout_outlined, label: "Cerrar sesión", logout: true,),
-              ],
-            )
-          ],
-        ),
-      ),
+          );
+        }
+      )
     );
   }
 }
@@ -109,10 +117,10 @@ class _MenuOption extends StatelessWidget {
                 borderRadius: AppTheme.borderRadiusL
               ),
               padding: const EdgeInsets.all(AppTheme.spacing4),
-              child: Icon(icon, size: 32, color:  logout ? AppTheme.primary600 : AppTheme.gray600),
+              child: Icon(icon, size: 28, color:  logout ? AppTheme.primary600 : AppTheme.gray600),
             ),
             AppTheme.spacingWidget6,
-            Text(label, style: textTheme.bodyLarge!.copyWith(color: logout ? AppTheme.primary600 : AppTheme.gray700),)
+            Text(label, style: textTheme.bodyMedium!.copyWith(color: logout ? AppTheme.primary600 : AppTheme.gray700),)
           ],
         ),
       ),
@@ -237,7 +245,7 @@ class _HijosSection extends StatelessWidget {
       children: [
         Text(
           'Mis hijitos',
-          style: textTheme.headlineSmall,
+          style: textTheme.titleMedium,
         ),
 
         AppTheme.spacingWidget4,

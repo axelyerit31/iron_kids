@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/main.dart';
 import 'package:iron_kids/models/recetas.dart';
+import 'package:iron_kids/nav_bar_routes.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 import 'package:iron_kids/styles/widgets/publicaciones_widgets.dart';
@@ -15,66 +16,74 @@ class MediaFeedScreen extends StatefulWidget {
 class _MediaFeedScreenState extends State<MediaFeedScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        shadowColor: AppTheme.gray50,
-        elevation: 3,
-        backgroundColor: AppTheme.white,
-        toolbarHeight: screenH * 1 / 12,
-        title: Text(
-          "Niños de Hierro",
-          style: textTheme.headlineLarge!.copyWith(color: AppTheme.gray800),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: AppTheme.spacing4),
-            child: Material(
-              elevation: 0,
-              shape: const CircleBorder(),
-              clipBehavior: Clip.antiAlias,
-              color: Colors.transparent,
-              child: Ink.image(
-                image: const NetworkImage('https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690'),
-                width: 50,
-                height: 50,
-                child: InkWell(
-                  onTap: () {
-                    // Yendo a la pantalla PerfilMadre
-                    selectedIndexGlobal.value = indexPerfilMadreScreen;
-                  },
+    return Navigator(
+      key: navigatorKeys[indexMediaFeedScreen],
+      onGenerateRoute: (settings) => MaterialPageRoute(
+        builder: (context) {
+          return Scaffold(
+          appBar: AppBar(
+            shadowColor: AppTheme.gray50,
+            elevation: 3,
+            backgroundColor: AppTheme.white,
+            toolbarHeight: screenH * 1 / 12,
+            title: Text(
+              "Niños de Hierro",
+              style: textTheme.headlineLarge!.copyWith(color: AppTheme.gray800),
+            ),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: AppTheme.spacing4),
+                child: Material(
+                  elevation: 0,
+                  shape: const CircleBorder(),
+                  clipBehavior: Clip.antiAlias,
+                  color: Colors.transparent,
+                  child: Ink.image(
+                    image: const NetworkImage('https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690'),
+                    width: 50,
+                    height: 50,
+                    child: InkWell(
+                      onTap: () {
+                        // Yendo a la pantalla PerfilMadre
+                        selectedIndexGlobal.value = indexPerfilMadreScreen;
+                      },
+                    ),
+                  ),
                 ),
+              )
+            ],
+          ),
+          body: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(children: [
+                  //Spacing 20px
+                  AppTheme.spacingWidget6,
+        
+                  // Tarjeta control de anemia
+                  const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+                      child: _ControlAnemiaSection()),
+        
+                  // Spacing 20px
+                  AppTheme.spacingWidget5,
+        
+                  // Recomendados
+                  const _RecomendadosSection(),
+        
+                  // Spacing 20px
+                  AppTheme.spacingWidget6,
+        
+                  // Publicaciones
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+                    child: _PublicacionesSection(),
+                  )
+                ]
               ),
             ),
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(children: [
-              //Spacing 20px
-              AppTheme.spacingWidget6,
-    
-              // Tarjeta control de anemia
-              const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-                  child: _ControlAnemiaSection()),
-    
-              // Spacing 20px
-              AppTheme.spacingWidget5,
-    
-              // Recomendados
-              const _RecomendadosSection(),
-    
-              // Spacing 20px
-              AppTheme.spacingWidget6,
-    
-              // Publicaciones
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-                child: _PublicacionesSection(),
-              )
-            ]),
-          ),
+          );
+        }
+      )
     );
   }
 }

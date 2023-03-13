@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/nav_bar_routes.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 
@@ -12,103 +13,110 @@ class ControlAnemiaScreen extends StatefulWidget {
 class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ScreenApp(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              AppTheme.spacingWidget10,
-              //Titulo
-              Text(
-                'Control de Anemia',
-                style:
-                    textTheme.headlineMedium!.copyWith(color: AppTheme.gray800),
-              ),
-              AppTheme.spacingWidget7,
-              //Tarjeta de notificacion
-              const _NotificationCard(),
+    return Navigator(
+      key: navigatorKeys[indexControlAnemiaScreen],
+      onGenerateRoute: (settings) => MaterialPageRoute(
+        builder: (context) {
+          return Scaffold(
+            body: ScreenApp(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    AppTheme.spacingWidget10,
+                    //Titulo
+                    Text(
+                      'Control de Anemia',
+                      style:
+                          textTheme.headlineMedium!.copyWith(color: AppTheme.gray800),
+                    ),
+                    AppTheme.spacingWidget7,
+                    //Tarjeta de notificacion
+                    const _NotificationCard(),
 
-              /*------Seccion de mis hijitos --------- */
-              AppTheme.spacingWidget7,
-              Text(
-                'Mis hijitos',
-                style: textTheme.titleMedium!.copyWith(color: AppTheme.gray800),
-              ),
-              AppTheme.spacingWidget7,
-              //Botones de los hijos
-              Row(
-                children: [
-                  const CardHijo(
-                    linkImg:
-                        'https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fboy_avatar.png?alt=media&token=11a7b731-6753-4dbe-a095-4249be3fd1d9',
-                    nombre: 'Luquitas',
-                    border: true,
-                  ),
-                  AppTheme.spacingWidget4,
-                  const CardHijo(
-                      linkImg:
-                          'https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar.png?alt=media&token=0af88513-e1fb-416f-9dfc-88b561635785',
-                      nombre: 'Sofia'),
-                ],
-              ),
-              AppTheme.spacingWidget7,
-              /*------Seccion de mis hijitos : segun de control de hijo seleccionado --------- */
-              Text(
-                'Control de Luquitas',
-                style: textTheme.titleMedium!.copyWith(color: AppTheme.gray700),
-              ),
-              AppTheme.spacingWidget6,
+                    /*------Seccion de mis hijitos --------- */
+                    AppTheme.spacingWidget7,
+                    Text(
+                      'Mis hijitos',
+                      style: textTheme.titleMedium!.copyWith(color: AppTheme.gray800),
+                    ),
+                    AppTheme.spacingWidget7,
+                    //Botones de los hijos
+                    Row(
+                      children: [
+                        const CardHijo(
+                          linkImg:
+                              'https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fboy_avatar.png?alt=media&token=11a7b731-6753-4dbe-a095-4249be3fd1d9',
+                          nombre: 'Luquitas',
+                          border: true,
+                        ),
+                        AppTheme.spacingWidget4,
+                        const CardHijo(
+                            linkImg:
+                                'https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar.png?alt=media&token=0af88513-e1fb-416f-9dfc-88b561635785',
+                            nombre: 'Sofia'),
+                      ],
+                    ),
+                    AppTheme.spacingWidget7,
+                    /*------Seccion de mis hijitos : segun de control de hijo seleccionado --------- */
+                    Text(
+                      'Control de Luquitas',
+                      style: textTheme.titleMedium!.copyWith(color: AppTheme.gray700),
+                    ),
+                    AppTheme.spacingWidget6,
 
-              //las pildoras de los tags de las citas del hijo
-              Row(
-                children: [
-                  const _PillTag(name: 'Citas pasadas'),
-                  AppTheme.spacingWidget4,
-                  const _PillTag(
-                    name: 'Citas futuras',
-                    active: true,
-                  ),
-                ],
+                    //las pildoras de los tags de las citas del hijo
+                    Row(
+                      children: [
+                        const _PillTag(name: 'Citas pasadas'),
+                        AppTheme.spacingWidget4,
+                        const _PillTag(
+                          name: 'Citas futuras',
+                          active: true,
+                        ),
+                      ],
+                    ),
+                    AppTheme.spacingWidget7,
+                    const _CitaCard(),
+                    AppTheme.spacingWidget7,
+                    ButtonOutlined(
+                      'Agregar nueva cita futura',
+                      size: 2,
+                      iconRight: Icons.arrow_forward_ios,
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return _ModalAddCita(
+                              citafutura: true,
+                            );
+                          }
+                        );
+                        // AlertDialog(
+                        //   content: _ModalAddCita(citafutura: true),
+                        // );
+                        // showModalBottomSheet(
+                        //   backgroundColor: Colors.transparent,
+                        //   context: context,
+                        //   builder: (BuildContext context) {
+                        //     return _ModalAddCita(
+                        //       citafutura: true,
+                        //     );
+                        //   },
+                        // );
+                      },
+                    ),
+                    AppTheme.spacingWidget10,
+                    AppTheme.spacingWidget5,
+                  ],
+                ),
               ),
-              AppTheme.spacingWidget7,
-              const _CitaCard(),
-              AppTheme.spacingWidget7,
-              ButtonOutlined(
-                'Agregar nueva cita futura',
-                size: 2,
-                iconRight: Icons.arrow_forward_ios,
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return _ModalAddCita(
-                        citafutura: true,
-                      );
-                    }
-                  );
-                  // AlertDialog(
-                  //   content: _ModalAddCita(citafutura: true),
-                  // );
-                  // showModalBottomSheet(
-                  //   backgroundColor: Colors.transparent,
-                  //   context: context,
-                  //   builder: (BuildContext context) {
-                  //     return _ModalAddCita(
-                  //       citafutura: true,
-                  //     );
-                  //   },
-                  // );
-                },
-              ),
-              AppTheme.spacingWidget10,
-              AppTheme.spacingWidget5,
-            ],
-          ),
-        ),
-      ),
+            ),
+          );
+        }
+      )
     );
   }
 }

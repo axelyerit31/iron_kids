@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/nav_bar_routes.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/models/recetas.dart';
 import 'package:iron_kids/styles/app_theme.dart';
@@ -9,33 +10,40 @@ class RecetasScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          //Spacing 20px
-          AppTheme.spacingWidget6,
+    return Navigator(
+      key: navigatorKeys[indexRecetasScreen],
+      onGenerateRoute: (settings) => MaterialPageRoute(
+        builder: (context) {
+          return SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                //Spacing 20px
+                AppTheme.spacingWidget6,
 
-          // Buscador de recetas
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
-            child: BuscaReceta(),
-          ),
+                // Buscador de recetas
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+                  child: BuscaReceta(),
+                ),
 
-          //Spacing 20px
-          AppTheme.spacingWidget6,
+                //Spacing 20px
+                AppTheme.spacingWidget6,
 
-          //Botones filtros
-          ListFilter(),
+                //Botones filtros
+                const ListFilter(),
 
-          //Spacing 20px
-          AppTheme.spacingWidget6,
+                //Spacing 20px
+                AppTheme.spacingWidget6,
 
-          //Recetas
-          const ListaRecetas()
-        ]
-      ),
+                //Recetas
+                const ListaRecetas()
+              ]
+            ),
+          );
+        }
+      )
     );
   }
 }
@@ -60,7 +68,7 @@ class BuscaReceta extends StatelessWidget {
           ElevatedButton(
             onPressed: () {},
             style: ButtonStyle(
-              fixedSize: MaterialStateProperty.all(Size(84, 45)),
+              fixedSize: MaterialStateProperty.all(const Size(84, 45)),
               backgroundColor: MaterialStateProperty.all(AppTheme.primary500),
               //elevation: MaterialStateProperty.all(0),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
