@@ -83,7 +83,7 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: _ModalAddCita(
+                    child: _ModalAddCita(
                       citafutura: true,
                     ),
                   );
