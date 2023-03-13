@@ -262,37 +262,38 @@ class _RecomendadosSection extends StatelessWidget {
 
         // Carrusel de recetas recomendadas
         SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            child: FutureBuilder<List<Receta>>(
-              future: RecetasService.obtenerRecetas(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  final recetas = snapshot.data;
-                  return Row(
-                    children: [
-                      for (final receta in recetas!)
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: receta.id == 0
-                                  ? AppTheme.spacing6
-                                  : AppTheme.spacing4),
-                          child: CardRecetaSmall(
-                            linkImg: receta.imagen,
-                            titulo: receta.titulo,
-                            tiempo: receta.tiempo,
-                            likes: receta.likes,
-                            edad: receta.edad,
-                          ),
-                        )
-                    ],
-                  );
-                } else if (snapshot.hasError) {
-                  return const Text('Error al cargar las recetas');
-                }
-                return const CircularProgressIndicator();
-              },
-            )),
+          physics: const BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          child: FutureBuilder<List<Receta>>(
+            future: RecetasService.obtenerRecetas(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final recetas = snapshot.data;
+                return Row(
+                  children: [
+                    for (final receta in recetas!)
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: receta.id == 0
+                                ? AppTheme.spacing6
+                                : AppTheme.spacing4),
+                        child: CardRecetaSmall(
+                          linkImg: receta.imagen,
+                          titulo: receta.titulo,
+                          tiempo: receta.tiempo,
+                          likes: receta.likes,
+                          edad: receta.edad,
+                        ),
+                      )
+                  ],
+                );
+              } else if (snapshot.hasError) {
+                return const Text('Error al cargar las recetas');
+              }
+              return const CircularProgressIndicator();
+            },
+          )
+        ),
       ],
     );
   }
