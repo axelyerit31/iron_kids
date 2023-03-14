@@ -191,7 +191,7 @@ class _NotificationCard extends StatelessWidget {
 class _PillTag extends StatelessWidget {
   final String name;
   final bool active;
-  const _PillTag({required this.name, this.active = false});
+  const _PillTag({required this.name, required this.active});
 
   @override
   Widget build(BuildContext context) {
@@ -225,9 +225,8 @@ class _CitaCard extends StatelessWidget {
   final String item2;
   final String dataItem1;
   final String dataItem2;
-  final bool citapasada;
+  //final bool citapasada;
   const _CitaCard({
-    this.citapasada = false,
     required this.item1,
     required this.dataItem1,
     required this.item2,
@@ -349,14 +348,8 @@ class _ModalAddCita extends StatelessWidget {
                 ? '¿Cuándo será la cita? '
                 : '¿Cuánto pesa su hijo(a)? (Kg)',
             iconLeft: (citafutura)
-                ? Icon(
-                    Icons.date_range_outlined,
-                    color: AppTheme.gray400,
-                  )
-                : Icon(
-                    Icons.abc,
-                    color: AppTheme.gray400,
-                  ),
+                ? Icons.date_range_outlined
+                : Icons.abc,
           ),
           AppTheme.spacingWidget6,
           InputField(
@@ -366,14 +359,8 @@ class _ModalAddCita extends StatelessWidget {
                 ? '¿Sobre que será la cita?'
                 : '¿Cuánta hemoglobina tiene su niño(a)?',
             iconLeft: (citafutura)
-                ? Icon(
-                    Icons.short_text_rounded,
-                    color: AppTheme.gray400,
-                  )
-                : Icon(
-                    Icons.bar_chart_rounded,
-                    color: AppTheme.gray400,
-                  ),
+                ? Icons.short_text_rounded
+                : Icons.bar_chart_rounded
           ),
           AppTheme.spacingWidget6,
           const ButtonPrimary(
@@ -382,7 +369,7 @@ class _ModalAddCita extends StatelessWidget {
           ),
         ],
       ),
-      actions: [],
+      actions: const [],
     );
   }
 }

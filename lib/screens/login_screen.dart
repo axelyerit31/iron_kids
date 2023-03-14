@@ -92,7 +92,7 @@ class FormInput extends StatelessWidget {
           InputField(
             controller: emailControllerP,
             placeholder: 'Ingresa tu correo electrónico',
-            iconLeft: const Icon(Icons.person_2_outlined),
+            iconLeft: Icons.person_2_outlined,
           ),
           AppTheme.spacingWidget5,
 
@@ -100,8 +100,8 @@ class FormInput extends StatelessWidget {
             controller: passwordControllerP,
             placeholder: 'Ingresa tu contraseña',
             obscure: true,
-            iconLeft: const Icon(Icons.lock_outline_rounded),
-            iconRight: const Icon(Icons.remove_red_eye_outlined),
+            iconLeft: Icons.lock_outline_rounded,
+            iconRight: Icons.remove_red_eye_outlined,
           ),
           AppTheme.spacingWidget5,
           Text(

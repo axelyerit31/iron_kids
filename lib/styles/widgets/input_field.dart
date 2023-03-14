@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/styles/app_theme.dart';
+import 'package:iron_kids/styles/widgets.dart';
 
 class InputField extends StatelessWidget {
   final TextEditingController controller;
   final String placeholder;
   final bool obscure;
-  final Icon? iconLeft;
-  final Icon? iconRight;
+  final IconData? iconLeft;
+  final IconData? iconRight;
   final String label;
+  final VoidCallback? onIconRightPressed;
   const InputField({
     super.key,
     required this.controller,
@@ -15,6 +17,7 @@ class InputField extends StatelessWidget {
     this.obscure = false,
     this.iconLeft,
     this.iconRight,
+    this.onIconRightPressed,
     this.label = "",
   });
 
@@ -28,14 +31,14 @@ class InputField extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: textTheme.bodyMedium!.copyWith(color: AppTheme.gray800),
+                style: textTheme.bodyMedium!.copyWith(color: AppTheme.gray700),
               ),
               AppTheme.spacingWidget3,
             ],
           ),
         Container(
-            height: 48,
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+            height: buttonHeightL,
+            padding: const EdgeInsets.symmetric(vertical: AppTheme.spacing3, horizontal: AppTheme.spacing5),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: AppTheme.gray50,
@@ -47,14 +50,19 @@ class InputField extends StatelessWidget {
             ),
             child: TextField(
               controller: controller,
-              style: textTheme.bodyMedium!.copyWith(color: AppTheme.gray800),
+              style: textTheme.labelLarge!.copyWith(color: AppTheme.gray700),
               decoration: InputDecoration(
-                  prefixIcon: iconLeft,
-                  suffixIcon: iconRight,
+                  prefixIcon: iconLeft == null ? null : Icon(iconLeft, color: AppTheme.gray400),
+                  suffixIcon: iconRight == null ? null : Material(
+                    child: IconButton(
+                      splashRadius: 20,
+                      icon: Icon(iconRight, color: AppTheme.gray400,),
+                      onPressed: onIconRightPressed ?? () {},
+                    ),
+                  ),
                   hintText: placeholder,
                   border: InputBorder.none,
-                  hintStyle: AppTheme.bodySmall(context)
-                      .copyWith(color: AppTheme.gray400)),
+                  hintStyle: textTheme.labelLarge!.copyWith(color: AppTheme.gray400)),
               obscureText: obscure,
             )),
       ],

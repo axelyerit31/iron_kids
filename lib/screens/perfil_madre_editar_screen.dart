@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/styles/widgets.dart';
+
+TextEditingController controller = TextEditingController();
 
 class PerfilMadreEditar extends StatelessWidget {
   const PerfilMadreEditar({super.key});
@@ -9,7 +12,20 @@ class PerfilMadreEditar extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Prueba editar pefil madre")
       ),
-      body: const Placeholder()
+      body: ScreenApp(
+        child: Center(
+          child: Column(
+            children: [
+              InputField(
+                controller: controller,
+                placeholder: "Prueba",
+                label: "Prueba label",
+                iconRight: Icons.remove_red_eye_outlined,
+              )
+            ],
+          ),
+        ),
+      )
     );
   }
 }
