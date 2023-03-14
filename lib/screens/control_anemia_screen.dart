@@ -13,7 +13,7 @@ class ControlAnemiaScreen extends StatefulWidget {
 
 class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
   bool isSelectedFirst = false;
-  bool isSelectedSecond = false;
+  bool isSelectedSecond = true;
   @override
   Widget build(BuildContext context) {
     return Navigator(
@@ -78,26 +78,23 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                               selected: isSelectedFirst,
                               onSelected: (value) {
                                 setState(() {
-                                  isSelectedFirst = value;
+                                  isSelectedFirst = true;
+                                  isSelectedSecond = false;
                                 });
                               },
                               label: 'Citas pasadas',
                             ),
-                            //const _PillTag(name: 'Citas pasadas'),
                             AppTheme.spacingWidget4,
                             MyFilterChip(
                               selected: isSelectedSecond,
                               onSelected: (value) {
                                 setState(() {
-                                  isSelectedSecond = value;
+                                  isSelectedSecond = true;
+                                  isSelectedFirst = false;
                                 });
                               },
                               label: 'Citas futuras',
                             ),
-                            // const _PillTag(
-                            //   name: 'Citas futuras',
-                            //   active: true,
-                            // ),
                           ],
                         ),
                         AppTheme.spacingWidget7,
