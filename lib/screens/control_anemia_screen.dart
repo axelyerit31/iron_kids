@@ -4,6 +4,12 @@ import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 import 'package:iron_kids/styles/widgets/filter_chips.dart';
 
+List<List<String>> citasPasadasList = [
+];
+
+List<List<String>> citasFuturasList = [
+];
+
 class ControlAnemiaScreen extends StatefulWidget {
   const ControlAnemiaScreen({super.key});
 
@@ -15,7 +21,6 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
   bool citaPasada = false;
   bool isSelectedFirst = false;
   bool isSelectedSecond = true;
-  bool agregado = false;
   String item1 = "Fecha";
   String dataItem1 = "10 mar 2023";
   String item2 = "Descripción";
@@ -38,15 +43,15 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                         //Titulo
                         Text(
                           'Control de Anemia',
-                          style: textTheme.headlineMedium!
-                              .copyWith(color: AppTheme.gray800),
+                          style: textTheme.headlineLarge,
                         ),
                         AppTheme.spacingWidget7,
+
+
                         //Tarjeta de notificacion
-                        const _NotificationCard(),
+                        citasFuturasList.isNotEmpty ? const _NotificationCard() : Container(),
 
                         //*------Seccion de mis hijitos --------- */
-
                         AppTheme.spacingWidget7,
                         Text(
                           'Mis hijitos',
@@ -57,24 +62,24 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
 
                         // * Botones de los hijos
                         Row(
-                          children: [
-                            const CardHijo(
+                          children: const [
+                            /* const CardHijo(
                               linkImg:
                                   'https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fboy_avatar.png?alt=media&token=11a7b731-6753-4dbe-a095-4249be3fd1d9',
                               nombre: 'Luquitas',
-                              border: true,
                             ),
-                            AppTheme.spacingWidget4,
-                            const CardHijo(
+                            AppTheme.spacingWidget4, */
+                            CardHijo(
                                 linkImg:
-                                    'https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar.png?alt=media&token=0af88513-e1fb-416f-9dfc-88b561635785',
-                                nombre: 'Sofia'),
+                                    'https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar_2.png?alt=media&token=8f716cc4-93c4-4d80-8ba1-9c984cd454e9',
+                                nombre: 'Maia'),
                           ],
                         ),
                         AppTheme.spacingWidget7,
+
                         /*------Seccion de mis hijitos : segun de control de hijo seleccionado --------- */
                         Text(
-                          'Control de Luquitas',
+                          'Control de Maia',
                           style: textTheme.titleMedium!
                               .copyWith(color: AppTheme.gray700),
                         ),
@@ -122,12 +127,7 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                         ),
                         AppTheme.spacingWidget7,
                         _CitaCard(
-                          item1: item1,
-                          dataItem1: dataItem1,
-                          item2: item2,
-                          dataItem2: dataItem2,
                           citaPasada: citaPasada,
-                          agregar: false,
                         ),
                         AppTheme.spacingWidget7,
                         ButtonOutlined(
@@ -140,83 +140,30 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                             showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            (!citaPasada)
-                                                ? 'Nuevo registro de cita futura'
-                                                : 'Nuevo registro de control de Luquitas',
-                                            style: textTheme.headlineSmall!
-                                                .copyWith(
-                                                    color: AppTheme.gray800),
-                                            softWrap: true,
-                                          ),
-                                        ),
-                                        ButtonSecondary(
-                                          'Cerrar',
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    content: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.stretch,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        AppTheme.spacingWidget6,
-                                        InputField(
-                                          controller: controllerFirst,
-                                          placeholder: (!citaPasada)
-                                              ? 'dd/mm/aa'
-                                              : 'El peso de su hijo',
-                                          label: (!citaPasada)
-                                              ? '¿Cuándo será la cita? '
-                                              : '¿Cuánto pesa su hijo(a)? (Kg)',
-                                          iconLeft: (citaPasada)
-                                              ? Icons.date_range_outlined
-                                              : Icons.abc,
-                                        ),
-                                        AppTheme.spacingWidget6,
-                                        InputField(
-                                            controller: controllerSecond,
-                                            placeholder: (!citaPasada)
-                                                ? 'ej: segundo chequeo'
-                                                : '0.0 g/dL',
-                                            label: (!citaPasada)
-                                                ? '¿Sobre que será la cita?'
-                                                : '¿Cuánta hemoglobina tiene su niño(a)?',
-                                            iconLeft: (!citaPasada)
-                                                ? Icons.short_text_rounded
-                                                : Icons.bar_chart_rounded),
-                                        AppTheme.spacingWidget6,
-                                        ButtonPrimary(
-                                          'Guardar registro',
-                                          size: 2,
-                                          onPressed: () {
-                                            setState(() {
-                                              agregado = true;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                    actions: const [],
-                                  );
-                                  // return _ModalAddCita(
-                                  //   citaPasada: citaPasada,
-                                  // );
+                                  return _ModalAddCita(
+                                    citaPasada: citaPasada,
+                                    onPressed: () {
+                                      setState(() {
+                                        citaPasada
+                                        ? citasPasadasList.add(
+                                          [
+                                            "17 mar 2023",
+                                            controllerFirst.text,
+                                            controllerSecond.text
+                                          ]
+                                        )
+                                        : citasFuturasList.add(
+                                          [
+                                            controllerFirst.text,
+                                            controllerSecond.text
+                                          ]
+                                        );
+
+                                        controllerFirst.clear();
+                                        controllerSecond.clear();
+                                        Navigator.pop(context);
+                                      });
+                                    });
                                 });
                           },
                         ),
@@ -264,24 +211,27 @@ class _NotificationCard extends StatelessWidget {
           ),
           AppTheme.spacingWidget4,
           Expanded(
-            child: Column(
-              children: [
-                Text(
-                  'Luquitas tiene una cita el 10 de Marzo',
-                  style: textTheme.bodyMediumSemiBold.copyWith(
-                    color: AppTheme.primary600,
+            child: citasFuturasList.isNotEmpty
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Maia tiene una cita el ${citasFuturasList[0][0]}',
+                    style: textTheme.bodyMediumSemiBold.copyWith(
+                      color: AppTheme.primary600,
+                    ),
+                    textAlign: TextAlign.left,
+                    softWrap: true,
                   ),
-                  textAlign: TextAlign.left,
-                  softWrap: true,
-                ),
-                AppTheme.spacingWidget2,
-                Text(
-                  'Recuerda que es su tercer chequeo para el control de la anemia.',
-                  style: textTheme.bodyMedium,
-                  softWrap: true,
-                )
-              ],
-            ),
+                  AppTheme.spacingWidget2,
+                  Text(
+                    'Recuerda que es su ${citasFuturasList[0][1].toLowerCase()}',
+                    style: textTheme.bodyMedium,
+                    softWrap: true,
+                  )
+                ],
+              )
+            : Container()
           )
         ],
       ),
@@ -290,27 +240,25 @@ class _NotificationCard extends StatelessWidget {
 }
 
 class _CitaCard extends StatelessWidget {
-  final String item1;
-  final String item2;
-  final String dataItem1;
-  final String dataItem2;
   final bool citaPasada;
-  final bool agregar;
 
   //final bool citapasada;
   const _CitaCard({
-    required this.item1,
-    required this.dataItem1,
-    required this.item2,
-    required this.dataItem2,
-    required this.citaPasada,
-    this.agregar = false,
+    required this.citaPasada
   });
 
   @override
   Widget build(BuildContext context) {
+
+    List<List<String>> citasSeleccionadas = citaPasada ? citasPasadasList : citasFuturasList;
+
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.only(
+        top: AppTheme.spacing6,
+        bottom: AppTheme.spacing3,
+        left: AppTheme.spacing6,
+        right: AppTheme.spacing6,
+      ),
       decoration: BoxDecoration(
         color: AppTheme.gray100,
         borderRadius: AppTheme.borderRadiusL + BorderRadius.circular(4),
@@ -321,57 +269,53 @@ class _CitaCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
+            // Fecha
             Text(
-              item1, //'Fecha'
+              "Fecha",
               style: textTheme.bodySmall!.copyWith(color: AppTheme.gray500),
             ),
             AppTheme.spacingWidget5,
-            Text(
-              dataItem1, //'10 mar 2023'
-              style:
-                  textTheme.bodySmallSemiBold.copyWith(color: AppTheme.gray500),
-            ),
-            if (agregar)
-              Column(
-                children: [
-                  AppTheme.spacingWidget5,
-                  Text(
-                    controllerFirst.text, //'10 mar 2023'
-                    style: textTheme.bodySmallSemiBold
-                        .copyWith(color: AppTheme.gray500),
-                  ),
-                ],
-              ),
+
+            // Contenido Fecha
+            for (int i = 0; i < citasSeleccionadas.length; i++)
+              Padding(
+                padding: const EdgeInsets.only(bottom: AppTheme.spacing4),
+                child: Text(
+                  citasSeleccionadas[i][0], //'10 mar 2023'
+                  style:
+                      textTheme.bodySmallSemiBold.copyWith(color: AppTheme.gray500),
+                ),
+              )
           ],
         ),
+        
         AppTheme.spacingWidget7,
+
         // Descripcion
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
+              // Hemoglobina / Descripcion
               Text(
-                item2, //'Descripción'
+                citaPasada ? "Hemoglobina" : "Descripción", 
                 style: textTheme.bodySmall!.copyWith(color: AppTheme.gray500),
               ),
+
               AppTheme.spacingWidget5,
-              Text(
-                dataItem2, //'Tercer chequeo de control de la anemia'
-                style: textTheme.bodySmall!.copyWith(color: AppTheme.gray700),
-                softWrap: true,
-              ),
-              if (agregar)
-                Column(
-                  children: [
-                    AppTheme.spacingWidget5,
-                    Text(
-                      controllerSecond.text, //'10 mar 2023'
-                      style: textTheme.bodySmallSemiBold
-                          .copyWith(color: AppTheme.gray500),
-                    ),
-                  ],
-                ),
+
+              // Contenido Fecha
+              for (int i = 0; i < citasSeleccionadas.length; i++)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: AppTheme.spacing4),
+                  child: Text(
+                    citasSeleccionadas[i][1],
+                    style: textTheme.bodySmall!.copyWith(color: AppTheme.gray700),
+                  ),
+                )
             ],
           ),
         ),
@@ -384,18 +328,25 @@ class _CitaCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+
+                    // Peso
                     Text(
-                      'Peso',
-                      style: textTheme.bodySmall!
-                          .copyWith(color: AppTheme.gray500),
+                      "Peso", 
+                      style: textTheme.bodySmall!.copyWith(color: AppTheme.gray500),
                     ),
+
                     AppTheme.spacingWidget5,
-                    Text(
-                      '24 kg',
-                      style: textTheme.bodySmall!
-                          .copyWith(color: AppTheme.gray700),
-                      softWrap: true,
-                    )
+
+                    // Contenido Fecha
+                    for (int i = 0; i < citasSeleccionadas.length; i++)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: AppTheme.spacing4),
+                        child: Text(
+                          citasSeleccionadas[i][2],
+                          style: textTheme.bodySmall!.copyWith(color: AppTheme.gray700),
+                          softWrap: true,
+                        ),
+                      )
                   ],
                 ),
               ],
@@ -410,30 +361,25 @@ final TextEditingController controllerFirst = TextEditingController();
 final TextEditingController controllerSecond = TextEditingController();
 
 class _ModalAddCita extends StatelessWidget {
-  bool agredado = false;
   final bool citaPasada;
-  _ModalAddCita({
-    this.citaPasada = false,
-  });
+  final VoidCallback? onPressed;
+  const _ModalAddCita({required this.citaPasada, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: Text(
-              (!citaPasada)
-                  ? 'Nuevo registro de cita futura'
-                  : 'Nuevo registro de control de Luquitas',
-              style: textTheme.headlineSmall!.copyWith(color: AppTheme.gray800),
-              softWrap: true,
-            ),
+          Text(
+            'Nuevo registro',
+            style: textTheme.headlineSmall!.copyWith(color: AppTheme.gray800),
+            softWrap: true,
           ),
           ButtonSecondary(
             'Cerrar',
+            size: 0,
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -447,33 +393,30 @@ class _ModalAddCita extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
         children: [
-          AppTheme.spacingWidget6,
+          AppTheme.spacingWidget4,
           InputField(
             controller: controllerFirst,
-            placeholder: (!citaPasada) ? 'dd/mm/aa' : 'El peso de su hijo',
+            placeholder: (!citaPasada) ? 'dd/mm/aa' : '0.0 g/dL',
             label: (!citaPasada)
                 ? '¿Cuándo será la cita? '
-                : '¿Cuánto pesa su hijo(a)? (Kg)',
-            iconLeft: (citaPasada) ? Icons.date_range_outlined : Icons.abc,
+                : '¿Cuánta hemoglobina tiene su niño(a)?',
+            iconLeft: (citaPasada) ? Icons.water_drop_outlined : Icons.date_range_outlined,
           ),
           AppTheme.spacingWidget6,
           InputField(
               controller: controllerSecond,
-              placeholder: (!citaPasada) ? 'ej: segundo chequeo' : '0.0 g/dL',
+              placeholder: (!citaPasada) ? 'ej: segundo chequeo' : 'El peso de su hijo',
               label: (!citaPasada)
                   ? '¿Sobre que será la cita?'
-                  : '¿Cuánta hemoglobina tiene su niño(a)?',
+                  : '¿Cuánto pesa su hijo(a)? (Kg)',
               iconLeft: (!citaPasada)
                   ? Icons.short_text_rounded
-                  : Icons.bar_chart_rounded),
+                  : Icons.scale),
           AppTheme.spacingWidget6,
           ButtonPrimary(
             'Guardar registro',
             size: 2,
-            onPressed: () {
-              Navigator.of(context).pop();
-              agredado = true;
-            },
+            onPressed: onPressed ?? () {},
           ),
         ],
       ),

@@ -63,17 +63,6 @@ class RecetasScreen extends StatelessWidget {
 }
 
 
-/* Navigator(
-      key: navigatorKeys[indexRecetasScreen],
-      onGenerateRoute: (settings) => MaterialPageRoute(
-        builder: (context) {
-          return 
-
-        }
-      )
-    ); */
-
-
 //Estructura
 class BuscaReceta extends StatelessWidget {
   const BuscaReceta({
