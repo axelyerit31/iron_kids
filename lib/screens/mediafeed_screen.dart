@@ -88,22 +88,25 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
   }
 }
 
+
+final List<Widget> publicacionesLista = [
+
+  const PublicacionVencedores(usuarioLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_daniela_flores.png?alt=media&token=4ffeb2b6-3b4e-401c-b2f9-f6f41236387b", usuario: "Daniela Flores", fecha: "hace 1 día", puntos: "120 puntos", hijo: "Daniela Ramos", hijoLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar_2.png?alt=media&token=8f716cc4-93c4-4d80-8ba1-9c984cd454e9", body: "Quiero compartir con todos que mi hija finalmente venció la anemia 🥳🎊 Ha sido un camino difícil para ella y nuestra familia, pero estamos tan agradecidos de que finalmente esté en plena salud. Gracias a todos los que nos apoyaron en este camino 🙏"),
+
+  const PublicacionExperiencias(usuarioLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690", usuario: "Lupe Batallán", fecha: "hace 1 día", puntos: "20 puntos", recetaTitulo: "Chaufa de Sangrecita", recetaLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=b983eb50-fcc3-46d8-a09b-a4220f858f77", body: "Hace unos meses, mi hijo de 1 año tuvo una deficiencia de hemoglobina y su médico recomendó una dieta rica en hierro. Sabía que la sangrecita es una gran fuente de hierro, y en esta receta me encantó!! 😍"),
+
+  const PublicacionNoticias(fecha: "hace 3 días", noticiaLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Noticias%2Fnoticia.png?alt=media&token=76cbbeef-ccd0-45e3-b79e-9ddef2dca32c", noticiaFecha: "18 Feb 2023 | 13:58 h", noticiaTitulo: "Fortalecen estrategias para la lucha contra la anemia infantil en Ayacucho", noticiaBody: "En el marco de lucha contra la anemia y la búsqueda de la reducción de sus niveles en el ámbito nacional, la Fundación contra el Hambre (FH Perú) celebró alianzas con la Dirección Regional de Salud de Ayacucho (DIRESA), la Red de Salud Huamanga.", noticiaLink: ""),
+
+  const PublicacionConsejos(fecha: "hace 3 días", pages: 5)
+
+];
+
 // Secciones
 class _PublicacionesSection extends StatelessWidget {
 
-  _PublicacionesSection({
+  const _PublicacionesSection({
     Key? key,
   }) : super(key: key);
-
-  final List<Widget> publicacionesLista = [
-
-    const PublicacionVencedores(usuarioLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_daniela_flores.png?alt=media&token=4ffeb2b6-3b4e-401c-b2f9-f6f41236387b", usuario: "Daniela Flores", fecha: "hace 1 día", puntos: "120 puntos", hijo: "Daniela Ramos", hijoLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar_2.png?alt=media&token=8f716cc4-93c4-4d80-8ba1-9c984cd454e9", body: "Quiero compartir con todos que mi hija finalmente venció la anemia 🥳🎊 Ha sido un camino difícil para ella y nuestra familia, pero estamos tan agradecidos de que finalmente esté en plena salud. Gracias a todos los que nos apoyaron en este camino 🙏"),
-
-    const PublicacionExperiencias(usuarioLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690", usuario: "Lupe Batallán", fecha: "hace 1 día", puntos: "20 puntos", recetaTitulo: "Chaufa de Sangrecita", recetaLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=b983eb50-fcc3-46d8-a09b-a4220f858f77", body: "Hace unos meses, mi hijo de 1 año tuvo una deficiencia de hemoglobina y su médico recomendó una dieta rica en hierro. Sabía que la sangrecita es una gran fuente de hierro, y en esta receta me encantó!! 😍"),
-
-    const PublicacionNoticias(fecha: "hace 3 días", noticiaLinkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Noticias%2Fnoticia.png?alt=media&token=76cbbeef-ccd0-45e3-b79e-9ddef2dca32c", noticiaFecha: "18 Feb 2023 | 13:58 h", noticiaTitulo: "Fortalecen estrategias para la lucha contra la anemia infantil en Ayacucho", noticiaBody: "En el marco de lucha contra la anemia y la búsqueda de la reducción de sus niveles en el ámbito nacional, la Fundación contra el Hambre (FH Perú) celebró alianzas con la Dirección Regional de Salud de Ayacucho (DIRESA), la Red de Salud Huamanga.", noticiaLink: "")
-
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +168,7 @@ class _PublicacionesSection extends StatelessWidget {
           itemCount: publicacionesLista.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: AppTheme.spacing4),
+              padding: const EdgeInsets.only(bottom: AppTheme.spacing5),
               child: publicacionesLista[index],
             );
           },
@@ -222,7 +225,8 @@ class _ControlAnemiaSection extends StatelessWidget {
                   // Yendo a la pantalla ControlAnemia
                   selectedIndexGlobal.value = indexControlAnemiaScreen;
                 },
-                icon: Icons.arrow_forward_ios
+                icon: Icons.arrow_forward_ios,
+                size: 0,
               )
             ],
           ),

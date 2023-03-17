@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/main.dart';
 import 'package:iron_kids/styles/app_theme.dart';
+import 'package:iron_kids/styles/widgets/buttons.dart';
 
 class CardRecetaSmall extends StatelessWidget {
   final String linkImg;
@@ -107,7 +108,7 @@ class CardRecetaSmall extends StatelessWidget {
                     ],
                   ),
                           
-                  const SizedBox(height: 8),
+                  AppTheme.spacingWidget3,
                           
                   // Edad de niño
                   FittedBox(
@@ -119,6 +120,116 @@ class CardRecetaSmall extends StatelessWidget {
                         Text(edad, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.gray500)),
                       ],
                     ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class CardRecetaLarge extends StatelessWidget {
+  final String linkImg;
+  final String titulo;
+  final String tiempo;
+  final bool liked;
+  final String likes;
+  final String edad;
+
+  const CardRecetaLarge({Key? key, required this.linkImg, required this.titulo, required this.tiempo, required this.likes, required this.edad, this.liked = true}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: AppTheme.borderRadiusL,
+        color: AppTheme.gray100,
+      ),
+      child: SizedBox(
+        width: screenW * 3/7,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Imagen de receta
+            AspectRatio(
+              aspectRatio: 3/2,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius:
+                      AppTheme.borderRadiusL,
+                  image: DecorationImage(
+                    image: NetworkImage(linkImg),
+                    fit: BoxFit.cover,
+                  )
+                ),
+              ),
+            ),
+
+            AppTheme.spacingWidget2,
+
+            // Datos de receta
+            Padding(
+              padding: const EdgeInsets.all(AppTheme.spacing3),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  Text(titulo, style: textTheme.titleSmall,),
+
+                  AppTheme.spacingWidget4,
+
+                  // Tiempo y likes
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      
+                      // Tiempo y edad
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.timer_outlined, color: AppTheme.gray500, size: 20,),
+                              const SizedBox(width: 4),
+                              Text(tiempo, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.gray500)),
+                            ],
+                          ),
+              
+                          AppTheme.spacingWidget3,
+                                  
+                          // Edad de niño
+                          FittedBox(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.child_care, color: AppTheme.gray500, size: 20,),
+                                const SizedBox(width: 4),
+                                Text(edad, style: textTheme.bodySmallMedium.copyWith(color: AppTheme.gray500)),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),                      
+                          
+                      // Like
+                      ClipRRect(
+                        borderRadius: const BorderRadius.all(Radius.circular(100)),
+                        child: SizedBox(
+                          height: buttonHeightM,
+                          width: buttonHeightM,
+                          child: ButtonIcon(
+                            backgroundColor: liked ? AppTheme.primary500 : AppTheme.gray300,
+                            icon: Icons.thumb_up_outlined,
+                            size: 0,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ],
               ),

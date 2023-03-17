@@ -56,7 +56,7 @@ class MyTextTheme extends TextTheme {
           titleMedium:
               const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           titleSmall:
-              const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
           bodyLarge: TextStyle(fontSize: 18, color: AppTheme.gray700),
           bodyMedium: TextStyle(fontSize: 16, color: AppTheme.gray700),
           bodySmall: TextStyle(fontSize: 14, color: AppTheme.gray700),

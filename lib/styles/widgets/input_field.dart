@@ -10,6 +10,7 @@ class InputField extends StatelessWidget {
   final IconData? iconRight;
   final String label;
   final VoidCallback? onIconRightPressed;
+  final TextInputType? keyboardType;
   const InputField({
     super.key,
     required this.controller,
@@ -19,6 +20,7 @@ class InputField extends StatelessWidget {
     this.iconRight,
     this.onIconRightPressed,
     this.label = "",
+    this.keyboardType = TextInputType.text
   });
 
   @override
@@ -38,7 +40,12 @@ class InputField extends StatelessWidget {
           ),
         Container(
             height: buttonHeightL,
-            padding: const EdgeInsets.symmetric(vertical: AppTheme.spacing3, horizontal: AppTheme.spacing5),
+            padding: EdgeInsets.only(
+              top: AppTheme.spacing3,
+              bottom: AppTheme.spacing3,
+              left: iconLeft == null ? AppTheme.spacing4 : AppTheme.spacing2,
+              right: iconRight == null ? AppTheme.spacing4 : AppTheme.spacing2,
+            ),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: AppTheme.gray50,
@@ -49,20 +56,22 @@ class InputField extends StatelessWidget {
               ),
             ),
             child: TextField(
+              keyboardType: keyboardType,
               controller: controller,
               style: textTheme.labelLarge!.copyWith(color: AppTheme.gray700),
               decoration: InputDecoration(
-                  prefixIcon: iconLeft == null ? null : Icon(iconLeft, color: AppTheme.gray400),
-                  suffixIcon: iconRight == null ? null : Material(
-                    child: IconButton(
-                      splashRadius: 20,
-                      icon: Icon(iconRight, color: AppTheme.gray400,),
-                      onPressed: onIconRightPressed ?? () {},
-                    ),
+                prefixIcon: iconLeft == null ? null : Icon(iconLeft, color: AppTheme.gray400),
+                suffixIcon: iconRight == null ? null : Material(
+                  child: IconButton(
+                    splashRadius: 20,
+                    icon: Icon(iconRight, color: AppTheme.gray400,),
+                    onPressed: onIconRightPressed ?? () {},
                   ),
-                  hintText: placeholder,
-                  border: InputBorder.none,
-                  hintStyle: textTheme.labelLarge!.copyWith(color: AppTheme.gray400)),
+                ),
+                hintText: placeholder,
+                border: InputBorder.none,
+                hintStyle: textTheme.labelLarge!.copyWith(color: AppTheme.gray400)
+              ),
               obscureText: obscure,
             )),
       ],

@@ -41,7 +41,7 @@
     },
     {
       "id": 4,
-      "titulo": "Papilla de Quinoa y leche",
+      "titulo": "Papilla de Quinoa y Leche",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_quinua_leche.png?alt=media&token=d1ebdab7-cd1c-48fd-86f7-4bdd6e0474e1",
       "tiempo": "15 min",
       "likes": "8",
@@ -51,7 +51,7 @@
     },
     {
       "id": 5,
-      "titulo": "ajiaco de mondongo",
+      "titulo": "Ajiaco de Mondongo",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fajiaco_mondongo.png?alt=media&token=f4cf4133-aee2-4d03-9cb1-3f1bb90b9c8a",
       "tiempo": "30 min",
       "likes": "23",
