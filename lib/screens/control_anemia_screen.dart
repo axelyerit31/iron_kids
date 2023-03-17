@@ -15,6 +15,7 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
   bool citaPasada = false;
   bool isSelectedFirst = false;
   bool isSelectedSecond = true;
+  bool agregado = false;
   String item1 = "Fecha";
   String dataItem1 = "10 mar 2023";
   String item2 = "Descripción";
@@ -126,6 +127,7 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                           item2: item2,
                           dataItem2: dataItem2,
                           citaPasada: citaPasada,
+                          agregar: false,
                         ),
                         AppTheme.spacingWidget7,
                         ButtonOutlined(
@@ -138,9 +140,83 @@ class _ControlAnemiaScreenState extends State<ControlAnemiaScreen> {
                             showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
-                                  return _ModalAddCita(
-                                    citaPasada: citaPasada,
+                                  return AlertDialog(
+                                    title: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            (!citaPasada)
+                                                ? 'Nuevo registro de cita futura'
+                                                : 'Nuevo registro de control de Luquitas',
+                                            style: textTheme.headlineSmall!
+                                                .copyWith(
+                                                    color: AppTheme.gray800),
+                                            softWrap: true,
+                                          ),
+                                        ),
+                                        ButtonSecondary(
+                                          'Cerrar',
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    content: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        AppTheme.spacingWidget6,
+                                        InputField(
+                                          controller: controllerFirst,
+                                          placeholder: (!citaPasada)
+                                              ? 'dd/mm/aa'
+                                              : 'El peso de su hijo',
+                                          label: (!citaPasada)
+                                              ? '¿Cuándo será la cita? '
+                                              : '¿Cuánto pesa su hijo(a)? (Kg)',
+                                          iconLeft: (citaPasada)
+                                              ? Icons.date_range_outlined
+                                              : Icons.abc,
+                                        ),
+                                        AppTheme.spacingWidget6,
+                                        InputField(
+                                            controller: controllerSecond,
+                                            placeholder: (!citaPasada)
+                                                ? 'ej: segundo chequeo'
+                                                : '0.0 g/dL',
+                                            label: (!citaPasada)
+                                                ? '¿Sobre que será la cita?'
+                                                : '¿Cuánta hemoglobina tiene su niño(a)?',
+                                            iconLeft: (!citaPasada)
+                                                ? Icons.short_text_rounded
+                                                : Icons.bar_chart_rounded),
+                                        AppTheme.spacingWidget6,
+                                        ButtonPrimary(
+                                          'Guardar registro',
+                                          size: 2,
+                                          onPressed: () {
+                                            setState(() {
+                                              agregado = true;
+                                            });
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    actions: const [],
                                   );
+                                  // return _ModalAddCita(
+                                  //   citaPasada: citaPasada,
+                                  // );
                                 });
                           },
                         ),
@@ -219,13 +295,17 @@ class _CitaCard extends StatelessWidget {
   final String dataItem1;
   final String dataItem2;
   final bool citaPasada;
+  final bool agregar;
+
   //final bool citapasada;
-  const _CitaCard(
-      {required this.item1,
-      required this.dataItem1,
-      required this.item2,
-      required this.dataItem2,
-      required this.citaPasada});
+  const _CitaCard({
+    required this.item1,
+    required this.dataItem1,
+    required this.item2,
+    required this.dataItem2,
+    required this.citaPasada,
+    this.agregar = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -250,7 +330,18 @@ class _CitaCard extends StatelessWidget {
               dataItem1, //'10 mar 2023'
               style:
                   textTheme.bodySmallSemiBold.copyWith(color: AppTheme.gray500),
-            )
+            ),
+            if (agregar)
+              Column(
+                children: [
+                  AppTheme.spacingWidget5,
+                  Text(
+                    controllerFirst.text, //'10 mar 2023'
+                    style: textTheme.bodySmallSemiBold
+                        .copyWith(color: AppTheme.gray500),
+                  ),
+                ],
+              ),
           ],
         ),
         AppTheme.spacingWidget7,
@@ -269,7 +360,18 @@ class _CitaCard extends StatelessWidget {
                 dataItem2, //'Tercer chequeo de control de la anemia'
                 style: textTheme.bodySmall!.copyWith(color: AppTheme.gray700),
                 softWrap: true,
-              )
+              ),
+              if (agregar)
+                Column(
+                  children: [
+                    AppTheme.spacingWidget5,
+                    Text(
+                      controllerSecond.text, //'10 mar 2023'
+                      style: textTheme.bodySmallSemiBold
+                          .copyWith(color: AppTheme.gray500),
+                    ),
+                  ],
+                ),
             ],
           ),
         ),
@@ -304,9 +406,11 @@ class _CitaCard extends StatelessWidget {
   }
 }
 
+final TextEditingController controllerFirst = TextEditingController();
+final TextEditingController controllerSecond = TextEditingController();
+
 class _ModalAddCita extends StatelessWidget {
-  final TextEditingController controllerFirst = TextEditingController();
-  final TextEditingController controllerSecond = TextEditingController();
+  bool agredado = false;
   final bool citaPasada;
   _ModalAddCita({
     this.citaPasada = false,
@@ -363,9 +467,13 @@ class _ModalAddCita extends StatelessWidget {
                   ? Icons.short_text_rounded
                   : Icons.bar_chart_rounded),
           AppTheme.spacingWidget6,
-          const ButtonPrimary(
+          ButtonPrimary(
             'Guardar registro',
             size: 2,
+            onPressed: () {
+              Navigator.of(context).pop();
+              agredado = true;
+            },
           ),
         ],
       ),
