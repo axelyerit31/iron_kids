@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/screens/control_anemia_screen.dart';
-import 'package:iron_kids/screens/mediafeed_screen.dart';
+import 'package:iron_kids/screens/mediafeed/mediafeed_screen.dart';
 import 'package:iron_kids/screens/perfil_madre_screen.dart';
 import 'package:iron_kids/screens/recetas_screen.dart';
 import 'package:iron_kids/screens/test_anemia/test_anemia_screen.dart';

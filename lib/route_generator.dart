@@ -8,7 +8,6 @@ import 'package:iron_kids/screens/quizzes_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final dynamic args = settings.arguments;
     //print(args);
     switch (settings.name) {
       case '/login':

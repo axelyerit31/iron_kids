@@ -1,7 +1,9 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iron_kids/nav_bar_routes.dart';
 import 'package:iron_kids/screens/perfil_madre_editar_screen.dart';
+import 'package:iron_kids/screens/test_anemia/test_anemia_step1_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 
@@ -255,11 +257,22 @@ class _HijosSection extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              ButtonIcon(
-                icon: Icons.add,
-                iconColor: AppTheme.gray500,
-                backgroundColor: AppTheme.gray100,
-                size: 1,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: AppTheme.spacing6),
+                child: ButtonIcon(
+                  icon: Icons.add,
+                  iconColor: AppTheme.gray500,
+                  backgroundColor: AppTheme.gray100,
+                  size: 1,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (BuildContext context) => const TestAnemiaFirstStepScreen()
+                      )
+                    );
+                  },
+                ),
               ),
         
               AppTheme.spacingWidget5,
@@ -276,7 +289,8 @@ class _HijosSection extends StatelessWidget {
               const CardHijo(
                 nombre: "Sofia",
                 linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar.png?alt=media&token=0af88513-e1fb-416f-9dfc-88b561635785",
-              ),],
+              ),
+            ],
           ),
         ),
       ],
