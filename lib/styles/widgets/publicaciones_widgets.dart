@@ -5,8 +5,6 @@ import 'package:iron_kids/screens/quizzes_screen.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets/buttons.dart';
 
-final PageController _pageController = PageController();
-
 TextStyle styleBodyPublicaciones = textTheme.bodyMedium!.copyWith(height: 1.35);
 
 class PublicacionVencedores extends StatelessWidget {

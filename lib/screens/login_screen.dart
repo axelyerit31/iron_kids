@@ -56,6 +56,7 @@ class ImageLogin extends StatelessWidget {
 }
 
 //Forms
+// ignore: must_be_immutable
 class FormInput extends StatelessWidget {
   TextEditingController emailControllerP = TextEditingController();
   TextEditingController passwordControllerP = TextEditingController();
@@ -172,12 +173,12 @@ class FormInput extends StatelessWidget {
   }
 }
 
-//Widget boton
+/* //Widget boton
 class ButtonUI extends StatelessWidget {
   final String text;
-  bool outlined;
+  final bool outlined;
   final Color color;
-  ButtonUI({
+  const ButtonUI({
     super.key,
     required this.text,
     this.outlined = false,
@@ -189,8 +190,8 @@ class ButtonUI extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         // Implementar la lógica de autenticación aquí
-        final String email = _emailController.text.trim();
-        final String password = _passwordController.text.trim();
+        /* final String email = _emailController.text.trim();
+        final String password = _passwordController.text.trim(); */
         // Validar las credenciales y continuar a la siguiente pantalla
       },
       style: ElevatedButton.styleFrom(
@@ -211,4 +212,4 @@ class ButtonUI extends StatelessWidget {
       ),
     );
   }
-}
+} */

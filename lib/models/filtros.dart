@@ -1,9 +1,7 @@
-import 'dart:convert' show json;
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:iron_kids/styles/app_theme.dart';
 
-List<Filtros>_list = [
+import 'package:flutter/material.dart';
+
+/* List<Filtros>_list = [
   Filtros(
     id: 0, 
     color: AppTheme.primary50,
@@ -31,7 +29,7 @@ List<Filtros>_list = [
   )
 ];
 
-
+ */
 class Filtros {
   final int id;
   final Color color;

@@ -33,6 +33,7 @@ const MaterialColor myPrimarySwatch = MaterialColor(
 );
 
 // TextTheme con los estilos Material3 modificados, y estilos propios añadidos
+// ignore: must_be_immutable
 class MyTextTheme extends TextTheme {
   MyTextTheme({
     TextStyle? headlineLarge,

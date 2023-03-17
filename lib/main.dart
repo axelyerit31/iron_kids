@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iron_kids/nav_bar_routes.dart';
-import 'package:iron_kids/routeGenerator.dart';
+import 'package:iron_kids/route_generator.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 
 

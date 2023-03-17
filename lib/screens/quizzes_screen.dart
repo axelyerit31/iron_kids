@@ -15,6 +15,8 @@ List<List<bool>> optionsValues = [
 
 PageController _pageController = PageController(initialPage: 0, keepPage: false);
 
+int pageIndex = 0;
+
 class QuizzesScreen extends StatefulWidget {
   const QuizzesScreen({super.key});
   @override
@@ -63,9 +65,51 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
       ),
       body: Column(
         children: [
-          AppTheme.spacingWidget8,
-          const CardProgress(),
+          AppTheme.spacingWidget6,
+
+          // Indicador de avance
+          ScreenApp(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Hierro: el superhéroe de la salud',
+                      style: textTheme.bodyMediumSemiBold,
+                    ),
+                    Text(
+                      pageIndex < optionsValues.length ? '${pageIndex + 1} de ${optionsValues.length}' : "Finalizado",
+                      style: textTheme.bodyMediumSemiBold.copyWith(
+                        color: AppTheme.gray600,
+                      ),
+                    ),
+                  ],
+                ),
+                AppTheme.spacingWidget6,
+
+                // Indicadores de avance
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    for (int i = 0; i < optionsValues.length; i++)
+                      Container(
+                        width: screenW * 1/5,
+                        height: 2,
+                        decoration: BoxDecoration(
+                          color: i <= pageIndex ? AppTheme.primary600 : AppTheme.gray100,
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+            )
+          ),
+          
           AppTheme.spacingWidget9,
+
+          // Card con preguntas
           Expanded(
             child: FutureBuilder<List<Quizz>>(
               future: QuizzService.getQuizz(),
@@ -74,21 +118,84 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
                   final questions = snapshot.data;
                   questionsG = questions;
                   return PageView(
+                    onPageChanged: (value) {
+                      setState(() {
+                        pageIndex = value;
+                      });
+                    },
                     controller: _pageController,
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     pageSnapping: true,
                     children: [
-                      for (int i = 0; i < questions!.length; i++)
-                        Padding(
-                          padding:
-                            const EdgeInsets.symmetric(horizontal: AppTheme.spacing9),
-                          child: _questionCard(
-                            index: i,
-                            question: questions[i].question,
-                            options: questions[i].options,
-                            listSelected: optionsValues[i]
-                          ),
+                      for (int i = 0; i < questions!.length + 1; i++)
+                        i < questions.length
+                        ? Padding(
+                            padding:
+                              const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+                            child: _questionCard(
+                              index: i,
+                              question: questions[i].question,
+                              options: questions[i].options,
+                              listSelected: optionsValues[i]
+                            ),
+                          )
+                        : Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing6),
+                          child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: AppTheme.spacing6,
+                                vertical: AppTheme.spacing8
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppTheme.gray100,
+                                border: Border.all(
+                                  color: AppTheme.gray200,
+                                  width: 1.0,
+                                ),
+                                borderRadius: AppTheme.borderRadiusXL,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                        
+                                  Text(
+                                    "Felicidades, respondiste todo correctamente",
+                                    style: textTheme.headlineMedium,
+                                  ),
+
+                                  AppTheme.spacingWidget2,
+                        
+                                  Text(
+                                    "Obtuviste 20 puntos.",
+                                    style: textTheme.bodyMediumSemiBold.copyWith(color: AppTheme.gray600),
+                                  ),
+                        
+                                  AppTheme.spacingWidget2,
+                        
+                                  Expanded(
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                        image: DecorationImage(image: NetworkImage("https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Ilustraciones%2Fself_confidence.png?alt=media&token=f85a584d-a25f-4751-8152-ba0cf635aa23"))
+                                        )
+                                    )
+                                  ),
+                        
+                                  AppTheme.spacingWidget4,
+                        
+                                  ButtonPrimary(
+                                    "Ir a Perfil",
+                                    size: 2,
+                                    onPressed: () {
+                                      _pageController.jumpToPage(0);
+                                      Navigator.pop(context);
+                                      selectedIndexGlobal.value = indexPerfilMadreScreen;
+                                    },
+                                  )
+                                  
+                                ],
+                              ),
+                            ),
                         )
                     ],
                   );
@@ -99,14 +206,14 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
               },
             ),
           ),
+          AppTheme.spacingWidget9,
         ],
       ),
     );
   }
 
-  Widget _questionCard({required int index, required List<bool> listSelected, required String question, required List<dynamic> options}) {return Container(
-      // AQUI LE PUSE EL ANCHO ESPECIFICO
-      width: screenW * 6 / 7,
+  Widget _questionCard({required int index, required List<bool> listSelected, required String question, required List<dynamic> options}) {
+    return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: AppTheme.spacing6,
         vertical: AppTheme.spacing8
@@ -152,7 +259,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
                     size: 2,
                     onPressed: () {
                       _pageController.animateToPage(
-                        (_pageController.page?.round() ?? 0) - 1,
+                        pageIndex - 1,
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.easeInOutCubic
                       );
@@ -163,11 +270,11 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
                 Expanded(
                   flex: 5,
                   child: ButtonPrimary(
-                    'Siguiente',
+                    pageIndex < optionsValues.length -1 ? 'Siguiente' : 'Finalizar',
                     size: 2,
                     onPressed: () {
                       _pageController.animateToPage(
-                        (_pageController.page?.round() ?? 0) + 1,
+                        pageIndex + 1,
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.easeInOutCubic
                       );
@@ -214,197 +321,6 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
               optionText,
               style: textTheme.titleSmall?.copyWith(color: AppTheme.gray700),
             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-//Contenedor del progreso de las preguntas
-class CardProgress extends StatelessWidget {
-  const CardProgress({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        alignment: Alignment.centerLeft,
-        width: screenW * 5 / 6,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Hierro, el super héroe de la salud',
-                  style: textTheme.bodyMediumSemiBold,
-                ),
-                Text(
-                  '1 de 4',
-                  style: textTheme.bodyMediumSemiBold.copyWith(
-                    color: AppTheme.gray600,
-                  ),
-                ),
-              ],
-            ),
-            AppTheme.spacingWidget6,
-            //esto lo puse asi por mientras xd, solo para ver como se ve T_T
-            SizedBox(
-              width: double.infinity,
-              child: Flex(
-                direction: Axis.horizontal,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 2,
-                      decoration: BoxDecoration(
-                        color: AppTheme.primary600,
-                      ),
-                    ),
-                  ),
-                  AppTheme.spacingWidget4,
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 2,
-                      decoration: BoxDecoration(
-                        color: AppTheme.primary100,
-                      ),
-                    ),
-                  ),
-                  AppTheme.spacingWidget4,
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 2,
-                      decoration: BoxDecoration(
-                        color: AppTheme.primary100,
-                      ),
-                    ),
-                  ),
-                  AppTheme.spacingWidget4,
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 2,
-                      decoration: BoxDecoration(
-                        color: AppTheme.primary100,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ));
-  }
-} //Tarjetas de las preguntas
-
-class QuestionCard extends StatelessWidget {
-  final String question;
-  final List<dynamic> options;
-
-  const QuestionCard({
-    super.key,
-    required this.question,
-    required this.options,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // AQUI LE PUSE EL ANCHO ESPECIFICO
-      width: screenW * 6 / 7,
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppTheme.spacing6,
-        vertical: AppTheme.spacing8
-      ),
-      decoration: BoxDecoration(
-        color: AppTheme.gray100,
-        border: Border.all(
-          color: AppTheme.gray200,
-          width: 1.0,
-        ),
-        borderRadius: AppTheme.borderRadiusXL,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            "Selecciona una respuesta",
-            style: textTheme.bodyMediumSemiBold.copyWith(color: AppTheme.gray600),
-          ),
-          AppTheme.spacingWidget4,
-          Text(
-            question,
-            style: textTheme.headlineSmall,
-          ),
-          AppTheme.spacingWidget6,
-          for (final option in options) Option(optionText: option),
-          AppTheme.spacingWidget8,
-          SizedBox(
-            width: 200,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Expanded(
-                  flex: 5,
-                  child: ButtonSecondary(
-                    'Anterior',
-                    size: 2,
-                  ),
-                ),
-                AppTheme.spacingWidget5,
-                const Expanded(
-                  flex: 5,
-                  child: ButtonPrimary(
-                    'Siguiente',
-                    size: 2,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Option extends StatelessWidget {
-  final String optionText;
-  const Option({
-    super.key,
-    required this.optionText,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      borderRadius: AppTheme.borderRadiusXL,
-      color: AppTheme.white,
-      child: InkWell(
-        borderRadius: AppTheme.borderRadiusXL,
-        onTap: () {},
-        child: Container(
-          alignment: Alignment.centerLeft,
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppTheme.spacing6,
-            vertical: AppTheme.spacing6
-          ),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: AppTheme.gray300,
-              width: 1.0,
-            ),
-            borderRadius: AppTheme.borderRadiusXL,
-          ),
-          child: Text(
-            optionText,
-            style: textTheme.titleSmall?.copyWith(color: AppTheme.gray700),
           ),
         ),
       ),
