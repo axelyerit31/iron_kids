@@ -18,7 +18,7 @@ class MyFilterChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return FilterChip(
       showCheckmark: checkMark,
-      labelStyle: textTheme.labelLargeMedium.copyWith(color: selected ? AppTheme.white : AppTheme.gray500),
+      labelStyle: textTheme.labelLargeMedium.copyWith(color: selected ? AppTheme.primary600 : AppTheme.gray500),
       labelPadding: const EdgeInsets.symmetric(
         horizontal: AppTheme.spacing4,
         vertical: AppTheme.spacing2
@@ -27,9 +27,9 @@ class MyFilterChip extends StatelessWidget {
       pressElevation: 0,
       backgroundColor: AppTheme.gray100,
       checkmarkColor: AppTheme.white,
-      selectedColor: AppTheme.primary500,
+      selectedColor: AppTheme.primary50,
       label: Text(label),
-      onSelected: onSelected
+      onSelected: onSelected ?? (value) {}
     );
   }
 }

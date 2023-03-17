@@ -4,6 +4,7 @@ import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/models/recetas.dart';
 import 'package:iron_kids/styles/widgets.dart';
 
+TextEditingController controllerBuscarReceta = TextEditingController();
 
 class RecetasScreen extends StatelessWidget {
   const RecetasScreen({Key? key}) : super(key: key);
@@ -14,47 +15,64 @@ class RecetasScreen extends StatelessWidget {
       key: navigatorKeys[indexRecetasScreen],
       onGenerateRoute: (settings) => MaterialPageRoute(
         builder: (context) {
-          return ScreenApp(
-            child:SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  //Spacing 20px
-                  AppTheme.spacingWidget10,
+          return SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                //Spacing 20px
+                AppTheme.spacingWidget10,
 
-                  //Titulo
-                  Text('Recetas',
-                    style: textTheme.headlineMedium!.copyWith(color: AppTheme.gray800),
-                    
+                //Titulo
+                ScreenApp(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Recetas',
+                        style: textTheme.headlineLarge,
+                        
+                      ),
+                
+                      //Spacing 20px
+                      AppTheme.spacingWidget6,
+                
+                      // Buscador de recetas
+                      const BuscaReceta(),
+                    ],
                   ),
+                ),
 
-                  //Spacing 20px
-                  AppTheme.spacingWidget6,
+                //Spacing 20px
+                AppTheme.spacingWidget6,
 
-                  // Buscador de recetas
-                  const BuscaReceta(),
+                //Botones filtros
+                const ListFilter(),
 
-                  //Spacing 20px
-                  AppTheme.spacingWidget6,
+                //Spacing 20px
+                AppTheme.spacingWidget4,
 
-                  //Botones filtros
-                  const ListFilter(),
-
-                  //Spacing 20px
-                  AppTheme.spacingWidget6,
-
-                  //Recetas
-                  const ListaRecetas()
-                ]
-              ),
-            )
+                //Recetas
+                const ScreenApp(child: ListaRecetas())
+              ]
+            ),
           );
         }
       )
     );
   }
 }
+
+
+/* Navigator(
+      key: navigatorKeys[indexRecetasScreen],
+      onGenerateRoute: (settings) => MaterialPageRoute(
+        builder: (context) {
+          return 
+
+        }
+      )
+    ); */
+
 
 //Estructura
 class BuscaReceta extends StatelessWidget {
@@ -71,32 +89,20 @@ class BuscaReceta extends StatelessWidget {
         children: [
 
           //Buscador
-          const Expanded(
+          Expanded(
             flex: 6,
-            child:SearchBar()
-            ),
+            child: InputField(
+              controller: controllerBuscarReceta,
+              placeholder: "Buscar receta",
+              iconLeft: Icons.search_rounded,
+            )
+          ),
 
           //Spacing 8px
           AppTheme.spacingWidget3,
           
           //Boton
-          ElevatedButton(
-            onPressed: () {},
-            style: ButtonStyle(
-              fixedSize: MaterialStateProperty.all(const Size(84, 45)),
-              backgroundColor: MaterialStateProperty.all(AppTheme.primary500),
-              //elevation: MaterialStateProperty.all(0),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: AppTheme.borderRadiusS,
-                ),
-              ),
-            ),
-            child: Text(
-              'Filtrar',
-              style: TextStyle(color: AppTheme.primary50),
-            ),
-          ),
+          const ButtonPrimary('Filtrar', size: 2,)
         ],
       ),
     );
@@ -134,20 +140,17 @@ class ListaRecetas extends StatelessWidget {
           if (snapshot.hasData) {  
             final recetas = snapshot.data;
             return Wrap(
+              spacing: AppTheme.spacing6,
+              runSpacing: AppTheme.spacing6,
               children: <Widget>[
                 for (final receta in recetas!)
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: receta.id == 0
-                            ? AppTheme.spacing6
-                            : AppTheme.spacing4),
-                    child: CardRecetaSmall(
-                      linkImg: receta.imagen,
-                      titulo: receta.titulo,
-                      tiempo: receta.tiempo,
-                      likes: receta.likes,
-                      edad: receta.edad,
-                    ),
+                  CardRecetaLarge(
+                    linkImg: receta.imagen,
+                    titulo: receta.titulo,
+                    tiempo: receta.tiempo,
+                    likes: receta.likes,
+                    edad: receta.edad,
+                    liked: receta.titulo.length < 18 ? false : true,
                   ) 
               ]
             );
@@ -169,32 +172,36 @@ class ListFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        for (final filtro in _list)
-          SizedBox(
-            // padding: const EdgeInsets.all(AppTheme.spacing4),
-            width: 84,
-            height: 36,
-            child: ButtonSecondary(filtro.text,
-              size: 1,
-
-            )
-           /*  ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(filtro.color),
-                elevation: MaterialStateProperty.all(0),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: AppTheme.borderRadiusM,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      physics: const BouncingScrollPhysics(),
+      child: Row(
+        children: <Widget>[
+          AppTheme.spacingWidget6,
+          for (final filtro in _list)
+            Container(
+              padding: const EdgeInsets.only(right: AppTheme.spacing4),
+              height: 42,
+              child: ButtonSecondary(filtro.text,
+                size: 1,
+    
+              )
+             /*  ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(filtro.color),
+                  elevation: MaterialStateProperty.all(0),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: AppTheme.borderRadiusM,
+                    ),
                   ),
                 ),
-              ),
-              child: Text(filtro.text)  
-            ), */
-          )
-      ],
+                child: Text(filtro.text)  
+              ), */
+            )
+        ],
+      ),
     );
   }
 }

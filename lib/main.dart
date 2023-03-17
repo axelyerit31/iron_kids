@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:iron_kids/nav_bar_routes.dart';
 import 'package:iron_kids/routeGenerator.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 
-import 'nav_bar_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,6 @@ void main() {
 // Tamaños de pantalla
 double screenW = 0;
 double screenH = 0;
-
 
 final ValueNotifier<int> selectedIndexGlobal = ValueNotifier<int>(2);
 
@@ -80,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   label: 'Recetas',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.arrow_forward_ios),
+                  icon: Icon(Icons.water_drop),
                   label: 'Test',
                 ),
                 BottomNavigationBarItem(
@@ -109,5 +108,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
