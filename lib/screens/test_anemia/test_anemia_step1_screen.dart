@@ -56,7 +56,7 @@ class TestAnemiaFirstStepScreen extends StatelessWidget {
                     label: "¿Cuánto pesa su hijo(a)? (kg)",
                     controller: controllerPesoHijo, 
                     placeholder: "Peso en kilogramos",
-                    iconLeft: Icons.calendar_month_outlined,
+                    iconLeft: Icons.scale,
                     keyboardType: TextInputType.number,
                   ),
                   AppTheme.spacingWidget6,
@@ -64,7 +64,7 @@ class TestAnemiaFirstStepScreen extends StatelessWidget {
                     label: "¿Cuánta hemoglobina tiene su hijo(a)? (g/dl)",
                     controller: controllerHemoglobinaHijo, 
                     placeholder: "Nivel de hemoglobina",
-                    iconLeft: Icons.calendar_month_outlined,
+                    iconLeft: Icons.water_drop_outlined,
                     keyboardType: TextInputType.number,
                   ),
       

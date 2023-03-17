@@ -12,6 +12,7 @@ class TestAnemiaFinalScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: ScreenApp(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +30,7 @@ class TestAnemiaFinalScreen extends StatelessWidget {
 
               // Cards info
               SizedBox(
-                height: screenH * 1/3,
+                height: screenH * 1/3 + 50,
                 child: Row(
                   children: [
                     CardMensajeAnemia(
@@ -66,11 +67,11 @@ class TestAnemiaFinalScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const CardRecetaLarge(linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=b983eb50-fcc3-46d8-a09b-a4220f858f77", titulo: "Chaufa de Sangrecita", tiempo: "12 min", likes: "126", edad: "12 a 23 meses", liked: true,),
+                      const CardRecetaSmall(linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=b983eb50-fcc3-46d8-a09b-a4220f858f77", titulo: "Chaufa de Sangrecita", tiempo: "12 min", likes: "126", edad: "12 a 23 meses"),
                       
                       AppTheme.spacingWidget6,
 
-                      const CardRecetaLarge(linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_pescado.png?alt=media&token=085d255c-5c94-45ab-b87a-7fd3fe850213", titulo: "Papilla de Pescado", tiempo: "10 min", likes: "30", edad: "9 a 11 meses", liked: false)
+                      const CardRecetaSmall(linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_pescado.png?alt=media&token=085d255c-5c94-45ab-b87a-7fd3fe850213", titulo: "Papilla de Pescado", tiempo: "10 min", likes: "30", edad: "9 a 11 meses")
                     ],
                   ),
 
@@ -80,6 +81,9 @@ class TestAnemiaFinalScreen extends StatelessWidget {
                     "Terminar",
                     size: 2,
                     onPressed: () {
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                      Navigator.pop(context);
                       selectedIndexGlobal.value = indexControlAnemiaScreen;
                     },
                   ),
@@ -132,7 +136,7 @@ class CardMensajeAnemia extends StatelessWidget {
             AppTheme.spacingWidget6,
               
             // Texto
-            Text(mensaje, style: textTheme.bodyLarge!.copyWith(color: contentColor))
+            Text(mensaje, style: textTheme.bodyMedium!.copyWith(color: contentColor))
           ],
         ),
       ),
