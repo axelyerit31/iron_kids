@@ -13,7 +13,7 @@
 - 🤝 **Miembros:** [Axel Loaces](https://www.linkedin.com/in/axel-loaces-77745a216/), [Estheban Curi](https://www.linkedin.com/in/estheban-cg/), [Henry Gutierrez](https://www.linkedin.com/in/nhnery/) y [Josué Marcilla](https://www.linkedin.com/in/josué-marcilla-diaz-725581220/)
 
 - ⚡ **Video de Demo Hackathon Perú 2023 (Primera etapa):** [https://youtu.be/I8LouQAv9B0]
-- ⚡ **Video de Demo Hackathon Perú 2023 (Segunda etapa):** [aqui va el link del video]
+- ⚡ **Video de Demo Hackathon Perú 2023 (Segunda etapa):** [https://youtu.be/eV0Rcf3kYaE]
 
 <br>
 
