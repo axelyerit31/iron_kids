@@ -8,7 +8,7 @@
 
 - 📝 **Objetivos:** De esta manera ayudamos a cumplir los objetivos propuestos por la ONU para el 2030, especificamente el ODS 2.2: *"El poner fin a todas las formas de malnutrición"*, asi como el ODS 3: *"Garantizar una vida sana y promover el bienestar en todas las edades"* 
 
-- 🤝 **Miembros:** Axel Loaces, Estheban Curi, Henry Gutierrez y Josué Marcilla
+- 🤝 **Miembros:** [Axel Loaces](https://www.linkedin.com/in/axel-loaces-77745a216/), [Estheban Curi](https://www.linkedin.com/in/estheban-cg/), [Henry Gutierrez](https://www.linkedin.com/in/nhnery/) y [Josué Marcilla](https://www.linkedin.com/in/josué-marcilla-diaz-725581220/)
 
 - ⚡ **Video de Demo Hackathon Perú 2023 (Primera etapa):** [https://youtu.be/I8LouQAv9B0]
 - ⚡ **Video de Demo Hackathon Perú 2023 (Segunda etapa):** [aqui va el link del video]
