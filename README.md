@@ -1,4 +1,4 @@
-![lgoo](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2Fimagen_2023-03-18_231244047.png?alt=media&token=0969aa6d-4130-4ddb-a40f-cfcfd8e250a4)
+<p align="center"> ![logo](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2Flogo.png?alt=media&token=cbcf2267-3fc3-47fb-8d7f-523c2d6198b0) <p>
 
 # <p align="center">Bienvenidos 👋 |  Niños de Hierro - Hackathon GDSC Peru 2023<p>
 
