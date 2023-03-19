@@ -23,7 +23,7 @@
 ## ¿Cómo correr Niños de Hierro?
 
 1.  Clone el proyecto de GitHub a un repositorio local.
-- Nota: Tenga instalado el SDK de Flutter (3.0). También te recomendamos usar el editor de código "Visual Studio Code" con sus complementos de desarrollo para trabajar con Dart.
+- Nota: Tenga instalado (de preferencia) el SDK de Flutter (3.7.6) y Dart (2.19.3). También te recomendamos usar el editor de código "Visual Studio Code" con sus complementos de desarrollo para trabajar con Dart.
 2. Abrir el terminar de comandos.
 3. Descargar las dependencias con el comando:  `flutter pub get`
 4. Finalmente correr la aplicacion con el comando: `flutter run`
@@ -35,6 +35,6 @@
 ![Media Feed](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FMedia%20Feed(1).png?alt=media&token=11b5aafc-1f6b-4409-b75f-2efe84a81ec1)
 ![Ingredientes](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FIngredientes(1).png?alt=media&token=6d21741e-703a-4af0-8338-779144d3e65a)
 ![Control de anemia](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FControldeAnemia(1).png?alt=media&token=13fd6a0c-bc7e-4435-93f7-c367be23de22)
-![Quizz](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FQuiz1(1).png?alt=media&token=550ee5d5-4268-4402-8331-949b50522f8e)
-![Test 1](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FTest_intro.png?alt=media&token=294944ae-e14c-4360-82dd-9d3cb824b767)
+![Quizz](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FQuiz1(1).png?alt=media&token=fc7cd9f9-e898-44f5-adb2-5f4dc9341c16)
+![Test 1](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FTest_intro.png?alt=media&token=a6e84a1e-bfa1-455e-9890-20407faf4b44)
 ![Test 2](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FTest_steps.png?alt=media&token=56f99e3d-04bf-47d7-b472-abfeb2433c71)
