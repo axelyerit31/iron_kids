@@ -10,7 +10,7 @@
 
 - 🤝 **Miembros:** Axel Loaces, Estheban Curi, Henry Gutierrez y Josué Marcilla
 
-- ⚡ **Video de Demo Hackathon Perú 2023:** [https://youtu.be/3Zchk6dhr2c]
+- ⚡ **Video de Demo Hackathon Perú 2023 (Primera etapa):** [https://youtu.be/I8LouQAv9B0]
 
 <br>
 
