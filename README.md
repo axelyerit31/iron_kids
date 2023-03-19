@@ -31,7 +31,7 @@
 <br>
 
 ## Mockups
-<img src="https://miurl.com/miimagen" alt="Un gato sentado en el piso" width="500px">
+
 ![Media Feed](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FMedia%20Feed.png?alt=media&token=35e49438-bfad-4571-8c3b-7b6d9f04ffd6){width=100px}
 ![Ingredientes](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FIngredientes.png?alt=media&token=6df67376-020b-44a9-a9c1-c90b7fef8e69)
 ![Control de anemia](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FControl_de_Anemia.png?alt=media&token=cb5816b9-3ca1-4d24-b134-dcfc4754a240)
