@@ -278,7 +278,7 @@ class _ListFilterState extends State<ListFilter> {
 }
 
 List<Filtros> _list = [
-  Filtros(id: 0, color: AppTheme.primary50, text: 'Papa amarilla'),
+  //Filtros(id: 0, color: AppTheme.primary50, text: 'Papa amarilla'),
 ];
 
 class Filtros {
