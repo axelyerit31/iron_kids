@@ -32,4 +32,4 @@
 
 ## Mockups
 
-![Media Feed](https://sistemasunicaedu-my.sharepoint.com/personal/20175223_sistemasunica_edu_pe/Documents/Images_Hackathon2023/Media%20Feed.png)
+![Media Feed](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FMedia%20Feed.png?alt=media&token=35e49438-bfad-4571-8c3b-7b6d9f04ffd6)
