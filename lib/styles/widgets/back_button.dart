@@ -6,31 +6,34 @@ class ButtonBack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Ink(
-    decoration: BoxDecoration(
-      color: AppTheme.gray200,
-      borderRadius: AppTheme.borderRadiusL
-    ),
-    child: InkWell(
+    return Material(
       borderRadius: AppTheme.borderRadiusL,
-      splashColor: Colors.grey.withOpacity(0.5),
-      child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppTheme.spacing6,
-          vertical: AppTheme.spacing5
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.arrow_back_ios,color:AppTheme.gray600, size: 20,),
-            Text("Regresar", style: textTheme.labelLarge,)
-          ],
-        )
+      child: Ink(
+      decoration: BoxDecoration(
+        color: AppTheme.gray200,
+        borderRadius: AppTheme.borderRadiusL
       ),
-      onTap: () {
-        Navigator.maybePop(context);
-      },
-    ),
-  );
+      child: InkWell(
+        borderRadius: AppTheme.borderRadiusL,
+        splashColor: Colors.grey.withOpacity(0.5),
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppTheme.spacing6,
+            vertical: AppTheme.spacing5
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.arrow_back_ios,color:AppTheme.gray600, size: 20,),
+              Text("Regresar", style: textTheme.labelLargeMedium,)
+            ],
+          )
+        ),
+        onTap: () {
+          Navigator.maybePop(context);
+        },
+      ),
+      ),
+    );
   }
 }

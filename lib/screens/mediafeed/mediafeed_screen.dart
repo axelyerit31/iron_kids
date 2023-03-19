@@ -3,6 +3,7 @@ import 'package:iron_kids/main.dart';
 import 'package:iron_kids/models/recetas.dart';
 import 'package:iron_kids/nav_bar_routes.dart';
 import 'package:iron_kids/screens/mediafeed/mediafeed_publicaciones.dart';
+import 'package:iron_kids/screens/recetas/recetas_details.dart';
 import 'package:iron_kids/styles/app_theme.dart';
 import 'package:iron_kids/styles/widgets.dart';
 
@@ -39,7 +40,7 @@ class _MediaFeedScreenState extends State<MediaFeedScreen> {
                   clipBehavior: Clip.antiAlias,
                   color: Colors.transparent,
                   child: Ink.image(
-                    image: const NetworkImage('https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690'),
+                    image: NetworkImage(imagenUsuaria),
                     width: 50,
                     height: 50,
                     child: InkWell(
@@ -283,6 +284,14 @@ class _RecomendadosSection extends StatelessWidget {
                           tiempo: receta.tiempo,
                           likes: receta.likes,
                           edad: receta.edad,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) => RecetasDetailsScreen(receta: receta)
+                              )
+                            );
+                          },
                         ),
                       )
                   ],

@@ -67,11 +67,11 @@ class TestAnemiaFinalScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const CardRecetaSmall(linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=b983eb50-fcc3-46d8-a09b-a4220f858f77", titulo: "Chaufa de Sangrecita", tiempo: "12 min", likes: "126", edad: "12 a 23 meses"),
+                      const CardRecetaSmall(linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=56c3c761-0ac8-4b6d-96b6-3a0241813ba9", titulo: "Chaufa de Sangrecita", tiempo: "12 min", likes: "126", edad: "12 a 23 meses"),
                       
                       AppTheme.spacingWidget6,
 
-                      const CardRecetaSmall(linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_pescado.png?alt=media&token=085d255c-5c94-45ab-b87a-7fd3fe850213", titulo: "Papilla de Pescado", tiempo: "10 min", likes: "30", edad: "9 a 11 meses")
+                      const CardRecetaSmall(linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_pescado.png?alt=media&token=4daaa2f4-2fa5-49bd-817e-38ef2cc80bc1", titulo: "Papilla de Pescado", tiempo: "10 min", likes: "30", edad: "9 a 11 meses")
                     ],
                   ),
 

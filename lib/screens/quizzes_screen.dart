@@ -49,7 +49,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
               clipBehavior: Clip.antiAlias,
               color: Colors.transparent,
               child: Ink.image(
-                image: const NetworkImage('https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690'),
+                image: const NetworkImage(imagenUsuaria),
                 width: 50,
                 height: 50,
                 child: InkWell(
@@ -107,7 +107,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
             )
           ),
           
-          AppTheme.spacingWidget9,
+          AppTheme.spacingWidget7,
 
           // Card con preguntas
           Expanded(
@@ -233,7 +233,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
             "Selecciona una respuesta",
             style: textTheme.bodyMediumSemiBold.copyWith(color: AppTheme.gray600),
           ),
-          AppTheme.spacingWidget4,
+          AppTheme.spacingWidget2,
           Text(
             question,
             style: textTheme.headlineSmall,
@@ -246,7 +246,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
               isSelected: listSelected[i],
               optionText: options[i]
             ),
-          AppTheme.spacingWidget8,
+          AppTheme.spacingWidget6,
           SizedBox(
             width: 200,
             child: Row(
@@ -256,7 +256,6 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
                   flex: 5,
                   child: ButtonSecondary(
                     'Anterior',
-                    size: 2,
                     onPressed: () {
                       _pageController.animateToPage(
                         pageIndex - 1,
@@ -271,7 +270,6 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
                   flex: 5,
                   child: ButtonPrimary(
                     pageIndex < optionsValues.length -1 ? 'Siguiente' : 'Finalizar',
-                    size: 2,
                     onPressed: () {
                       _pageController.animateToPage(
                         pageIndex + 1,
@@ -308,7 +306,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.symmetric(
               horizontal: AppTheme.spacing6,
-              vertical: AppTheme.spacing6
+              vertical: AppTheme.spacing4
             ),
             decoration: BoxDecoration(
               border: Border.all(

@@ -32,6 +32,7 @@ const MaterialColor myPrimarySwatch = MaterialColor(
   },
 );
 
+
 // TextTheme con los estilos Material3 modificados, y estilos propios añadidos
 // ignore: must_be_immutable
 class MyTextTheme extends TextTheme {
@@ -69,6 +70,8 @@ class MyTextTheme extends TextTheme {
           labelSmall: TextStyle(fontSize: 12, color: AppTheme.gray600),
         );
 
+  TextStyle bodyMediumMedium = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w500, color: AppTheme.gray700);
   TextStyle bodyMediumSemiBold = TextStyle(
       fontSize: 16, fontWeight: FontWeight.w600, color: AppTheme.gray700);
   TextStyle bodySmallMedium = TextStyle(
@@ -78,6 +81,7 @@ class MyTextTheme extends TextTheme {
   TextStyle labelLargeMedium = TextStyle(
       fontSize: 16, fontWeight: FontWeight.w500, color: AppTheme.gray600);
 }
+
 
 // Bordes redondeados, colores primarios, grises, spacing, spacingWidget, 
 class AppTheme {
@@ -147,104 +151,8 @@ class AppTheme {
   static Color gray800 = const Color(0xff2d3748);
   static Color gray900 = const Color(0xff16192c);
 
-  
-
-  // Estilos de Texto
-  static TextStyle headlineLarge(BuildContext context) {
-    return themeData.textTheme.headlineLarge!
-        .copyWith(fontFamily: "DMSerifDisplay", fontSize: 32);
-  }
-
-  static TextStyle headlineMedium(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .headlineMedium!
-        .copyWith(fontFamily: "DMSerifDisplay", fontSize: 28);
-  }
-
-  static TextStyle headlineSmall(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .headlineSmall!
-        .copyWith(fontFamily: "DMSerifDisplay", fontSize: 24);
-  }
-
-  static TextStyle titleMedium(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .titleMedium!
-        .copyWith(fontSize: 20, fontWeight: FontWeight.w600);
-  }
-
-  static TextStyle titleSmall(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .titleSmall!
-        .copyWith(fontSize: 16, fontWeight: FontWeight.w600);
-  }
-
-  static TextStyle bodyLarge(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .bodyLarge!
-        .copyWith(fontSize: 18, color: gray700);
-  }
-
-  static TextStyle bodyMedium(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .bodyMedium!
-        .copyWith(fontSize: 16, color: gray700);
-  }
-
-  static TextStyle bodyMediumSemiBold(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .bodyMedium!
-        .copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: gray700);
-  }
-
-  static TextStyle bodySmall(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .bodySmall!
-        .copyWith(fontSize: 14, color: gray700);
-  }
-
-  static TextStyle bodySmallMedium(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .bodySmall!
-        .copyWith(fontSize: 14, fontWeight: FontWeight.w500, color: gray700);
-  }
-
-  static TextStyle bodySmallSemiBold(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .bodySmall!
-        .copyWith(fontSize: 14, fontWeight: FontWeight.w600, color: gray700);
-  }
-
-  static TextStyle labelLarge(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .labelMedium!
-        .copyWith(fontSize: 16, color: gray600);
-  }
-
-  static TextStyle labelMedium(BuildContext context) {
-    return Theme.of(context)
-        .textTheme
-        .labelMedium!
-        .copyWith(fontSize: 14, color: gray600);
-  }
-
-  static TextStyle labelSmall(BuildContext context) {
-    return Theme.of(context).textTheme.labelSmall!.copyWith(
-          fontSize: 11,
-        );
-  }
-
 }
 
 
+const String nombreUsuaria = "Liliana Vilca";
+const String imagenUsuaria = "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_andrea_huamani.png?alt=media&token=5c9d581f-5d0e-4812-af2c-5cfb6af473be";

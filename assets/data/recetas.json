@@ -2,61 +2,115 @@
     {
       "id": 0,
       "titulo": "Chaufa de Sangrecita",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=b983eb50-fcc3-46d8-a09b-a4220f858f77",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita.png?alt=media&token=56c3c761-0ac8-4b6d-96b6-3a0241813ba9",
+      "imagenXL": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fchaufa_sangrecita_XL.png?alt=media&token=4c07a348-cd93-4f6e-aa94-8df4856009bc",
       "tiempo": "12 min",
       "likes": "126",
+      "liked": true,
+      "region": "Costa",
       "edad": "12 a 23 meses",
-      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "ingredientes": [
+        ["Habas", "1", "puñado"],
+        ["Papa amarilla", "1", "unidad"],
+        ["Leche evaporada", "2", "onzas"],
+        ["Aceite vegetal", "1", "cdta."],
+        ["Caldo", "1", "taza"]
+      ],
       "pasos": ["Paso 1", "Paso 2", "Paso 3"]
     },
     {
       "id": 1,
       "titulo": "Purecito Verde",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpure_verde.png?alt=media&token=d811cf94-706a-418b-9ed1-4476a7967cd2",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpurecito_verde.png?alt=media&token=2c661f3a-0d8e-4548-9524-1a2387892101",
+      "imagenXL": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpurecito_verde_XL.png?alt=media&token=d598bd6b-d3ee-4d55-95b5-9874e95ff720",
       "tiempo": "10 min",
       "likes": "24",
+      "liked": false,
+      "region": "Costa",
       "edad": "6 a 8 meses",
-      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
-      "pasos": ["Paso 1", "Paso 2", "Paso 3"]
+      "ingredientes": [
+        ["Habas", "1", "puñado"],
+        ["Papa amarilla", "1", "unidad"],
+        ["Leche evaporada", "2", "onzas"],
+        ["Aceite vegetal", "1", "cdta."],
+        ["Caldo", "1", "taza"]
+      ],
+      "pasos": ["Sancochar las habas y la papa. Guardar el caldo.", "Aplastar con la ayuda de un tenedor la papa y las habas sancochadas y previamente pasadas por un colador. Agregar la leche, el aceite y el caldo.", "Mezclar bien la preparación hasta obtener una consistencia espesa y servir."]
     },
     {
       "id": 2,
       "titulo": "Guiso de Frejoles",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fguiso_frejoles.png?alt=media&token=11fce12d-585c-4a6c-b6da-17de1870c768",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fguiso_frijoles.png?alt=media&token=1704f9c0-1db3-4dab-ae93-ff8cd2a2227e",
+      "imagenXL": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fguiso_frijoles_XL.png?alt=media&token=8916aa00-29f1-415e-a940-60c6c6030b19",
       "tiempo": "10 min",
       "likes": "18",
+      "liked": false,
+      "region": "Selva",
       "edad": "12 a 23 meses",
-      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "ingredientes": [
+        ["Habas", "1", "puñado"],
+        ["Papa amarilla", "1", "unidad"],
+        ["Leche evaporada", "2", "onzas"],
+        ["Aceite vegetal", "1", "cdta."],
+        ["Caldo", "1", "taza"]
+      ],
       "pasos": ["Paso 1", "Paso 2", "Paso 3"]
     },
     {
       "id": 3,
       "titulo": "Papilla de Pescado",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_pescado.png?alt=media&token=085d255c-5c94-45ab-b87a-7fd3fe850213",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_pescado.png?alt=media&token=4daaa2f4-2fa5-49bd-817e-38ef2cc80bc1",
+      "imagenXL": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_pescado_XL.png?alt=media&token=faf88861-6f98-40e3-a6ae-8e6f04dc298f",
       "tiempo": "10 min",
       "likes": "30",
+      "liked": false,
+      "region": "Selva",
       "edad": "9 a 11 meses",
-      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "ingredientes": [
+        ["Habas", "1", "puñado"],
+        ["Papa amarilla", "1", "unidad"],
+        ["Leche evaporada", "2", "onzas"],
+        ["Aceite vegetal", "1", "cdta."],
+        ["Caldo", "1", "taza"]
+      ],
       "pasos": ["Paso 1", "Paso 2", "Paso 3"]
     },
     {
       "id": 4,
       "titulo": "Papilla de Quinoa y Leche",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_quinua_leche.png?alt=media&token=d1ebdab7-cd1c-48fd-86f7-4bdd6e0474e1",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_quinoa.png?alt=media&token=e001ae09-6084-4c56-aab7-2cbf4159a540",
+      "imagenXL": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fpapilla_quinoa_XL.png?alt=media&token=37337e7a-e912-4a55-bd35-e17838d46500",
       "tiempo": "15 min",
       "likes": "8",
+      "liked": false,
+      "region": "Sierra",
       "edad": "6 a 8 meses",
-      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "ingredientes": [
+        ["Habas", "1", "puñado"],
+        ["Papa amarilla", "1", "unidad"],
+        ["Leche evaporada", "2", "onzas"],
+        ["Aceite vegetal", "1", "cdta."],
+        ["Caldo", "1", "taza"]
+      ],
       "pasos": ["Paso 1", "Paso 2", "Paso 3"]
     },
     {
       "id": 5,
       "titulo": "Ajiaco de Mondongo",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fajiaco_mondongo.png?alt=media&token=f4cf4133-aee2-4d03-9cb1-3f1bb90b9c8a",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fajiaco_mondongo.png?alt=media&token=63bc8323-d1b4-4285-b175-bedcbba48cfc",
+      "imagenXL": "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Recetas%2Fajiaco_mondongo_XL.png?alt=media&token=a11a7899-ea43-43e0-96c4-68b21b5a727c",
       "tiempo": "30 min",
       "likes": "23",
+      "liked": false,
+      "region": "Sierra",
       "edad": "12 a 23 meses",
-      "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"],
+      "ingredientes": [
+        ["Habas", "1", "puñado"],
+        ["Papa amarilla", "1", "unidad"],
+        ["Leche evaporada", "2", "onzas"],
+        ["Aceite vegetal", "1", "cdta."],
+        ["Caldo", "1", "taza"]
+      ],
       "pasos": ["Paso 1", "Paso 2", "Paso 3"]
     }
 ]

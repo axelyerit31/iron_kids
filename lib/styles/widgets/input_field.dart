@@ -41,8 +41,6 @@ class InputField extends StatelessWidget {
         Container(
             height: buttonHeightL,
             padding: EdgeInsets.only(
-              top: AppTheme.spacing3,
-              bottom: AppTheme.spacing3,
               left: iconLeft == null ? AppTheme.spacing4 : AppTheme.spacing2,
               right: iconRight == null ? AppTheme.spacing4 : AppTheme.spacing2,
             ),

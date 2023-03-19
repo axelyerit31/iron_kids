@@ -325,7 +325,7 @@ class PublicacionConsejos extends StatelessWidget {
           
           // Contenido Consejos
           SizedBox(
-            height: screenW * 4/5 - 10,
+            height: screenW * 4/5,
             child: PageView(
               scrollDirection: Axis.horizontal,
               pageSnapping: true,
@@ -422,21 +422,18 @@ class CardContentConsejo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: AppTheme.borderRadiusM,
-          color: AppTheme.white
-        ),
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppTheme.spacing5,
-          vertical: AppTheme.spacing6
-        ),
-        child: Column(
-          mainAxisAlignment: crossCenter ? MainAxisAlignment.center : MainAxisAlignment.start,
-          children: children,
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: AppTheme.borderRadiusM,
+        color: AppTheme.white
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppTheme.spacing5,
+        vertical: AppTheme.spacing6
+      ),
+      child: Column(
+        mainAxisAlignment: crossCenter ? MainAxisAlignment.center : MainAxisAlignment.start,
+        children: children,
       ),
     );
   }

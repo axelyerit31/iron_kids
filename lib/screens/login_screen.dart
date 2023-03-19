@@ -19,19 +19,19 @@ class LoginScreen extends StatelessWidget {
       //padding: const EdgeInsets.all(16.0),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          const ImageLogin(),
+        children: const <Widget>[
+          /* const ImageLogin(),
           FormInput(
             emailControllerP: _emailController,
             passwordControllerP: _passwordController,
-          ),
+          ), */
         ],
       ),
     );
   }
 }
 
-//Image Background
+/* //Image Background
 class ImageLogin extends StatelessWidget {
   const ImageLogin({super.key});
 
@@ -172,7 +172,7 @@ class FormInput extends StatelessWidget {
     );
   }
 }
-
+ */
 /* //Widget boton
 class ButtonUI extends StatelessWidget {
   final String text;

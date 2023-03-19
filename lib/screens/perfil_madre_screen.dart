@@ -35,7 +35,7 @@ class PerfilMadreScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Hola, Lupe Batallán", style: textTheme.headlineLarge,),
+                        Text("Hola, $nombreUsuaria", style: textTheme.headlineLarge,),
                   
                         AppTheme.spacingWidget6,
                   
@@ -151,7 +151,7 @@ class _UsuariosDatosSection extends StatelessWidget {
 
             // Imagen usuario
             const CircleAvatar(
-              backgroundImage: NetworkImage('https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/Profile%2Fphoto_lupe.png?alt=media&token=b6be5f56-41e7-47a2-b240-97a9c3131690'),
+              backgroundImage: NetworkImage(imagenUsuaria),
               radius: 45,
             ),
 
@@ -174,7 +174,7 @@ class _UsuariosDatosSection extends StatelessWidget {
                     children: [
                       Icon(Icons.people_alt_outlined, color: AppTheme.gray700,),
                       Text("Niños", style: textTheme.titleSmall,),
-                      Text("2", style: textTheme.bodyMedium,)
+                      Text("0", style: textTheme.bodyMedium,)
                     ],
                   ),
             
@@ -277,7 +277,7 @@ class _HijosSection extends StatelessWidget {
         
               AppTheme.spacingWidget5,
         
-              // Hijo 1
+              /* // Hijo 1
               const CardHijo(
                 nombre: "Luquitas",
                 linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fboy_avatar.png?alt=media&token=11a7b731-6753-4dbe-a095-4249be3fd1d9",
@@ -289,7 +289,7 @@ class _HijosSection extends StatelessWidget {
               const CardHijo(
                 nombre: "Sofia",
                 linkImg: "https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/AvatarChild%2Fgirl_avatar.png?alt=media&token=0af88513-e1fb-416f-9dfc-88b561635785",
-              ),
+              ), */
             ],
           ),
         ),
