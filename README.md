@@ -32,9 +32,8 @@
 
 ## Mockups
 
-![Media Feed](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FMedia%20Feed.png?alt=media&token=35e49438-bfad-4571-8c3b-7b6d9f04ffd6){width=100px}
-![Ingredientes](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FIngredientes.png?alt=media&token=6df67376-020b-44a9-a9c1-c90b7fef8e69)
-![Control de anemia](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FControl_de_Anemia.png?alt=media&token=cb5816b9-3ca1-4d24-b134-dcfc4754a240)
+![Media Feed](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FMedia%20Feed(1).png?alt=media&token=11b5aafc-1f6b-4409-b75f-2efe84a81ec1)
+![Ingredientes](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FIngredientes(1).png?alt=media&token=6d21741e-703a-4af0-8338-779144d3e65a)
+![Control de anemia](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FControldeAnemia(1).png?alt=media&token=13fd6a0c-bc7e-4435-93f7-c367be23de22)
 ![Quizz](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FQuiz1.png?alt=media&token=e2ead6fb-4a9f-4116-98e0-11ab5fefb9ca)
-![anduy](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FIngredientes(1).png?alt=media&token=16d0d98a-89d0-4af5-9e31-deedec7d78e0)
-![adasda](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FIngredientes(1).png?alt=media&token=6d21741e-703a-4af0-8338-779144d3e65a)
+
