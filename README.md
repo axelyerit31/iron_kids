@@ -28,4 +28,8 @@
 3. Descargar las dependencias con el comando:  `flutter pub get`
 4. Finalmente correr la aplicacion con el comando: `flutter run`
 
+<br>
 
+## Mockups
+
+![Media Feed](https://sistemasunicaedu-my.sharepoint.com/personal/20175223_sistemasunica_edu_pe/Documents/Images_Hackathon2023/Media%20Feed.png)
