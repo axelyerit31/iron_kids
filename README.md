@@ -1,3 +1,5 @@
+![lgoo](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2Fimagen_2023-03-18_231244047.png?alt=media&token=0969aa6d-4130-4ddb-a40f-cfcfd8e250a4)
+
 # <p align="center">Bienvenidos 👋 |  Niños de Hierro - Hackathon GDSC Peru 2023<p>
 
 ### <p align="center"> El Perú es un país único en su cultura y en su gente, poseemos 3 regiones naturales, la costa, la sierra y la selva, que a pesar de las crisis económicas y políticas que ha padecido, ha sabido y sabe y puede salir adelante, pero como en todo país siempre hay cosas de las que adolece, El Perú no es la excepción, la anemia es un problema que afecta a todos, de hecho en el año 2019 la situación actual de la anemia bordeaba el 40,1% de casos de niños menores de 6 a 35 meses que tenían anemia como promedio nacional, siendo unas de las más afectadas con una prevalencia muy alta de casos de anemia, el departamento de Puno y Cusco. <p>
