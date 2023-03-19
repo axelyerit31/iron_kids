@@ -1,3 +1,5 @@
+![thubnail](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2Firon_kids_slogan.png?alt=media&token=fd1fa4fc-68a5-4862-a230-3254e11633bc)
+
 # <p align="center">Bienvenidos 👋 |  Niños de Hierro - Hackathon GDSC Peru 2023<p>
 
 ### <p align="center"> El Perú es un país único en su cultura y en su gente, poseemos 3 regiones naturales, la costa, la sierra y la selva, que a pesar de las crisis económicas y políticas que ha padecido, ha sabido y sabe y puede salir adelante, pero como en todo país siempre hay cosas de las que adolece, El Perú no es la excepción, la anemia es un problema que afecta a todos, de hecho en el año 2019 la situación actual de la anemia bordeaba el 40,1% de casos de niños menores de 6 a 35 meses que tenían anemia como promedio nacional, siendo unas de las más afectadas con una prevalencia muy alta de casos de anemia, el departamento de Puno y Cusco. <p>
@@ -8,27 +10,33 @@
 
 - 📝 **Objetivos:** De esta manera ayudamos a cumplir los objetivos propuestos por la ONU para el 2030, especificamente el ODS 2.2: *"El poner fin a todas las formas de malnutrición"*, asi como el ODS 3: *"Garantizar una vida sana y promover el bienestar en todas las edades"* 
 
-- 🤝 **Miembros:** Axel Loaces, Estheban Curi, Henry Gutierrez y Josué Marcilla
+- 🤝 **Miembros:** [Axel Loaces](https://www.linkedin.com/in/axel-loaces-77745a216/), [Estheban Curi](https://www.linkedin.com/in/estheban-cg/), [Henry Gutierrez](https://www.linkedin.com/in/nhnery/) y [Josué Marcilla](https://www.linkedin.com/in/josué-marcilla-diaz-725581220/)
 
-- ⚡ **Video de Demo Hackathon Perú 2023:** [https://youtu.be/3Zchk6dhr2c]
+- ⚡ **Video de Demo Hackathon Perú 2023 (Primera etapa):** [https://youtu.be/I8LouQAv9B0]
+- ⚡ **Video de Demo Hackathon Perú 2023 (Segunda etapa):** [aqui va el link del video]
 
 <br>
 
 ## Lenguajes y Herramientas:
 <p align="left"> <a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a> <a href="https://cloud.google.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> </a></p>
 
----
 <br>
 
-## Getting Started
+## ¿Cómo correr Niños de Hierro?
 
-This project is a starting point for a Flutter application.
+1.  Clone el proyecto de GitHub a un repositorio local.
+- Nota: Tenga instalado (de preferencia) el SDK de Flutter (3.7.6) y Dart (2.19.3). También te recomendamos usar el editor de código "Visual Studio Code" con sus complementos de desarrollo para trabajar con Dart.
+2. Abrir el terminar de comandos.
+3. Descargar las dependencias con el comando:  `flutter pub get`
+4. Finalmente correr la aplicacion con el comando: `flutter run`
 
-A few resources to get you started if this is your first Flutter project:
+<br>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Mockups
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Media Feed](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FMedia%20Feed(1).png?alt=media&token=11b5aafc-1f6b-4409-b75f-2efe84a81ec1)
+![Ingredientes](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FIngredientes(1).png?alt=media&token=6d21741e-703a-4af0-8338-779144d3e65a)
+![Control de anemia](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FControldeAnemia(1).png?alt=media&token=13fd6a0c-bc7e-4435-93f7-c367be23de22)
+![Quizz](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FQuiz1(1).png?alt=media&token=fc7cd9f9-e898-44f5-adb2-5f4dc9341c16)
+![Test 1](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FTest_intro.png?alt=media&token=a6e84a1e-bfa1-455e-9890-20407faf4b44)
+![Test 2](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2FTest_steps.png?alt=media&token=56f99e3d-04bf-47d7-b472-abfeb2433c71)
