@@ -1,34 +1,34 @@
 ![thubnail](https://firebasestorage.googleapis.com/v0/b/iron-kids-app.appspot.com/o/ImagesScreen%2Firon_kids_slogan.png?alt=media&token=fd1fa4fc-68a5-4862-a230-3254e11633bc)
 
-# <p align="center">Bienvenidos 👋 |  Niños de Hierro - Hackathon GDSC Peru 2023<p>
+# <p align="center">Welcome! 👋 |  Iron Kids - Hackathon GDSC Perú 2023<p>
 
-### <p align="center"> El Perú es un país único en su cultura y en su gente, poseemos 3 regiones naturales, la costa, la sierra y la selva, que a pesar de las crisis económicas y políticas que ha padecido, ha sabido y sabe y puede salir adelante, pero como en todo país siempre hay cosas de las que adolece, El Perú no es la excepción, la anemia es un problema que afecta a todos, de hecho en el año 2019 la situación actual de la anemia bordeaba el 40,1% de casos de niños menores de 6 a 35 meses que tenían anemia como promedio nacional, siendo unas de las más afectadas con una prevalencia muy alta de casos de anemia, el departamento de Puno y Cusco. <p>
+### <p align="center"> Peru is a unique country in its culture and its people, we have 3 natural regions, the coast, the highlands and the jungle, which despite the economic and political crises that has suffered, has known and knows and can get ahead, but as in every country there are always things that suffer, Peru is no exception, Anemia is a problem that affects everyone, in fact in the year 2019 the current situation of anemia bordered 40.1% of cases of children under 6 to 35 months who had anemia as a national average, being some of the most affected with a very high prevalence of anemia cases, the department of Puno and Cusco. <p>
 
-#### <p align="center"> Nuestra solución "Niños de hierro" es una propuesta para el desarrollo sostenible del Perú que ayudará a la lucha contra la anemia de manera pasiva y activa, es decir fomentará la prevención de la anemia y ayudará al seguimiento o control de los casos de anemias <p>
-
-<br>
-
-- 📝 **Objetivos:** De esta manera ayudamos a cumplir los objetivos propuestos por la ONU para el 2030, especificamente el ODS 2.2: *"El poner fin a todas las formas de malnutrición"*, asi como el ODS 3: *"Garantizar una vida sana y promover el bienestar en todas las edades"* 
-
-- 🤝 **Miembros:** [Axel Loaces](https://www.linkedin.com/in/axel-loaces-77745a216/), [Estheban Curi](https://www.linkedin.com/in/estheban-cg/), [Henry Gutierrez](https://www.linkedin.com/in/nhnery/) y [Josué Marcilla](https://www.linkedin.com/in/josué-marcilla-diaz-725581220/)
-
-- ⚡ **Video de Demo Hackathon Perú 2023 (Primera etapa):** [https://youtu.be/I8LouQAv9B0]
-- ⚡ **Video de Demo Hackathon Perú 2023 (Segunda etapa):** [https://youtu.be/eV0Rcf3kYaE]
+#### <p align="center">Our solution "Iron Kids" is a proposal for the sustainable development of Peru that will help in the fight against anemia in a passive and active way, that is to say, it will promote the prevention of anemia and will help in the follow-up or control of anemia cases.<p>
 
 <br>
 
-## Lenguajes y Herramientas:
+- 📝 **Objectives:** In this way we help to meet the goals proposed by the UN for 2030, specifically SDG 2.2: *"End all forms of malnutrition "*, as well as SDG 3: *"Ensure healthy lives and promote well-being at all ages".* 
+
+- 🤝 **Members:** [Axel Loaces](https://www.linkedin.com/in/axel-loaces-77745a216/), [Estheban Curi](https://www.linkedin.com/in/estheban-cg/), [Henry Gutierrez](https://www.linkedin.com/in/nhnery/) y [Josué Marcilla](https://www.linkedin.com/in/josué-marcilla-diaz-725581220/)
+
+- ⚡ **Video Demo Hackathon Perú 2023 (First Stage):** [https://youtu.be/I8LouQAv9B0]
+- ⚡ **Video Demo Hackathon Perú 2023 (Second Stage):** [https://youtu.be/eV0Rcf3kYaE]
+
+<br>
+
+## Languages and Tools:
 <p align="left"> <a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a> <a href="https://cloud.google.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> </a></p>
 
 <br>
 
-## ¿Cómo correr Niños de Hierro?
+## How to run Iron Children?
 
-1.  Clone el proyecto de GitHub a un repositorio local.
-- Nota: Tenga instalado (de preferencia) el SDK de Flutter (3.7.6) y Dart (2.19.3). También te recomendamos usar el editor de código "Visual Studio Code" con sus complementos de desarrollo para trabajar con Dart.
-2. Abrir el terminar de comandos.
-3. Descargar las dependencias con el comando:  `flutter pub get`
-4. Finalmente correr la aplicacion con el comando: `flutter run`
+1.  Clone the GitHub project to a local repository.
+- Note: Have installed (preferably) the Flutter SDK (3.7.6) and Dart (2.19.3). We also recommend using the "Visual Studio Code" code editor with its development plug-ins to work with Dart.
+2. Open the command line.
+3. Download dependencies with the command: `flutter pub get`.
+4. Finally run the application with the command: `flutter run`.
 
 <br>
 
