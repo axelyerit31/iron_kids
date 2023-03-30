@@ -22,7 +22,7 @@
 
 <br>
 
-## How to run Iron Children?
+## How to run Iron Kids?
 
 1.  Clone the GitHub project to a local repository.
 - Note: Have installed (preferably) the Flutter SDK (3.7.6) and Dart (2.19.3). We also recommend using the "Visual Studio Code" code editor with its development plug-ins to work with Dart.
